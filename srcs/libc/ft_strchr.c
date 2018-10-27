@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 12:47:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/26 13:01:05 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/27 20:29:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (c == '\0')
+		return (ft_strlen(s) + (char *)s);
 	while (*s)
 	{
 		if (*s == (char)c)

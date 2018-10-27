@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 12:47:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/26 13:00:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/27 20:29:38 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 
-	i = ft_strlen(s);
+	if (c == '\0')
+		return (ft_strlen(s) + (char *)s);
+	if (!(i = ft_strlen(s)))
+		return (NULL);
 	while (i-- > 0)
 	{
 		if (s[i] == (char)c)

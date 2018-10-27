@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:01:32 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/26 18:02:46 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/27 21:06:12 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		++s2;
 		--n;
 	}
-	return (*s1 - *s2);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

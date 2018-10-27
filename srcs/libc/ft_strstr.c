@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 12:54:33 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/26 12:59:55 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/27 20:38:05 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	is_found(const char *haystack, const char *needle)
 
 char		*ft_strstr(const char *haystack, const char *needle)
 {
+	if (*haystack == '\0' && *needle == '\0')
+		return ((char *)haystack);
 	while (*haystack != '\0')
 	{
 		if (is_found(haystack, needle))

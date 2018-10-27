@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:56:19 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/24 02:08:46 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/27 22:16:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char * ft_strmap(char const *s, char (*f)(char))
 	char	*out;
 	int		i;
 
-	out = ft_strnew(ft_strlen(s));
+	if (!(out = ft_strnew(ft_strlen(s))))
+		return (NULL);
 	i = -1;
 	while (s[++i])
 	{

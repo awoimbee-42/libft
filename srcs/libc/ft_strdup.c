@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 01:21:17 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/26 11:59:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/27 20:01:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	*ft_strdup(const char *s)
 	size_t		i;
 
 	i = ft_strlen(s);
-	cpy = malloc((i + 1) * sizeof(char));
+	if (!(cpy = malloc((i + 1) * sizeof(char))))
+		return (NULL);
 	i = -1;
 	while (s[++i])
 		cpy[i] = s[i];
