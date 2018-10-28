@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:21:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/27 21:43:17 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/28 14:10:36 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_isalnum(int c)
 {
+	return (ft_isalpha(c) | ft_isdigit(c));
 	return (('a' <= c && c <= 'z') ||
 			('A' <= c && c <= 'Z') ||
 			('0' <= c && c <= '9'));
