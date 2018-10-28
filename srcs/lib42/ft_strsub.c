@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/24 01:17:54 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:35:33 by awoimbee         ###   ########.fr       */
+/*   Created: 2018/10/27 22:21:45 by awoimbee          #+#    #+#             */
+/*   Updated: 2018/10/28 02:17:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	const char	*start;
+	char	*new_str;
 
-	start = s;
-	while(*s)
-		++s;
-	return ((size_t)(s - start));
+	if (!s)
+		return (NULL);
+	if (!(new_str = ft_strnew(len)))
+		return (NULL);
+	ft_strncpy(new_str, &s[start], len);
+	return (new_str);
 }

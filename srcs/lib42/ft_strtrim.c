@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/24 01:17:54 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:35:33 by awoimbee         ###   ########.fr       */
+/*   Created: 2018/10/27 22:35:49 by awoimbee          #+#    #+#             */
+/*   Updated: 2018/10/28 02:14:48 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+static int	is_whitespace(char c)
 {
-	const char	*start;
+	return (c == ' ' || c == '\n' || c == '\t');
+}
 
-	start = s;
-	while(*s)
+char	*ft_strtrim(char const *s)
+{
+	size_t		i;
+	char	*new_str;
+
+	if (!s)
+		return (NULL);
+	while (is_whitespace(*s))
 		++s;
-	return ((size_t)(s - start));
+	if (*s == '\0')
+		return ("\0");
+	i = 0;
+	while (s[i])
+		++i;
+	while (is_whitespace(s[i - 1]))
+		--i;
+	if (!(new_str = ft_strnew(i)))
+		return (NULL);
+	ft_strncpy(new_str, s, i);
+	return (new_str);
 }

@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/24 01:17:54 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:35:33 by awoimbee         ###   ########.fr       */
+/*   Created: 2018/10/28 01:51:42 by awoimbee          #+#    #+#             */
+/*   Updated: 2018/10/28 01:53:52 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	const char	*start;
+	int			i;
+	short		sign;
+	int			tenpow;
 
-	start = s;
-	while(*s)
-		++s;
-	return ((size_t)(s - start));
+	sign = (n < 0) ? 2 : 1;
+	i = 1;
+	tenpow = 1;
+	while ((n / tenpow / 10) != 0 && ++i)
+		tenpow *= 10;
+	i = 0;
+	if (sign == 2 && (sign = -1))
+		ft_putchar_fd('-', fd);
+	while (tenpow != 0)
+	{
+		ft_putchar_fd((char)((int)n / tenpow * sign + 48), fd);
+		n %= tenpow;
+		tenpow /= 10;
+	}
 }

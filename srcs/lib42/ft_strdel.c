@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:20:00 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/23 22:22:12 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/28 02:07:19 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 void	ft_strdel(char **as)
 {
+	if (!as || !*as)
+		return ;
 	free((void *)*as);
 	*as = NULL;
 }

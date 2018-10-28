@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:04 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/23 02:08:26 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/10/28 02:43:14 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	*ft_memset (void *s, int c, size_t n)
 
   ptr = (unsigned char *)s;
   while (n-- > 0)
-    *ptr++ = (unsigned char)c;
+    ptr[n] = (const unsigned char)c;
   return s;
 }

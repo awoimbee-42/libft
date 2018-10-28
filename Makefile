@@ -6,15 +6,16 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/10/27 19:39:33 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/10/28 02:49:08 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
 
 CC = gcc
+FLAGS = -Wall -Wextra -Werror -Wconversion
 
-FLAGS = -Wall -Wextra -Werror
+BONUSFLAGS = -Wconversion -Wno-unused-result -O3
 
 SRCS	=	$(wildcard srcs/libc/*.c)		\
 			$(wildcard srcs/lib42/*.c)		\
@@ -28,7 +29,7 @@ all	:
 	@make $(NAME)
 
 $(NAME)	:
-	$(CC) $(FLAGS) -c $(SRCS) -I $(HEADERS)
+	$(CC) $(FLAGS) $(BONUSFLAGS) -c $(SRCS) -I $(HEADERS)
 	@mkdir ./objs
 	@mv $(OBJS) ./objs
 	@ar -cvq $(NAME) $(addprefix objs/, $(OBJS))
