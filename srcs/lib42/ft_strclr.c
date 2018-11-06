@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:46:40 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:08:06 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:07:32 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_strclr(char *s)
+void	ft_strclr(char *s)
 {
 	if (!s)
 		return ;

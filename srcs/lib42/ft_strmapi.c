@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 02:09:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:10:41 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:08:29 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i])
 	{
-		out[i] = (*f)(i ,(char)s[i]);
+		out[i] = (*f)(i, (char)s[i]);
 		++i;
 	}
 	return (out);

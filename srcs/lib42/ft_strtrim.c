@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 22:35:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:14:48 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:08:59 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static int	is_whitespace(char c)
 	return (c == ' ' || c == '\n' || c == '\t');
 }
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
 	size_t		i;
-	char	*new_str;
+	char		*new_str;
 
 	if (!s)
 		return (NULL);

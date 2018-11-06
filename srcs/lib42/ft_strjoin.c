@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 22:26:13 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:14:21 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:08:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new_str;
+	char		*new_str;
 	size_t		len;
 
 	if (!s1 || !s2)

@@ -6,14 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 22:59:23 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 02:15:20 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:09:18 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static size_t		get_tab_size(const char *str, char c)
+static size_t	get_tab_size(const char *str, char c)
 {
 	size_t	i;
 

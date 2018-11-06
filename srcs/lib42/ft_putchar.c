@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 01:35:42 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/30 00:29:34 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:05:56 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 
 void	ft_putchar(char c)
 {
-	(void)write (1, (const void *)&c, 1);
+	(void)write(1, (const void *)&c, 1);
 }

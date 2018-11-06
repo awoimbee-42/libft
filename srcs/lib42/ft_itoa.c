@@ -6,13 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 00:09:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/10/28 01:33:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 15:05:37 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
 
 char	*ft_itoa(int n)
 {
