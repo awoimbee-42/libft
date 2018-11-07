@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/06 14:56:44 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/07 14:00:23 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,12 @@ NAME	=	libft.a
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Wconversion -O3
 
-BONUSFLAGS = -Wconversion -Wno-unused-result -O3
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	FLAGS += -Wno-unused-result
+endif
 
 SRCS	=	$(wildcard srcs/libc/*.c)		\
 			$(wildcard srcs/lib42/*.c)		\
@@ -26,18 +29,16 @@ HEADERS =	./
 
 OBJS = $(notdir $(SRCS:.c=.o))
 
-.PHONY: all $(NAME) so clean fclean re
-
 
 all	:
 	@make $(NAME)
 
 $(NAME)	:
 	@echo "$(CC) compiling with $(FLAGS)..."
-	@$(CC) $(FLAGS) $(BONUSFLAGS) -c $(SRCS) -I $(HEADERS)
-	@mkdir ./objs
-	@mv $(OBJS) ./objs
-	@ar -rcs $(NAME) $(addprefix objs/, $(OBJS))
+	@$(CC) $(FLAGS) -c $(SRCS) -I $(HEADERS)
+	@mkdir -p ./objs
+	@mv -f $(OBJS) ./objs
+	@ar -rs $(NAME) $(addprefix objs/, $(OBJS))
 
 so	: all
 	gcc $(addprefix objs/, $(OBJS)) -shared -o $(NAME:.a=.so)
@@ -48,6 +49,8 @@ clean	:
 	@rm -f $(OBJS)
 
 fclean	:	clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re	:	fclean all
+
+.PHONY: all so clean fclean re
