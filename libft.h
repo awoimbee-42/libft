@@ -6,16 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:59:16 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/07 15:57:06 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# define ft_lstadd ft_lstpush_front
-# define ft_lstadd_back ft_lstpush_back
-
 
 typedef struct	s_list
 {
