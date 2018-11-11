@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:48:48 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/11 03:18:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/11 17:32:25 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>
+#include <ctype.h>
 # include "../libft.h"
-
-# include <bsd/string.h>
 
 # define COL_RED "\x1B[31m"
 # define COL_GRN "\x1B[32m"
@@ -47,6 +46,16 @@ void	test_strncpy(void);
 void	test_strcat(void);
 void	test_strncat(void);
 void	test_strlcat(void);
+void	test_strlcat(void);
+void	test_strchr(void);
+void	test_strrchr(void);
+void	test_strstr(void);
+void	test_strnstr(void);
+void	test_strcmp(void);
+void	test_strncmp(void);
+void	test_atoi(void);
+void	test_isthing(void);
+void	test_tothing(void);
 
 
 #endif

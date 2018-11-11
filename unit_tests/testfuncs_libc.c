@@ -6,44 +6,22 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:44:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/11 03:16:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/11 17:48:38 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.h"
 
-void	test_atoi(void)
+// FOR LINUX AS BSD LIB DOESNT WANNA WORK
+size_t strlcat(char *c, ...)
 {
-	printf(COL_GRN "testing atoi...\n" COL_RST);
-	int		iatoi;
-	int		ift_atoi;
-	char	nbr[][12] = {"02147483647", "-2147483648", "-52", "-0", "++5", "--9", "+-8", "0", "1", "500"};
-
-	for (int i = 0; i < 10; ++i)
-	{
-		iatoi = atoi(nbr[i]);
-		ift_atoi = ft_atoi(nbr[i]);
-		if (iatoi != ift_atoi)
-			printf(COL_RED "ERROR !\natoi gave:\t%d\nft_atoi gave:\t%d\noriginal number:\t%s\n\n" COL_RST, iatoi, ift_atoi, nbr[i]);
-	}
+	return (1);
+}
+char	*strnstr(const char *s1, const char *s2, size_t n)
+{
+	return ((char*)s1);
 }
 
-void	test_itoa(void)
-{
-	printf(COL_GRN "testing itoa...\n" COL_RST);
-	char	*citoa;
-	char	*cft_itoa;
-	int		nbr[] = {INT_MIN, INT_MAX, 0, 1, -56, 9546, 100, 10};
-	for (int i = 0; i < 8; ++i)
-	{
-		citoa = itoa(nbr[i]);
-		cft_itoa = ft_itoa(nbr[i]);
-		if (strcmp(citoa, cft_itoa) != 0)
-			printf(COL_RED "ERROR !\nitoa gave:\t%s\nft_itoa gave:\t%s\noriginal number given:\t%d\n\n" COL_RST, citoa, cft_itoa, nbr[i]);
-		free(citoa);
-		free(cft_itoa);
-	}
-}
 
 void	test_bzero(void)
 {
@@ -113,7 +91,7 @@ void	test_memcpy(void)
 		ft_s = ft_memcpy(ft_s, (void*)src, (size_t)len);
 		if (memcmp(s, ft_s, len) != 0)
 		{
-			printf("\tError :\n\tmemcpy gave\t%s\n\tft_memcpy gave\t%s\n\tsrc = \"testfuck\\0fuckbobsagget\\0\\0\\tnietEE\"\tlen = %d\n\n", s, ft_s, len);
+			printf("\tError :\n\tmemcpy gave\t%s\n\tft_memcpy gave\t%s\n\tsrc = \"testfuck\\0fuckbobsagget\\0\\0\\tnietEE\"\tlen = %d\n\n", (char *)s, (char *)ft_s, len);
 		}
 	}
 }
@@ -372,21 +350,175 @@ void	test_strlcat(void)
 	)
 	{
 		printf(COL_GRN "strlcat OK\n" COL_RST);
-		return;
+		return ;
 	}
 
 	printf(COL_RED "strlcat FAILED test %d\n" COL_RST, i);
 }
 
+void	test_strchr(void)
+{
+	char	str[50] = "I miss filthy \nfra\tnk\0v";
+	int		i = 0;
 
+	if (	strchr(str, 'i') == ft_strchr(str, 'i') && ++i
+		&&	strchr(str, 'y') == ft_strchr(str, 'y') && ++i
+		&&	strchr(str, 'v') == ft_strchr(str, 'v') && ++i
+		&&	strchr(str, '\n') == ft_strchr(str, '\n') && ++i
+	)
+	{
+		printf(COL_GRN "strchr OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "strchr FAILED test %d\n" COL_RST, i);
+}
 
+void	test_strrchr(void)
+{
+	char	str[50] = "I miss filthy \nfra\tnk\0v";
+	int		i = 0;
 
+	if (	strrchr(str, 'i') == ft_strrchr(str, 'i') && ++i
+		&&	strrchr(str, 'y') == ft_strrchr(str, 'y') && ++i
+		&&	strrchr(str, 'v') == ft_strrchr(str, 'v') && ++i
+		&&	strrchr(str, '\n') == ft_strrchr(str, '\n') && ++i
+	)
+	{
+		printf(COL_GRN "strrchr OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "strrchr FAILED test %d\n" COL_RST, i);
+}
 
+void	test_strstr(void)
+{
+	char	str[50] = "I miss filthy \nfra\tnk filthy\0v";
+	char	needle[] = "filthy";
+	char	needle2[] = "miss NOT";
+	char	n[] = "";
+	int		i = 0;
 
+	if (	strstr(str, needle) == ft_strstr(str, needle) && ++i
+		&&	strstr(str, needle2) == ft_strstr(str, needle2) && ++i
+		&&	strstr(str, n) == ft_strstr(str, n) && ++i
+	)
+	{
+		printf(COL_GRN "strstr OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "strstr FAILED test %d\n" COL_RST, i);
+}
 
+void	test_strnstr(void)
+{
+	char	str[50] = "I miss filthy \nfra\tnk filthy\0v";
+	char	needle[] = "filthy";
+	char	needle2[] = "miss NOT";
+	char	n[] = "";
+	int		i = 0;
 
+	if (	strnstr(str, needle, 5) == ft_strnstr(str, needle, 5) && ++i
+		&&	strnstr(str, needle, 40) == ft_strnstr(str, needle, 40) && ++i
+		&&	strnstr(str, needle2, 2) == ft_strnstr(str, needle2, 2) && ++i
+		&&	strnstr(str, n, 999) == ft_strnstr(str, n, 999) && ++i
+	)
+	{
+		printf(COL_GRN "strnstr OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "strnstr FAILED test %d\n" COL_RST, i);
+}
 
+void	test_strcmp(void)
+{
+	char	str[50] = "I miss filthy \nfra\tnk filthy\0v";
+	char	needle[] = "filthy";
+	char	needle2[] = "miss NOT";
+	char	n[] = "";
+	int		i = 0;
 
+	if (	strcmp("test1", "test2") == ft_strcmp("test1", "test2") && ++i
+		&&	strcmp("test1", "test") == ft_strcmp("test1", "test") && ++i
+		&&	strcmp("test9", "test999") == ft_strcmp("test9", "test999") && ++i
+		&&	strcmp("te", "tejsadvbv") == ft_strcmp("te", "tejsadvbv") && ++i
+		&&	strcmp("tefgshf", "te") == ft_strcmp("tefgshf", "te") && ++i
+	)
+	{
+		printf(COL_GRN "strcmp OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "strcmp FAILED test %d\n" COL_RST, i);
+}
 
+void	test_strncmp(void)
+{
+	char	str[50] = "I miss filthy \nfra\tnk filthy\0v";
+	char	needle[] = "filthy";
+	char	needle2[] = "miss NOT";
+	char	n[] = "";
+	int		i = 0;
 
+	if (	strncmp("test1", "test2", 3) == ft_strncmp("test1", "test2", 3) && ++i
+		&&	strncmp("test1", "test", 99) == ft_strncmp("test1", "test", 99) && ++i
+		&&	strncmp("test9", "test999", 6) == ft_strncmp("test9", "test999", 6) && ++i
+		&&	strncmp("te", "tejsadvbv", 9) == ft_strncmp("te", "tejsadvbv", 9) && ++i
+		&&	strncmp("tefgshf", "te", 0) == ft_strncmp("tefgshf", "te", 0) && ++i
+	)
+	{
+		printf(COL_GRN "strncmp OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "strncmp FAILED test %d\n" COL_RST, i);
+}
+
+void	test_atoi(void)
+{
+	int		i = 0;
+
+	if (	ft_atoi("++5") == 0 && ++i
+		&&	ft_atoi("-2147483648") == -2147483648 && ++i
+		&&	ft_atoi("2147483647") == 2147483647 && ++i
+		&&	ft_atoi("0") == 0 && ++i
+		&&	ft_atoi("+0") == 0 && ++i
+		&&	ft_atoi("-0") == 0 && ++i
+		&&	ft_atoi("--56") == 0 && ++i
+		&&	ft_atoi("+58-40") == atoi("+58-40") && ++i
+	)
+	{
+		printf(COL_GRN "atoi OK\n" COL_RST);
+		return ;
+	}
+	printf(COL_RED "atoi FAILED test %d\n" COL_RST, i);
+}
+
+void	test_isthing(void)
+{
+	for (int i = -500; i < 500; ++i)
+	{
+		if (isalpha(i) != ft_isalpha(i))
+			printf(COL_RED "isalpha FAILED for int c = %d\n" COL_RST, i);
+		if (isdigit(i) != ft_isdigit(i))
+			printf(COL_RED "isdigit FAILED for int c = %d\n" COL_RST, i);
+		if (isalnum(i) != ft_isalnum(i))
+			printf(COL_RED "isalnum FAILED for int c = %d\n" COL_RST, i);
+		if (isascii(i) != ft_isascii(i))
+			printf(COL_RED "isascii FAILED for int c = %d\n" COL_RST, i);
+		if (isprint(i) != ft_isprint(i))
+			printf(COL_RED "isprint FAILED for int c = %d\n" COL_RST, i);
+
+	}
+	printf(COL_GRN "Done testing isalpha, isdigit, isalnum, isascii, isprint\n" COL_RST);
+}
+
+void	test_tothing(void)
+{
+	for (int i = -500; i < 500; ++i)
+	{
+		if (toupper(i) != ft_toupper(i))
+			printf(COL_RED "toupper FAILED for int c = %d\n" COL_RST, i);
+		if (tolower(i) != ft_tolower(i))
+			printf(COL_RED "tolower FAILED for int c = %d\n" COL_RST, i);
+	}
+	printf(COL_GRN "Done testing tolower, toupper\n" COL_RST);
+}
 
