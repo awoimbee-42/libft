@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/06 16:26:17 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/11 02:31:34 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,12 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-FLAGS	=	-Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Wconversion -O3
 
-BONUSFLAGS	=	-Wconversion -Wno-unused-result -O3
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	FLAGS += -Wno-unused-result
+endif
 
 SRCS	=	ft_atoi.c			\
 			ft_bzero.c			\
