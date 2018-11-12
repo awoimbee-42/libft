@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/12 10:43:22 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/12 18:12:32 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 all	:	$(NAME)
 
-$(NAME)	:
+$(NAME)	: $(SRCS) libft.h
 	@echo "$(CC) compiling with $(FLAGS)..."
 	@$(CC) $(FLAGS) -c $(SRCS) -I $(HEADERS)
 	@ar -rcs $(NAME) $(OBJS)
