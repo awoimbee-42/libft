@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/11 02:31:34 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/12 10:43:22 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,7 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-FLAGS = -Wall -Wextra -Werror -Wconversion -O3
-
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	FLAGS += -Wno-unused-result
-endif
+FLAGS = -Wall -Wextra -Werror
 
 SRCS	=	ft_atoi.c			\
 			ft_bzero.c			\
@@ -88,7 +83,7 @@ all	:	$(NAME)
 
 $(NAME)	:
 	@echo "$(CC) compiling with $(FLAGS)..."
-	@$(CC) $(FLAGS) $(BONUSFLAGS) -c $(SRCS) -I $(HEADERS)
+	@$(CC) $(FLAGS) -c $(SRCS) -I $(HEADERS)
 	@ar -rcs $(NAME) $(OBJS)
 
 clean	:
@@ -100,4 +95,4 @@ fclean	:	clean
 
 re	:	fclean all
 
-.PHONY: all so clean fclean re
+.PHONY: all clean fclean re
