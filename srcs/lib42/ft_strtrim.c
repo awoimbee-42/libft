@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 22:35:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:08:59 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/12 12:00:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ char		*ft_strtrim(char const *s)
 		return (NULL);
 	while (is_whitespace(*s))
 		++s;
-	if (*s == '\0')
-		return ("\0");
 	i = 0;
 	while (s[i])
 		++i;
-	while (is_whitespace(s[i - 1]))
+	while (i > 0 && is_whitespace(s[i - 1]))
 		--i;
 	if (!(new_str = ft_strnew(i)))
 		return (NULL);
-	ft_strncpy(new_str, s, i);
+	if (i != 0)
+		ft_strncpy(new_str, s, i);
+	else
+		*new_str = '\0';
 	return (new_str);
 }

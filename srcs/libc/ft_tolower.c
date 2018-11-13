@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:41:50 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:17:54 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/06 18:28:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,5 @@ int		ft_tolower(int c)
 {
 	if ('A' <= c && c <= 'Z')
 		return (c + 32);
-	if (c < -1)
-		return ((unsigned char)c);
 	return (c);
 }
