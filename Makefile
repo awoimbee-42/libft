@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/14 10:54:47 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/14 11:01:49 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,12 @@ INC_DIR =	./
 
 CFLAGS = -Wall -Wextra -Werror
 
+CFLAGS += -I$(INC_DIR)
+
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	CFLAGS += -Wno-unused-result #-Wconversion -O3
 endif
-
-CFLAGS += -I$(INC_DIR)
 
 OBJS = $(SRCS:.c=.o)
 
@@ -39,7 +39,7 @@ $(NAME)	: $(OBJS)
 	@ar -rs $(NAME) $(OBJS)
 
 so	: all
-	gcc $(addprefix objs/, $(OBJS)) -shared -o $(NAME:.a=.so)
+	gcc $(OBJS) -shared -o $(NAME:.a=.so)
 
 clean	:
 	@echo "cleaning objects..."
@@ -47,6 +47,7 @@ clean	:
 
 fclean	:	clean
 	rm -f $(NAME)
+	rm -f $(NAME:.a=.so)
 
 re	:	fclean all
 
