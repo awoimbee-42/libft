@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/14 11:26:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/14 18:00:07 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,6 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 /*
 ** Personal functions
 */
-void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lst_push_back(t_list **alst, t_list *new);
 
 #endif
