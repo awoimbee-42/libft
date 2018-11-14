@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/12 18:12:32 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/14 11:08:07 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS	=	ft_atoi.c			\
 			ft_bzero.c			\
@@ -75,16 +75,28 @@ SRCS	=	ft_atoi.c			\
 			ft_tolower.c		\
 			ft_toupper.c
 
-HEADERS	=	./
+OBJS = $(SRCS:.c=.o)
 
-OBJS	=	$(SRCS:.c=.o)
+INC_DIR = ./
+
+CFLAGS += -I$(INC_DIR)
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	CFLAGS += -Wno-unused-result #-Wconversion -O3
+endif
+
+
 
 all	:	$(NAME)
 
-$(NAME)	: $(SRCS) libft.h
-	@echo "$(CC) compiling with $(FLAGS)..."
-	@$(CC) $(FLAGS) -c $(SRCS) -I $(HEADERS)
+$(NAME)	: $(OBJS)
+	@echo "ar -rcs $(NAME)..."
 	@ar -rcs $(NAME) $(OBJS)
+
+so	: all
+	@echo "$(CC) ... -shared -o $(NAME:.a=.so)"
+	@$(CC) $(OBJS) -shared -o $(NAME:.a=.so)
 
 clean	:
 	@echo "cleaning objects..."
@@ -92,6 +104,7 @@ clean	:
 
 fclean	:	clean
 	rm -f $(NAME)
+	rm -f $(NAME:.a=.so)
 
 re	:	fclean all
 
