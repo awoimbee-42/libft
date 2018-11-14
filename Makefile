@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/14 11:10:06 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/14 11:27:23 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,12 @@ ifeq ($(UNAME_S),Linux)
 	CFLAGS += -Wno-unused-result #-Wconversion -O3
 endif
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+	CFLAGS += -Wno-unused-result #-Wconversion -O3
+endif
+
+OBJS = $(SRCS:.c=.o)
 
 
 all	:	$(NAME)
@@ -109,4 +115,4 @@ fclean	:	clean
 
 re	:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all so clean fclean re
