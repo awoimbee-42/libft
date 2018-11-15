@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/14 18:06:29 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/11/15 11:57:04 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,9 @@ SRCS	=	ft_atoi.c			\
 			ft_strtrim.c		\
 			ft_tolower.c		\
 			ft_toupper.c		\
-			ft_lst_push_back.c
+			ft_lst_push_back.c	\
+			ft_lst_at.c			\
+			ft_lst_free_link.c
 
 OBJS = $(SRCS:.c=.o)
 

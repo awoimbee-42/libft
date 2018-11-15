@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_push_back.c                                 :+:      :+:    :+:   */
+/*   ft_lst_at.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 02:37:22 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/15 12:02:19 by awoimbee         ###   ########.fr       */
+/*   Created: 2018/07/18 13:24:33 by awoimbee          #+#    #+#             */
+/*   Updated: 2018/11/15 11:44:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lst_push_back(t_list **lst, void *content, size_t content_size)
+t_list		*ft_list_at(t_list *begin_list, unsigned int nbr)
 {
-	t_list		*tmp;
+	unsigned int	i;
 
-	if (*lst)
+	if (begin_list == NULL)
+		return (NULL);
+	i = 0;
+	while (begin_list->next || i == nbr)
 	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		if (!(tmp->next = ft_lstnew(content, content_size)))
-			return (NULL);
-		tmp = tmp->next;
+		if (i == nbr)
+			return (begin_list);
+		begin_list = begin_list->next;
+		++i;
 	}
-	else
-	{
-		if (!(*lst = ft_lstnew(content, content_size)))
-			return (NULL);
-		tmp = *lst;
-	}
-	return (tmp);
+	return (NULL);
 }

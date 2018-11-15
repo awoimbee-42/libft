@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_push_back.c                                 :+:      :+:    :+:   */
+/*   ft_lst_free_link.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 02:37:22 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/15 12:02:19 by awoimbee         ###   ########.fr       */
+/*   Created: 2018/11/15 11:40:24 by awoimbee          #+#    #+#             */
+/*   Updated: 2018/11/15 12:03:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-t_list		*ft_lst_push_back(t_list **lst, void *content, size_t content_size)
+int		ft_lst_free_link(t_list **lst, t_list *link)
 {
 	t_list		*tmp;
+	t_list		*tmp_late;
 
-	if (*lst)
+	tmp_late = NULL;
+	if (!(tmp = *lst))
+		return (0);
+	while (tmp && tmp != link)
 	{
-		tmp = *lst;
-		while (tmp->next)
-			tmp = tmp->next;
-		if (!(tmp->next = ft_lstnew(content, content_size)))
-			return (NULL);
+		tmp_late = tmp;
 		tmp = tmp->next;
 	}
-	else
+	if (tmp == link)
 	{
-		if (!(*lst = ft_lstnew(content, content_size)))
-			return (NULL);
-		tmp = *lst;
+		if (tmp_late)
+			tmp_late->next = tmp->next;
+		else
+			*lst = link->next;
+		if (link->content)
+			free(link->content);
+		free(link);
+		return (1);
 	}
-	return (tmp);
+	return (0);
 }
