@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/15 12:01:35 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/20 16:34:47 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include "get_next_line.h"
 
 typedef struct	s_list
 {
@@ -99,5 +100,6 @@ t_list			*ft_lst_push_back(t_list **lst, void *content,
 													size_t content_size);
 t_list			*ft_list_at(t_list *begin_list, unsigned int nbr);
 int				ft_lst_free_link(t_list **lst, t_list *link);
+void			ft_swap_int(int *a, int *b);
 
 #endif
