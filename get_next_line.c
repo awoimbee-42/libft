@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:36:47 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/15 12:04:00 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:26:35 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	shift_arr_left(t_list *link, size_t i)
 		((char *)(link->content + 4))[l] = ((char *)(link->content + 4))[l + i];
 		++l;
 	}
-	while (l <= BUFF_SIZE)
+	while (l < BUFF_SIZE)
 		((char *)(link->content + 4))[l++] = '\0';
 	return ;
 }
