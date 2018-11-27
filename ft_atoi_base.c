@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 14:11:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/26 14:09:14 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/11/27 17:08:49 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int		str_to_int(char *input, long int coeff, int base_coeff, char *base)
+static int	str_to_int(char *input, long int coeff, int base_coeff, char *base)
 {
 	int		return_nb;
 	int		digit;
@@ -34,9 +34,9 @@ static int		str_to_int(char *input, long int coeff, int base_coeff, char *base)
 	return (return_nb);
 }
 
-static int		allowed_char(char *tested, char *base, int check_duplicate)
+static int	allowed_char(char *tested, char *base, int check_duplicate)
 {
-	int i;
+	int		i;
 
 	i = -1;
 	if (*tested == '+'
@@ -56,7 +56,7 @@ static int		allowed_char(char *tested, char *base, int check_duplicate)
 	return (1);
 }
 
-static int		get_base_len(char *base)
+static int	get_base_len(char *base)
 {
 	long int	baselen;
 	int			base_start;
@@ -83,7 +83,7 @@ static int		get_base_len(char *base)
 	return (baselen);
 }
 
-int		ft_atoi_base(char *str, char *base)
+int			ft_atoi_base(char *str, char *base)
 {
 	char		*str_start;
 	long int	coeff;
@@ -96,11 +96,8 @@ int		ft_atoi_base(char *str, char *base)
 	if (base_coeff < 2)
 		return (0);
 	coeff = 1;
-	if (*str == '-')
-	{
-		coeff *= -1;
-		++str;
-	}
+	if (*str == '-' && ++str)
+		coeff = -1;
 	else if (*str == '+')
 		++str;
 	str_start = str;
