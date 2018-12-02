@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/11/26 13:16:05 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/12/02 20:21:02 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,12 +89,7 @@ CFLAGS += -I$(INC_DIR)
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	CFLAGS += -Wno-unused-result #-Wconversion -O3
-endif
-
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	CFLAGS += -Wno-unused-result #-Wconversion -O3
+	CFLAGS += -Wno-unused-result
 endif
 
 OBJS = $(SRCS:.c=.o)
