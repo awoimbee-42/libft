@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/04 15:48:52 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/04 19:09:47 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ int				ft_lst_free_link(t_list **lst, t_list *link);
 void			ft_swap_int(int *a, int *b);
 int				ft_atoi_base(char *str, char *base);
 char			*ft_itoa_base(int value, int base);
+char			*ft_strrev(char *str);
+int				ft_strcat_join(char **s1, char const *s2);
 
 #endif
