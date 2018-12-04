@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:55:58 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/04 19:09:12 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/04 19:14:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ int		ft_strcat_join(char **s1, char const *s2)
 
 	if (!s2 && !s1)
 		return (0);
-	if (!s2)
-		return (1);
-	if (!*s1)
+	if (!*s1 && s2)
 	{
 		len = ft_strlen(s2);
 		if (!(new_str = ft_strnew(len)))
 			return (NULL);
 		ft_strcpy(new_str, s2);
-		return (1);
+		*s1 = new_str;
 	}
-	else
+	else if (s2)
 	{
 		len = ft_strlen(s1) + ft_strlen(s2);
 		if (!(new_str = ft_strnew(len)))
 			return (NULL);
 		ft_strcpy(new_str, s1);
 		ft_strcpy(new_str, s2);
-		return (1);
+		free(*s1);
+		*s1 = new_str;
 	}
+	return (1);
 }
