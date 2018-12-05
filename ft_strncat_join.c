@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat_join.c                                   :+:      :+:    :+:   */
+/*   ft_strncat_join.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 18:55:58 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/05 15:49:19 by awoimbee         ###   ########.fr       */
+/*   Created: 2018/12/05 17:53:56 by awoimbee          #+#    #+#             */
+/*   Updated: 2018/12/05 18:23:57 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcat_join(char **s1, char const *s2)
+int		ft_strncat_join(char **s1, char const *s2, size_t size)
 {
 	char		*new_str;
 	size_t		len;
 
 	if (!s2 && !*s1)
 		return (0);
+	len = ft_strlen(s2);
+	len > size ? len = size : 0;
 	if (!*s1 && s2)
 	{
-		len = ft_strlen(s2);
 		if (!(new_str = ft_strnew(len)))
 			return (0);
-		ft_strcpy(new_str, s2);
+		ft_strncpy(new_str, s2, len);
 		*s1 = new_str;
 	}
 	else if (s2)
 	{
-		len = ft_strlen(*s1) + ft_strlen(s2);
+		len += ft_strlen(*s1);
 		if (!(new_str = ft_strnew(len)))
 			return (0);
-		ft_stpcpy(ft_stpcpy(new_str, *s1), s2);
+		ft_strcpy(new_str, *s1);
+		ft_strncat(new_str, s2, size);
 		free(*s1);
 		*s1 = new_str;
 	}
