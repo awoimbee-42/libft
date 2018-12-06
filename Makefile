@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/12/05 18:04:33 by awoimbee         ###   ########.fr        #
+#    Updated: 2018/12/06 15:47:26 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,8 @@ SRCS	=	ft_atoi.c			\
 			ft_strrev.c			\
 			ft_strcat_join.c	\
 			ft_stpcpy.c			\
-			ft_strncat_join.c
+			ft_strncat_join.c	\
+			ft_abs.c
 
 OBJS = $(SRCS:.c=.o)
 

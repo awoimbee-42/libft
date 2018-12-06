@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/05 18:24:30 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/06 15:46:51 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 int				ft_atoi_base(char *str, char *base);
 char			*ft_itoa_base(int value, int base);
+int				ft_abs(int i);
 
 /*
 **	LIBCHAR
