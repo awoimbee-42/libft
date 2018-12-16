@@ -6,7 +6,7 @@
 #    By: arthur <arthur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/12/16 18:39:30 by arthur           ###   ########.fr        #
+#    Updated: 2018/12/16 18:43:57 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ SRCS_MEM =	ft_bzero.c			ft_memchr.c			ft_memdel.c			\
 SRCS_NB =	ft_abs.c			ft_atoi.c			ft_itoa.c			\
 			ft_atoi_base.c		ft_itoa_base.c		ft_swap_int.c
 
-
 SRCS_STR =	ft_stpcpy.c			ft_striter.c		ft_strncpy.c		\
 			ft_strcat.c			ft_striteri.c		ft_strnequ.c		\
 			ft_strcat_join.c	ft_strjoin.c		ft_strnew.c			\
@@ -53,8 +52,6 @@ SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
 			ft_flag_f.c			join_arg.c			u_itoa_base.c		\
 			ft_flag_r.c			lib0.c				ft_printf.c
 
-
-
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))	\
 			$(addprefix libfd/, $(SRCS_FD))		\
 			$(addprefix liblst/, $(SRCS_LST))	\
@@ -70,7 +67,6 @@ OBJ_DIRS = libchar libfd liblst libmem libnb libstr ft_printf
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
-
 
 CPPFLAGS = -I./
 
