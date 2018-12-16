@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
+/*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/06 15:46:51 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 17:08:34 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# include "get_next_line.h"
+
+# define GNL_BUFF_SIZE 300
 
 typedef struct	s_list
 {
@@ -92,7 +93,7 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 
 /*
-**	LIBPUT
+**	LIBFD
 */
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
@@ -102,6 +103,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+int				get_next_line(const int fd, char **line);
 
 /*
 ** LIBLST
