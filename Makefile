@@ -6,7 +6,7 @@
 #    By: arthur <arthur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/12/16 17:53:00 by arthur           ###   ########.fr        #
+#    Updated: 2018/12/16 18:39:30 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,12 @@ SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
 
 SRCS_MEM =	ft_bzero.c			ft_memchr.c			ft_memdel.c			\
 			ft_memalloc.c		ft_memcmp.c			ft_memmove.c		\
-			ft_memccpy.c		ft_memcpy.c			ft_memset.c
+			ft_memccpy.c		ft_memcpy.c			ft_memset.c			\
+			ft_mempcpy.c
+
+SRCS_NB =	ft_abs.c			ft_atoi.c			ft_itoa.c			\
+			ft_atoi_base.c		ft_itoa_base.c		ft_swap_int.c
+
 
 SRCS_STR =	ft_stpcpy.c			ft_striter.c		ft_strncpy.c		\
 			ft_strcat.c			ft_striteri.c		ft_strnequ.c		\
@@ -43,16 +48,25 @@ SRCS_STR =	ft_stpcpy.c			ft_striter.c		ft_strncpy.c		\
 			ft_strdup.c			ft_strncat_join.c	ft_strsub.c			\
 			ft_strequ.c			ft_strncmp.c		ft_strtrim.c
 
+SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
+			ft_flag_cs.c		ft_vprintf.c		text_decoration.c	\
+			ft_flag_f.c			join_arg.c			u_itoa_base.c		\
+			ft_flag_r.c			lib0.c				ft_printf.c
+
+
+
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))	\
 			$(addprefix libfd/, $(SRCS_FD))		\
 			$(addprefix liblst/, $(SRCS_LST))	\
 			$(addprefix libmem/, $(SRCS_MEM))	\
-			$(addprefix libstr/, $(SRCS_STR))
+			$(addprefix libnb/, $(SRCS_NB))	\
+			$(addprefix libstr/, $(SRCS_STR))	\
+			$(addprefix ft_printf/, $(SRCS_PRTF))
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
-OBJ_DIRS = libchar libfd liblst libmem libstr
+OBJ_DIRS = libchar libfd liblst libmem libnb libstr ft_printf
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))

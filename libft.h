@@ -6,7 +6,7 @@
 /*   By: arthur <arthur@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 17:08:34 by arthur           ###   ########.fr       */
+/*   Updated: 2018/12/16 18:13:07 by arthur           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
+void			*ft_mempcpy(void *dst, const void *src, size_t n);
 
 /*
 **	LIBSTR
@@ -106,7 +107,7 @@ void			ft_putnbr_fd(int n, int fd);
 int				get_next_line(const int fd, char **line);
 
 /*
-** LIBLST
+**	LIBLST
 */
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
@@ -118,5 +119,12 @@ t_list			*ft_lst_push_back(t_list **lst, void *content,
 													size_t content_size);
 t_list			*ft_list_at(t_list *begin_list, unsigned int nbr);
 int				ft_lst_free_link(t_list **lst, t_list *link);
+
+/*
+**	FT_PRINTF
+*/
+int				ft_printf(const char *restrict format, ...);
+int				ft_fprintf(int fd, const char *restrict format, ...);
+int				ft_sprintf(char *str, const char *restrict format, ...);
 
 #endif
