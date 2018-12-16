@@ -6,7 +6,7 @@
 #    By: arthur <arthur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/12/16 17:44:16 by arthur           ###   ########.fr        #
+#    Updated: 2018/12/16 17:53:00 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,12 +68,12 @@ endif
 
 all	:	$(NAME)
 
-pre-build	:
+$(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
 	@mkdir -p $(addprefix $(OBJ_PATH)/, $(OBJ_DIRS)) 2> /dev/null
 	@echo -e "\033[0;32mMaking libft with \"$(CFLAGS) $(CPPFLAGS)\"...\033[0m"
 
-$(NAME)	: pre-build $(OBJS)
+$(NAME)	: $(OBJ_PATH) $(OBJS)
 	@echo -e "\033[0;32mcreating $(NAME)...\033[0m"
 	@echo -e "\tar -rcs $(NAME) (...)"
 	@ar -rcs $(NAME) $(OBJS)
