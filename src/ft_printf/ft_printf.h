@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:53:52 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:27 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:44:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define FLAG_HASH (1 << 4)
 # define FLAG_SPEP (1 << 5)
 
-typedef struct					s_cnt_args
+typedef struct	s_cnt_args
 {
 	int		nb;
 	int		req_buff_siz;
@@ -80,44 +80,44 @@ int				ft_printf(const char *restrict format, ...);
 int				ft_fprintf(int fd, const char *restrict format, ...);
 int				ft_sprintf(char *str, const char *restrict format, ...);
 
-int				count_int_digit(int n);
-char			*s_itoa_base(long long int n, int base, t_arg *arg);
-char			*u_itoa_base(unsigned long long n, int base, t_arg *arg);
-char			*itoa_double(long double n, t_arg *arg);
+char			*prtf__s_itoa_base(long long int n, int base, t_arg *arg);
+char			*prtf__u_itoa_base(unsigned long long n, int base, t_arg *arg);
+char			*prtf__itoa_double(long double n, t_arg *arg);
 
-void			flag_s(t_string *ret, char *str, t_arg *arg);
-void			flag_c(t_string *ret, char c);
-void			flag_r(t_string *ret, int fd);
+void			prtf__flag_s(t_string *ret, char *str, t_arg *arg);
+void			prtf__flag_c(t_string *ret, char c);
+void			prtf__flag_r(t_string *ret, int fd);
 
 /*
 **	fill_arg_struct.c
 */
-int				get_arg_option(t_arg *arg, const char **format);
-int				get_arg_m_width(t_arg *arg, const char **format);
-int				get_arg_precis(t_arg *arg, const char **format);
-int				get_arg_size(t_arg *arg, const char **format);
-int				get_arg_convtyp(t_arg *arg, const char **format);
+int				prtf__get_arg_option(t_arg *arg, const char **format);
+int				prtf__get_arg_m_width(t_arg *arg, const char **format);
+int				prtf__get_arg_precis(t_arg *arg, const char **format);
+int				prtf__get_arg_size(t_arg *arg, const char **format);
+int				prtf__get_arg_convtyp(t_arg *arg, const char **format);
 
 /*
 **	Parse the 'format' & output something
 */
-void			ft_vprintf(const char *format, va_list *ap, t_string *str);
-void			join_arg(t_string *out, t_arg *arg_info, va_list *ap);
-void			parse_bonus(t_string *out);
+void			prtf__vprintf(const char *format, va_list *ap, t_string *str);
+void			prtf__join_arg(t_string *out, t_arg *arg_info, va_list *ap);
+void			prtf__parse_bonus(t_string *out);
 
 /*
 **	sub_hub.c
 */
-void			nb_signed(t_string *ret, va_list *ap, t_arg *arg_info);
-void			nb_unsigned(t_string *ret, va_list *ap, int base, t_arg *arg);
-void			nb_double(t_string *ret, va_list *ap, t_arg *arg_info);
+void			prtf__nb_signed(t_string *ret, va_list *ap, t_arg *arg_info);
+void			prtf__nb_unsigned(t_string *ret, va_list *ap, int base,
+								t_arg *arg);
+void			prtf__nb_double(t_string *ret, va_list *ap, t_arg *arg_info);
 
 /*
 **	libN.c
 */
-int				atoi_move(const char **nptr);
-int				ft_t_strncat(t_string *s1, char const *s2, size_t size);
-int				msg_exit(char *msg);
-char			*ft_strsubrev(char *str, int begin);
+int				prtf__atoi_move(const char **nptr);
+int				prtf__t_strncat(t_string *s1, char const *s2, size_t size);
+int				prtf__msg_exit(char *msg);
+char			*prtf__strsubrev(char *str, int begin);
 
 #endif

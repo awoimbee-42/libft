@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:05:02 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:24 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:40:33 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		atoi_move(const char **nptr)
+int		prtf__atoi_move(const char **nptr)
 {
 	short int		sign;
 	unsigned long	result;
@@ -31,7 +31,7 @@ int		atoi_move(const char **nptr)
 	return ((int)result * sign);
 }
 
-int		ft_t_strncat(t_string *s1, char const *s2, size_t size)
+int		prtf__t_strncat(t_string *s1, char const *s2, size_t size)
 {
 	char		*nw_str;
 
@@ -55,7 +55,7 @@ int		ft_t_strncat(t_string *s1, char const *s2, size_t size)
 	return (1);
 }
 
-int		msg_exit(char *msg)
+int		prtf__msg_exit(char *msg)
 {
 	write(2, msg, ft_strlen(msg));
 	write(2, "\n", 1);
@@ -63,7 +63,7 @@ int		msg_exit(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-char	*ft_strsubrev(char *str, int begin)
+char	*prtf__strsubrev(char *str, int begin)
 {
 	char	*start;
 	char	*end;

@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 15:17:25 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:38 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:38:37 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flag_r(t_string *ret, int fd)
+void	prtf__flag_r(t_string *ret, int fd)
 {
 	int		end;
 	char	*line;
@@ -23,7 +23,7 @@ void	flag_r(t_string *ret, int fd)
 	while ((end = get_next_line(fd, &line)))
 	{
 		if (end == -1)
-			msg_exit("failure while reading file.");
+			prtf__msg_exit("failure while reading file.");
 		ft_strcat_join(&ret->str, line);
 		ret->len = ft_strlen(ret->str);
 		ret->str[ret->len] = '\n';

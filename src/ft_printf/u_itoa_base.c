@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:55:01 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:19 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:40:11 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char		*u_malloc_base_str(unsigned long long n, int base, t_arg *arg)
 		zero += (arg->conv_typ == 'o') ? 1 : 0;
 	}
 	if (!(str = (char *)malloc(digit + zero + 1)))
-		msg_exit("cannot allocate memory: u_malloc_base_str");
+		prtf__msg_exit("cannot allocate memory: u_malloc_base_str");
 	while (i < zero)
 		str[i++] = '0';
 	if ((n && ((arg->option & FLAG_HASH) && (arg->conv_typ == 'x'
@@ -55,7 +55,7 @@ static char		*u_malloc_base_str(unsigned long long n, int base, t_arg *arg)
 	return (str);
 }
 
-char			*u_itoa_base(unsigned long long n, int base, t_arg *arg)
+char			*prtf__u_itoa_base(unsigned long long n, int base, t_arg *arg)
 {
 	int		i;
 	int		tmp;
@@ -75,5 +75,5 @@ char			*u_itoa_base(unsigned long long n, int base, t_arg *arg)
 		n /= base;
 	}
 	str[i++] = '\0';
-	return (ft_strsubrev(str, tmp));
+	return (prtf__strsubrev(str, tmp));
 }

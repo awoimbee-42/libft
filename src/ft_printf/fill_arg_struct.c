@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:56:45 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/15 18:13:55 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:37:19 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 **	They are designed to be called one after the other.
 */
 
-int		get_arg_option(t_arg *arg, const char **format)
+int		prtf__get_arg_option(t_arg *arg, const char **format)
 {
 	arg->option = 0;
 	while (1)
@@ -43,16 +43,16 @@ int		get_arg_option(t_arg *arg, const char **format)
 	return (1);
 }
 
-int		get_arg_m_width(t_arg *arg, const char **format)
+int		prtf__get_arg_m_width(t_arg *arg, const char **format)
 {
 	if ('0' <= **format && **format <= '9')
-		arg->m_width = atoi_move(format);
+		arg->m_width = prtf__atoi_move(format);
 	else
 		arg->m_width = 0;
 	return (1);
 }
 
-int		get_arg_precis(t_arg *arg, const char **format)
+int		prtf__get_arg_precis(t_arg *arg, const char **format)
 {
 	if (**format == '.' && ++(*format))
 	{
@@ -63,7 +63,7 @@ int		get_arg_precis(t_arg *arg, const char **format)
 			if (!ft_isdigit(**format))
 				arg->precis = 0;
 			else
-				arg->precis = atoi_move(format);
+				arg->precis = prtf__atoi_move(format);
 		}
 	}
 	else
@@ -73,7 +73,7 @@ int		get_arg_precis(t_arg *arg, const char **format)
 	return (1);
 }
 
-int		get_arg_size(t_arg *arg, const char **format)
+int		prtf__get_arg_size(t_arg *arg, const char **format)
 {
 	if (**format == 'h' && ++(*format))
 	{
@@ -101,7 +101,7 @@ int		get_arg_size(t_arg *arg, const char **format)
 **		this way it's easier to handle "%C" like "%lc" or "%wc"
 */
 
-int		get_arg_convtyp(t_arg *arg, const char **format)
+int		prtf__get_arg_convtyp(t_arg *arg, const char **format)
 {
 	char	c;
 

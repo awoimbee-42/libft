@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 14:06:38 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:36 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:42:37 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int				count_ldbl_digit(long double n)
 	return (ret);
 }
 
-static char		*itoa_double_malloc(char *str, long double n, t_arg *arg)
+static char		*prtf__itoa_double_malloc(char *str, long double n, t_arg *arg)
 {
 	int		to_malloc;
 
@@ -82,20 +82,20 @@ static char		*itoa_double_malloc(char *str, long double n, t_arg *arg)
 	if (to_malloc < arg->m_width)
 	{
 		if (!(str = (char *)malloc(arg->m_width + 1)))
-			msg_exit("Cannont allocate memory: itoa_double_malloc n1");
+			prtf__msg_exit("Cannont allocate memory: itoa_double_malloc n1");
 		ft_memset(str, ' ', arg->m_width + 1);
 		str[arg->m_width] = '\0';
 	}
 	else
 	{
 		if (!(str = (char *)malloc(to_malloc)))
-			msg_exit("Cannont allocate memory: itoa_double_malloc n2");
+			prtf__msg_exit("Cannont allocate memory: itoa_double_malloc n2");
 		ft_memset(str, ' ', to_malloc);
 	}
 	return (str);
 }
 
-char			*itoa_double(long double n, t_arg *arg)
+char			*prtf__itoa_double(long double n, t_arg *arg)
 {
 	int			i;
 	int			tmp;
@@ -120,6 +120,6 @@ char			*itoa_double(long double n, t_arg *arg)
 		aux = (sign == -1) ? aux - 1 : aux + 1;
 	while (i++ <= arg->precis)
 		n /= 10.L;
-	str = itoa_double_malloc(str, aux, arg);
+	str = prtf__itoa_double_malloc(str, aux, arg);
 	return (double_to_str(str, aux, arg, sign));
 }

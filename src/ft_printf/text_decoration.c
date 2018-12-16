@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text_decoration.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allespag <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 16:59:21 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/14 16:59:57 by allespag         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:36:21 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void		set_decoration(char *out)
 		ft_memcpy(out, "\e[00m", 5);
 }
 
-void			parse_bonus(t_string *out)
+void			prtf__parse_bonus(t_string *out)
 {
 	size_t	i;
 

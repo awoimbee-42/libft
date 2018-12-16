@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 17:02:00 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:30 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:36:59 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	%d | %i with l ll h hh
 */
 
-void		nb_signed(t_string *ret, va_list *ap, t_arg *arg_info)
+void		prtf__nb_signed(t_string *ret, va_list *ap, t_arg *arg_info)
 {
 	int			size;
 	long long int	value;
@@ -38,7 +38,7 @@ void		nb_signed(t_string *ret, va_list *ap, t_arg *arg_info)
 		ret->str = (char*)1;
 		return ;
 	}
-	ret->str = s_itoa_base(value, 10, arg_info);
+	ret->str = prtf__s_itoa_base(value, 10, arg_info);
 	ret->len = ft_strlen(ret->str);
 }
 
@@ -46,7 +46,7 @@ void		nb_signed(t_string *ret, va_list *ap, t_arg *arg_info)
 **	%u | %o | %x | %X with l ll h hh
 */
 
-void		nb_unsigned(t_string *ret, va_list *ap, int base, t_arg *arg_info)
+void		prtf__nb_unsigned(t_string *ret, va_list *ap, int base, t_arg *arg_info)
 {
 	int			size;
 	unsigned long long	value;
@@ -68,7 +68,7 @@ void		nb_unsigned(t_string *ret, va_list *ap, int base, t_arg *arg_info)
 		ret->str = (char*)1;
 		return ;
 	}
-	ret->str = u_itoa_base(value, base, arg_info);
+	ret->str = prtf__u_itoa_base(value, base, arg_info);
 	ret->len = ft_strlen(ret->str);
 }
 
@@ -76,7 +76,7 @@ void		nb_unsigned(t_string *ret, va_list *ap, int base, t_arg *arg_info)
 **	%f with l L
 */
 
-void		nb_double(t_string *ret, va_list *ap, t_arg *arg_info)
+void		prtf__nb_double(t_string *ret, va_list *ap, t_arg *arg_info)
 {
 	long double value;
 
@@ -85,6 +85,6 @@ void		nb_double(t_string *ret, va_list *ap, t_arg *arg_info)
 		value = va_arg(*ap, long double);
 	else
 		value = va_arg(*ap, double);
-	ret->str = itoa_double(value, arg_info);
+	ret->str = prtf__itoa_double(value, arg_info);
 	ret->len = ft_strlen(ret->str);
 }

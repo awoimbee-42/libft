@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 15:14:07 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:34 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:40:11 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char		*s_malloc_base_str(long long int n, int base, t_arg *arg, int sign)
 	zero = (arg->precis > digit) ? arg->precis - digit : 0;
 	if (!(str = (char *)malloc(digit + (sign
 		|| arg->option & FLAG_PLUS || arg->option & FLAG_SPACE) + zero + 1)))
-		msg_exit("Cannot allocate memory: s_malloc_base_str");
+		prtf__msg_exit("Cannot allocate memory: s_malloc_base_str");
 	if (sign && ++i)
 		str[0] = '-';
 	else if (!sign && (arg->option & FLAG_PLUS) && ++i)
@@ -53,7 +53,7 @@ char		*s_malloc_base_str(long long int n, int base, t_arg *arg, int sign)
 	return (str);
 }
 
-char		*s_itoa_base(long long int n, int base, t_arg *arg)
+char		*prtf__s_itoa_base(long long int n, int base, t_arg *arg)
 {
 	int		i;
 	int		tmp;
@@ -75,5 +75,5 @@ char		*s_itoa_base(long long int n, int base, t_arg *arg)
 		n /= base;
 	}
 	str[i++] = '\0';
-	return (ft_strsubrev(str, tmp));
+	return (prtf__strsubrev(str, tmp));
 }

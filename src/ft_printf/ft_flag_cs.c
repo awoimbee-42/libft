@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:06:21 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 18:47:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:38:37 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flag_s(t_string *ret, char *str, t_arg *arg)
+void	prtf__flag_s(t_string *ret, char *str, t_arg *arg)
 {
 	if (str)
 	{
@@ -30,10 +30,10 @@ void	flag_s(t_string *ret, char *str, t_arg *arg)
 	}
 }
 
-void	flag_c(t_string *ret, char c)
+void	prtf__flag_c(t_string *ret, char c)
 {
 	if (!(ret->str = malloc(1)))
-		msg_exit("Cannot allocate memory in flag_c");
+		prtf__msg_exit("Cannot allocate memory in flag_c");
 	*ret->str = c;
 	ret->len = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:20:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/15 18:34:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/16 20:38:37 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,23 @@ static void	retrieve_arg(t_string *ret, va_list *ap, t_arg *arg_info)
 
 	type = arg_info->conv_typ;
 	if (type == 'd' || type == 'i')
-		nb_signed(ret, ap, arg_info);
+		prtf__nb_signed(ret, ap, arg_info);
 	else if (type == 'u')
-		nb_unsigned(ret, ap, 10, arg_info);
+		prtf__nb_unsigned(ret, ap, 10, arg_info);
 	else if (type == 'o')
-		nb_unsigned(ret, ap, 8, arg_info);
+		prtf__nb_unsigned(ret, ap, 8, arg_info);
 	else if (type == 'x' || type == 'X')
-		nb_unsigned(ret, ap, 16, arg_info);
+		prtf__nb_unsigned(ret, ap, 16, arg_info);
 	else if (type == 'b')
-		nb_unsigned(ret, ap, 2, arg_info);
+		prtf__nb_unsigned(ret, ap, 2, arg_info);
 	else if (type == 'f')
-		nb_double(ret, ap, arg_info);
+		prtf__nb_double(ret, ap, arg_info);
 	else if (type == 's')
-		flag_s(ret, va_arg(*ap, char *), arg_info);
+		prtf__flag_s(ret, va_arg(*ap, char *), arg_info);
 	else if (type == 'c')
-		flag_c(ret, va_arg(*ap, int));
+		prtf__flag_c(ret, va_arg(*ap, int));
 	else if (type == 'r')
-		flag_r(ret, va_arg(*ap, int));
+		prtf__flag_r(ret, va_arg(*ap, int));
 	else
 		ret->str = NULL;
 }
@@ -44,7 +44,7 @@ static char	*strcatp1(t_string *s1, t_string *s2, t_arg *arg_info, int spacer)
 	char		*nw_str;
 	char		*nw_str_spced;
 
-	(nw_str = ft_strnew(s1->len + arg_info->m_width)) ? 0 : msg_exit("@ja");
+	(nw_str = ft_strnew(s1->len + arg_info->m_width)) ? 0 : prtf__msg_exit("@ja");
 	nw_str_spced = ft_mempcpy(nw_str, s1->str, s1->len);
 	if (arg_info->option & FLAG_ZERO)
 	{
@@ -78,7 +78,7 @@ static void	strcat_arg(t_string *s1, t_string *s2, t_arg *arg_info)
 		nw_str = strcatp1(s1, s2, arg_info, 0);
 	else
 	{
-		(nw_str = ft_strnew(s1->len + s2->len)) ? 0 : msg_exit("@ja 2");
+		(nw_str = ft_strnew(s1->len + s2->len)) ? 0 : prtf__msg_exit("@ja 2");
 		s1->len = (char*)ft_mempcpy(
 			ft_mempcpy(nw_str, s1->str, s1->len), s2->str, s2->len) - nw_str;
 	}
@@ -86,7 +86,7 @@ static void	strcat_arg(t_string *s1, t_string *s2, t_arg *arg_info)
 	s1->str = nw_str;
 }
 
-void		join_arg(t_string *out, t_arg *arg_info, va_list *ap)
+void		prtf__join_arg(t_string *out, t_arg *arg_info, va_list *ap)
 {
 	t_string	raw_arg;
 
