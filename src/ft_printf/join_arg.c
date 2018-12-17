@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:20:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 20:38:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/17 20:04:10 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static char	*strcatp1(t_string *s1, t_string *s2, t_arg *arg_info, int spacer)
 	char		*nw_str;
 	char		*nw_str_spced;
 
-	(nw_str = ft_strnew(s1->len + arg_info->m_width)) ? 0 : prtf__msg_exit("@ja");
+	if (!(nw_str = ft_strnew(s1->len + arg_info->m_width)))
+		prtf__msg_exit(MALLOC_ERR);
 	nw_str_spced = ft_mempcpy(nw_str, s1->str, s1->len);
 	if (arg_info->option & FLAG_ZERO)
 	{
@@ -64,7 +65,6 @@ static char	*strcatp1(t_string *s1, t_string *s2, t_arg *arg_info, int spacer)
 			nw_str_spced += arg_info->m_width - s2->len;
 		ft_mempcpy(nw_str_spced, s2->str, s2->len);
 	}
-	s1->len += arg_info->m_width;
 	return (nw_str);
 }
 
@@ -75,10 +75,13 @@ static void	strcat_arg(t_string *s1, t_string *s2, t_arg *arg_info)
 	if (!s2->str)
 		return ;
 	if (s2->len < (unsigned int)arg_info->m_width)
+	{
 		nw_str = strcatp1(s1, s2, arg_info, 0);
+		s1->len += arg_info->m_width;
+	}
 	else
 	{
-		(nw_str = ft_strnew(s1->len + s2->len)) ? 0 : prtf__msg_exit("@ja 2");
+		(nw_str = ft_strnew(s1->len + s2->len)) ? 0 : prtf__msg_exit("Err @pf");
 		s1->len = (char*)ft_mempcpy(
 			ft_mempcpy(nw_str, s1->str, s1->len), s2->str, s2->len) - nw_str;
 	}

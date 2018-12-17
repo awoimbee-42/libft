@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:53:52 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 20:44:01 by awoimbee         ###   ########.fr       */
+/*   Updated: 2018/12/17 20:02:14 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define TXT_DECORATIONS 1
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define MALLOC_ERR "Malloc error: not enough memory!"
 
 # define FLAG_PLUS (1 << 0)
 # define FLAG_SPACE (1 << 1)
@@ -54,7 +55,7 @@ typedef struct	s_cnt_args
 **		conv_typ:
 **			type ('d' for int, ...)
 */
-typedef	struct					s_arg
+typedef	struct	s_arg
 {
 	char	option;
 	int		m_width;
