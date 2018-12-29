@@ -81,30 +81,30 @@ all	:	$(NAME)
 $(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
 	@mkdir -p $(addprefix $(OBJ_PATH)/, $(OBJ_DIRS)) 2> /dev/null
-	$(ECHO) "$(GRN)Making libft with \"$(CFLAGS) $(CPPFLAGS)\"...$(EOC)\n"
+	@printf "$(GRN)Making libft with \"$(CFLAGS) $(CPPFLAGS)\"...$(EOC)\n"
 
 $(NAME)	: $(OBJ_PATH) $(OBJS)
-	$(ECHO) "$(GRN)creating $(NAME)...$(EOC)\n"
-	$(ECHO) "\tar -rcs $(NAME) (...)\n"
+	@printf "$(GRN)creating $(NAME)...$(EOC)\n"
+	@printf "\tar -rcs $(NAME) (...)\n"
 	@ar -rcs $(NAME) $(OBJS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	$(ECHO) "\t$(CC) (...) $@\n"
+	@printf "\t$(CC) (...) $@\n"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 
 so	: all
-	$(ECHO) "$(CC) (...) -shared -o $(NAME:.a=.so)\n"
+	@printf "$(CC) (...) -shared -o $(NAME:.a=.so)\n"
 	@$(CC) $(OBJS) -shared -o $(NAME:.a=.so)
 
 clean	:
-	$(ECHO) "$(RED)cleaning objects...$(EOC)\n"
-	$(ECHO) "\trm -rf $(OBJ_PATH)\n"
+	@printf "$(RED)cleaning objects...$(EOC)\n"
+	@printf "\trm -rf $(OBJ_PATH)\n"
 	@rm -rf $(OBJ_PATH)
 
 fclean	:	clean
-	$(ECHO) "\033[0;31mcleaning $(NAME), $(NAME:.a=.so)...$(EOC)\n"
-	$(ECHO) "\trm -f $(NAME)\n\trm -f $(NAME:.a=.so)\n"
+	@printf "\033[0;31mcleaning $(NAME), $(NAME:.a=.so)...$(EOC)\n"
+	@printf "\trm -f $(NAME)\n\trm -f $(NAME:.a=.so)\n"
 	@rm -f $(NAME)
 	@rm -f $(NAME:.a=.so)
 
@@ -112,8 +112,10 @@ re	:	fclean all
 
 .PHONY: all so clean fclean re
 
-ECHO =	@printf
+flowchart:
+	@printf "%s\n"	\
+	"drive.google.com/file/d/1WmQpjdGgEPmhxpchUW6tD26C3euBPtcL/view?usp=sharing"
+
 GRN =	\033[0;32m
 RED =	\033[0;31m
 EOC =	\033[0m
-
