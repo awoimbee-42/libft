@@ -6,7 +6,7 @@
 #    By: arthur <arthur@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2018/12/16 18:43:57 by arthur           ###   ########.fr        #
+#    Updated: 2018/12/27 00:10:36 by arthur           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,12 +52,12 @@ SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
 			ft_flag_f.c			join_arg.c			u_itoa_base.c		\
 			ft_flag_r.c			lib0.c				ft_printf.c
 
-SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))	\
-			$(addprefix libfd/, $(SRCS_FD))		\
-			$(addprefix liblst/, $(SRCS_LST))	\
-			$(addprefix libmem/, $(SRCS_MEM))	\
-			$(addprefix libnb/, $(SRCS_NB))	\
-			$(addprefix libstr/, $(SRCS_STR))	\
+SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
+			$(addprefix libfd/, $(SRCS_FD))			\
+			$(addprefix liblst/, $(SRCS_LST))		\
+			$(addprefix libmem/, $(SRCS_MEM))		\
+			$(addprefix libnb/, $(SRCS_NB))			\
+			$(addprefix libstr/, $(SRCS_STR))		\
 			$(addprefix ft_printf/, $(SRCS_PRTF))
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
@@ -81,33 +81,39 @@ all	:	$(NAME)
 $(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
 	@mkdir -p $(addprefix $(OBJ_PATH)/, $(OBJ_DIRS)) 2> /dev/null
-	@echo -e "\033[0;32mMaking libft with \"$(CFLAGS) $(CPPFLAGS)\"...\033[0m"
+	$(ECHO) "$(GRN)Making libft with \"$(CFLAGS) $(CPPFLAGS)\"...$(EOC)\n"
 
 $(NAME)	: $(OBJ_PATH) $(OBJS)
-	@echo -e "\033[0;32mcreating $(NAME)...\033[0m"
-	@echo -e "\tar -rcs $(NAME) (...)"
+	$(ECHO) "$(GRN)creating $(NAME)...$(EOC)\n"
+	$(ECHO) "\tar -rcs $(NAME) (...)\n"
 	@ar -rcs $(NAME) $(OBJS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
-	@echo -e "\t$(CC) (...) $@"
+	$(ECHO) "\t$(CC) (...) $@\n"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 
 so	: all
-	@echo "$(CC) (...) -shared -o $(NAME:.a=.so)"
+	$(ECHO) "$(CC) (...) -shared -o $(NAME:.a=.so)\n"
 	@$(CC) $(OBJS) -shared -o $(NAME:.a=.so)
 
 clean	:
-	@echo -e "\033[0;31mcleaning objects...\033[0m"
-	@echo -e "\trm -rf $(OBJ_PATH)"
+	$(ECHO) "$(RED)cleaning objects...$(EOC)\n"
+	$(ECHO) "\trm -rf $(OBJ_PATH)\n"
 	@rm -rf $(OBJ_PATH)
 
 fclean	:	clean
-	@echo -e "\033[0;31mcleaning $(NAME), $(NAME:.a=.so)...\033[0m"
-	@echo -e "\trm -f $(NAME)\n\trm -f $(NAME:.a=.so)"
+	$(ECHO) "\033[0;31mcleaning $(NAME), $(NAME:.a=.so)...$(EOC)\n"
+	$(ECHO) "\trm -f $(NAME)\n\trm -f $(NAME:.a=.so)\n"
 	@rm -f $(NAME)
 	@rm -f $(NAME:.a=.so)
 
 re	:	fclean all
 
 .PHONY: all so clean fclean re
+
+ECHO =	@printf
+GRN =	\033[0;32m
+RED =	\033[0;31m
+EOC =	\033[0m
+
