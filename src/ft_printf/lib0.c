@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:05:02 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 20:40:33 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/01/02 00:51:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		prtf__t_strncat(t_string *s1, char const *s2, size_t size)
 	if ((!s1->str) && s2 && size != 0)
 	{
 		if (!(nw_str = ft_strnew(size)))
-			return (0);
+			prtf__msg_exit(MALLOC_ERR);
 		ft_memcpy(nw_str, s2, size);
 		s1->str = nw_str;
 		s1->len = size;
@@ -46,7 +46,7 @@ int		prtf__t_strncat(t_string *s1, char const *s2, size_t size)
 	else if (s2 && size != 0)
 	{
 		if (!(nw_str = ft_strnew(size + s1->len)))
-			return (0);
+			prtf__msg_exit(MALLOC_ERR);
 		ft_strncat(ft_mempcpy(nw_str, s1->str, s1->len), s2, size);
 		free(s1->str);
 		s1->str = nw_str;

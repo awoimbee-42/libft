@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:06:21 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 20:38:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/01/02 00:53:32 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	prtf__flag_s(t_string *ret, char *str, t_arg *arg)
 void	prtf__flag_c(t_string *ret, char c)
 {
 	if (!(ret->str = malloc(1)))
-		prtf__msg_exit("Cannot allocate memory in flag_c");
+		prtf__msg_exit(MALLOC_ERR);
 	*ret->str = c;
 	ret->len = 1;
 }

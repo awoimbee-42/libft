@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 16:27:44 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/17 20:05:01 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/01/02 00:51:53 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void			prtf__vprintf(const char *format, va_list *ap, t_string *str)
 	{
 		if (format[len] == '%')
 		{
-			prtf__t_strncat(str, format, len) ? 0 : prtf__msg_exit("Er printf");
+			prtf__t_strncat(str, format, len);
 			format += len + 1;
 			len = 0;
 			if (!format[0] && --format && ++len)
@@ -60,6 +60,6 @@ void			prtf__vprintf(const char *format, va_list *ap, t_string *str)
 		}
 	}
 	if (format[0])
-		prtf__t_strncat(str, format, len) ? 0 : prtf__msg_exit("Err vprintf 2");
+		prtf__t_strncat(str, format, len);
 	(TXT_DECORATIONS) ? prtf__parse_bonus(str) : 0;
 }

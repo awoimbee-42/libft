@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 14:06:38 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 20:42:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/01/02 00:54:14 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ static char		*prtf__itoa_double_malloc(char *str, long double n, t_arg *arg)
 	if (to_malloc < arg->m_width)
 	{
 		if (!(str = (char *)malloc(arg->m_width + 1)))
-			prtf__msg_exit("Cannont allocate memory: itoa_double_malloc n1");
+			prtf__msg_exit(MALLOC_ERR);
 		ft_memset(str, ' ', arg->m_width + 1);
 		str[arg->m_width] = '\0';
 	}
 	else
 	{
 		if (!(str = (char *)malloc(to_malloc)))
-			prtf__msg_exit("Cannont allocate memory: itoa_double_malloc n2");
+			prtf__msg_exit(MALLOC_ERR);
 		ft_memset(str, ' ', to_malloc);
 	}
 	return (str);
