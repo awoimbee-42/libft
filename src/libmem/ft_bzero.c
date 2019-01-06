@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:14:13 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/01/07 00:02:22 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,19 @@ void	ft_bzero(void *s, size_t n)
 	char	*ptr;
 
 	ptr = (char *)s;
-	while (n-- > 0)
+	while (n > sizeof(long long))
 	{
+		n -= sizeof(long long);
+		*(unsigned long long*)(ptr + n) = 0;
+	}
+	while (n > sizeof(short))
+	{
+		n -= sizeof(short);
+		*(unsigned short*)(ptr + n) = 0;
+	}
+	if (n > 0)
+	{
+		--n;
 		ptr[n] = '\0';
 	}
 }
