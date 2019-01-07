@@ -23,12 +23,12 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		(void)ft_mempcpy(dst, src, len);
 	else if (src < dst)
 	{
-		while (len > sizeof(unsigned long long))
+		while (len >= sizeof(unsigned long long))
 		{
 			len -= sizeof(unsigned long long);
 			*(unsigned long long*)(d + len) = *(const unsigned long long*)(s + len);
 		}
-		while (len > sizeof(unsigned short))
+		while (len >= sizeof(unsigned short))
 		{
 			len -= sizeof(unsigned short);
 			*(unsigned short*)(d + len) = *(const unsigned short*)(s + len);
