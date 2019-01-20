@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/01/17 01:45:19 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/01/20 02:47:03 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,17 +53,17 @@ SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
 			ft_flag_r.c			lib0.c				ft_printf.c
 
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
-			$(addprefix libfd/, $(SRCS_FD))			\
-			$(addprefix liblst/, $(SRCS_LST))		\
-			$(addprefix libmem/, $(SRCS_MEM))		\
-			$(addprefix libnb/, $(SRCS_NB))			\
-			$(addprefix libstr/, $(SRCS_STR))		\
-			$(addprefix ft_printf/, $(SRCS_PRTF))
+			$(addprefix libfd/,   $(SRCS_FD))		\
+			$(addprefix liblst/,  $(SRCS_LST))		\
+			$(addprefix libmem/,  $(SRCS_MEM))		\
+			$(addprefix libnb/,   $(SRCS_NB))		\
+			$(addprefix libstr/,  $(SRCS_STR))		\
+			$(addprefix ft_prtf/, $(SRCS_PRTF))
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
-OBJ_DIRS = libchar libfd liblst libmem libnb libstr ft_printf
+OBJ_DIRS = libchar libfd liblst libmem libnb libstr ft_prtf
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
@@ -76,13 +76,12 @@ ifeq ($(UNAME_S),Linux)
 endif
 
 
-all	:
-	@make -s -j $(NAME)
+all	: $(NAME)
 
 $(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
 	@mkdir -p $(addprefix $(OBJ_PATH)/, $(OBJ_DIRS)) 2> /dev/null
-	@printf "$(GRN)Making libft with \"$(CFLAGS) $(CPPFLAGS)\"...$(EOC)\n"
+	@printf "$(GRN)Compiling libft with \"$(CFLAGS) $(CPPFLAGS)\"...$(EOC)\n"
 
 $(NAME)	: $(OBJS)
 	@printf "$(GRN)creating $(NAME)...$(EOC)\n"
@@ -92,7 +91,6 @@ $(NAME)	: $(OBJS)
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
 	@printf "\t$(CC) (...) $@\n"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
-
 
 so	: all
 	@printf "$(CC) (...) -shared -o $(NAME:.a=.so)\n"
@@ -109,7 +107,8 @@ fclean	:	clean
 	@rm -f $(NAME)
 	@rm -f $(NAME:.a=.so)
 
-re	:	fclean all
+re	:	fclean
+	@make -j -s
 
 .PHONY: all so clean fclean re
 
