@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/01/20 22:54:11 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/01/22 14:14:57 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,13 +52,16 @@ SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
 			ft_flag_f.c			join_arg.c			u_itoa_base.c		\
 			ft_flag_r.c			lib0.c				ft_printf.c
 
+SRCS_OTHER = msg_exit.c
+
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
 			$(addprefix libfd/,   $(SRCS_FD))		\
 			$(addprefix liblst/,  $(SRCS_LST))		\
 			$(addprefix libmem/,  $(SRCS_MEM))		\
 			$(addprefix libnb/,   $(SRCS_NB))		\
 			$(addprefix libstr/,  $(SRCS_STR))		\
-			$(addprefix ft_prtf/, $(SRCS_PRTF))
+			$(addprefix ft_prtf/, $(SRCS_PRTF))		\
+			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
