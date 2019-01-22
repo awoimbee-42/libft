@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/01/20 02:47:03 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/01/20 22:54:11 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,49 +68,47 @@ OBJ_DIRS = libchar libfd liblst libmem libnb libstr ft_prtf
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-CPPFLAGS = -I./
+CFLAGS += -I./
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	CFLAGS += -Wno-unused-result
 endif
-
+################################################################################
 
 all	: $(NAME)
 
 $(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
 	@mkdir -p $(addprefix $(OBJ_PATH)/, $(OBJ_DIRS)) 2> /dev/null
-	@printf "$(GRN)Compiling libft with \"$(CFLAGS) $(CPPFLAGS)\"...$(EOC)\n"
+	@printf "$(GRN)Compiling with \"$(CFLAGS)\" :$(EOC)\n"
 
 $(NAME)	: $(OBJS)
-	@printf "$(GRN)creating $(NAME)...$(EOC)\n"
-	@printf "\tar -rcs $(NAME) (...)\n"
+	@printf "$(GRN)%-50s$(EOC)\n" "Compilation done"
 	@ar -rcs $(NAME) $(OBJS)
+	@printf "$(GRN)%-50s$(EOC)\n" "$(NAME) done"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
-	@printf "\t$(CC) (...) $@\n"
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@printf "%-50s\r" "$(CC) $@"
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 so	: all
 	@printf "$(CC) (...) -shared -o $(NAME:.a=.so)\n"
 	@$(CC) $(OBJS) -shared -o $(NAME:.a=.so)
 
 clean	:
-	@printf "$(RED)cleaning objects...$(EOC)\n"
-	@printf "\trm -rf $(OBJ_PATH)\n"
 	@rm -rf $(OBJ_PATH)
+	@printf "$(RED)./$(OBJ_PATH) cleaned$(EOC)\n"
 
 fclean	:	clean
-	@printf "\033[0;31mcleaning $(NAME), $(NAME:.a=.so)...$(EOC)\n"
-	@printf "\trm -f $(NAME)\n\trm -f $(NAME:.a=.so)\n"
 	@rm -f $(NAME)
 	@rm -f $(NAME:.a=.so)
+	@printf "\033[0;31m$(NAME), $(NAME:.a=.so) removed$(EOC)\n"
 
 re	:	fclean
 	@make -j -s
 
-.PHONY: all so clean fclean re
+.PHONY: all so clean fclean re flowchart
 
 flowchart:
 	@printf "%s\n"	\
