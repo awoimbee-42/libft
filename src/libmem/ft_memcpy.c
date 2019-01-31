@@ -6,12 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/02 03:54:27 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/01/25 23:19:23 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
