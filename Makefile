@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/01/25 23:12:18 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/02/27 21:21:12 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -fno-builtin
 
 SRCS_CHAR =	ft_isalnum.c		ft_isascii.c		ft_isprint.c		\
 			ft_isalpha.c		ft_isdigit.c		ft_tolower.c		\
@@ -31,7 +31,7 @@ SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
 SRCS_MEM =	ft_bzero.c			ft_memchr.c			ft_memdel.c			\
 			ft_memalloc.c		ft_memcmp.c			ft_memmove.c		\
 			ft_memccpy.c		ft_memcpy.c			ft_memset.c			\
-			ft_mempcpy.c
+			ft_mempcpy.c		ft_memnset.c
 
 SRCS_NB =	ft_abs.c			ft_atoi.c			ft_itoa.c			\
 			ft_atoi_base.c		ft_itoa_base.c		ft_swap_int.c		\
@@ -94,7 +94,7 @@ $(NAME)	: $(OBJS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
 	@printf "%-50s\r" "$(CC) $@"
-	@$(CC) $(CFLAGS) -O3 -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 so	: all
 	@printf "$(CC) (...) -shared -o $(NAME:.a=.so)\n"

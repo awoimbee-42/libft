@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/28 07:10:29 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/02/27 21:21:39 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include <stdint.h>
 
 # define GNL_BUFF_SIZE 300
 
@@ -36,6 +37,9 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 void			*ft_mempcpy(void *dst, const void *src, size_t n);
+void			ft_mem64set(uint64_t *mem, uint64_t data, size_t memlen);
+void			ft_mem32set(uint32_t *mem, uint32_t data, size_t memlen);
+void			ft_mem16set(uint16_t *mem, uint16_t data, size_t memlen);
 
 /*
 **	LIBSTR
