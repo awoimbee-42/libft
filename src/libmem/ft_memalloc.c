@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:48:00 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:04:47 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/02/17 18:37:50 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,10 @@
 
 void	*ft_memalloc(size_t size)
 {
-	char	*str;
 	void	*mem;
 
 	if (!(mem = malloc(size)))
 		return (NULL);
-	str = (char *)mem;
-	while (size-- > 0)
-	{
-		*str++ = 0;
-	}
+	ft_bzero(mem, size);
 	return (mem);
 }

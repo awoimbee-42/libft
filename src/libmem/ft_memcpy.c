@@ -6,23 +6,24 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/25 23:19:23 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/02/22 21:32:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
 	void	*dst_start;
 
 	dst_start = dst;
-	while (n >= sizeof(unsigned long))
+	while (n >= sizeof(uintmax_t))
 	{
-		*(unsigned long*)dst = *(unsigned long *)src;
-		dst += sizeof(unsigned long);
-		src += sizeof(unsigned long);
-		n -= sizeof(unsigned long);
+		*(uintmax_t*)dst = *(uintmax_t*)src;
+		dst += sizeof(uintmax_t);
+		src += sizeof(uintmax_t);
+		n -= sizeof(uintmax_t);
 	}
 	while (n >= sizeof(unsigned int))
 	{
