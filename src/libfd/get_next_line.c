@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:36:47 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/25 23:18:29 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/06 04:53:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static int		read_buff(t_list *link, char **line)
 	size_t		i;
 	void		*str;
 
+	if (*(char*)(link->content + 4) == 0 && link->content_size == GNL_BUFF_SIZE)
+		return (-1);
 	if (*(char*)(link->content + 4) == 0)
 		return (0);
 	if ((str = ft_memchr(link->content + 4, '\n', link->content_size)) != NULL)
@@ -94,9 +96,8 @@ static t_list	*check_lst(t_list **lst, const int fd)
 			link = link->next;
 		}
 	}
-	if (!(buff = malloc(GNL_BUFF_SIZE + sizeof(int))))
+	if (!(buff = ft_memalloc(GNL_BUFF_SIZE + sizeof(int))))
 		return (NULL);
-	ft_memset(buff, 0, GNL_BUFF_SIZE + 4);
 	ft_memcpy(buff, &fd, sizeof(fd));
 	if (!(link = ft_lst_push_back(lst, buff, GNL_BUFF_SIZE + 4)))
 		return (NULL);
@@ -105,11 +106,6 @@ static t_list	*check_lst(t_list **lst, const int fd)
 	return (link);
 }
 
-/*
-** link and link->content are not cleared after everything is done.
-** This will be changed later.
-*/
-
 int				get_next_line(const int fd, char **line)
 {
 	static t_list	*lst;
@@ -117,13 +113,13 @@ int				get_next_line(const int fd, char **line)
 	int				i;
 	ssize_t			cread;
 
-	if (!line)
+
+	if (!line || (link = check_lst(&lst, fd)) == NULL)
 		return (-1);
+	if (line == GNL_FLUSH)
+		return(ft_lst_free_link(&lst, link));
 	*line = NULL;
-	if ((link = check_lst(&lst, fd)) == NULL)
-		return (-1);
-	i = read_buff(link, line);
-	if (i != 0)
+	if ((i = read_buff(link, line)) != 0)
 		return (i);
 	while ((cread = read(fd, link->content + 4, GNL_BUFF_SIZE)) > 0)
 	{

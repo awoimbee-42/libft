@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/02/27 21:21:39 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/03/20 01:33:13 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define LIBFT_H
 # include <string.h>
 # include <stdint.h>
+# include <inttypes.h>
 
 # define GNL_BUFF_SIZE 300
+# define GNL_FLUSH (char**)INTPTR_MAX
 
 typedef struct	s_list
 {
