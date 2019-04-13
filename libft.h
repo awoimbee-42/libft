@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/13 03:55:17 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/13 04:36:33 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,10 @@ t_vec4			vec4_divf(const t_vec4 a, const float b);
 t_vec4			vec4_abs(const t_vec4 a);
 t_vec4			vec4_sqrt(const t_vec4 a);
 t_vec4			vec4_square(const t_vec4 a);
+float			vec4_dot(const t_vec4 a, const t_vec4 b);
+float			vec4_mod(const t_vec4 a);
+float			vec4_mod2(const t_vec4 a);
+t_vec4			vec4_cross(const t_vec4 a, const t_vec4 b);
 
 /*
 **	##################### other ####################
