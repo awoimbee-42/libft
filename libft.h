@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/12 16:07:11 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/13 03:55:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdint.h>
 # include <inttypes.h>
+# include <x86intrin.h>
 
 # define GNL_BUFF_SIZE 300
 # define GNL_FLUSH (char**)INTPTR_MAX
@@ -37,6 +38,18 @@ typedef struct	s_queue
 	int				size;
 	t_queued		*arr;
 }				t_queue;
+
+typedef union	u_vec4
+{
+	struct
+	{
+		float		x;
+		float		y;
+		float		z;
+		float		w;
+	};
+	__m128			sse;
+}				t_vec4;
 
 /*
 **	#################### LIBMEM ####################
@@ -157,6 +170,27 @@ t_queue			*que_new(size_t len);
 void			que_destroy(t_queue *que);
 void			que_disp(const t_queue *que);
 int				que_isempty(const t_queue *que);
+
+/*
+**	##################### T_VEC4 ##################
+*/
+t_vec4			vec4_newf(const float f);
+t_vec4			vec4_newv(const float x, const float y, const float z, const float w);
+t_vec4			vec4_newa(const float f[4]);
+t_vec4			vec4_newzero(void);
+t_vec4			vec4_newnan(void);
+t_vec4			vec4_add(const t_vec4 a, const t_vec4 b);
+t_vec4			vec4_addf(const t_vec4 a, const float b);
+t_vec4			vec4_sub(const t_vec4 a, const t_vec4 b);
+t_vec4			vec4_subf(const t_vec4 a, const float b);
+t_vec4			vec4_fsub(const float a, const t_vec4 b);
+t_vec4			vec4_mul(const t_vec4 a, const t_vec4 b);
+t_vec4			vec4_mulf(const t_vec4 a, const float b);
+t_vec4			vec4_div(const t_vec4 a, const t_vec4 b);
+t_vec4			vec4_divf(const t_vec4 a, const float b);
+t_vec4			vec4_abs(const t_vec4 a);
+t_vec4			vec4_sqrt(const t_vec4 a);
+t_vec4			vec4_square(const t_vec4 a);
 
 /*
 **	##################### other ####################

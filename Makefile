@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/04/11 15:10:14 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/04/13 04:01:59 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -fno-builtin
+CFLAGS = -Wall -Wextra -Werror -Ofast -march=native -fno-builtin -ftree-vectorize -fstrict-aliasing
 
 SRCS_CHAR =	ft_isalnum.c		ft_isascii.c		ft_isprint.c		\
 			ft_isalpha.c		ft_isdigit.c		ft_tolower.c		\
@@ -56,6 +56,9 @@ SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
 SRCS_QUE =	create_destroy.c	disp.c				isempty.c			\
 			push_pop.c			realloc.c
 
+SRCS_VEC4 =	new.c				addition.c			multiplication.c	\
+			arithmetic.c
+
 SRCS_OTHER = msg_exit.c
 
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
@@ -66,12 +69,13 @@ SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
 			$(addprefix ft_prtf/, $(SRCS_PRTF))		\
 			$(addprefix t_lst/,   $(SRCS_LST))		\
 			$(addprefix t_queue/, $(SRCS_QUE))		\
+			$(addprefix t_vec4/, $(SRCS_VEC4))		\
 			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
-OBJ_DIRS = libchar libfd libmem libnb libstr ft_prtf t_lst t_queue
+OBJ_DIRS = libchar libfd libmem libnb libstr ft_prtf t_lst t_queue t_vec4
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
@@ -81,6 +85,9 @@ CFLAGS += -I./
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	CFLAGS += -Wno-unused-result
+	NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
+else ifeq ($(UNAME_S),Darwin)
+	NUMPROC := $(shell sysctl hw.ncpu | awk '{print $$2}')
 endif
 ################################################################################
 
@@ -114,7 +121,7 @@ fclean	:	clean
 	@printf "\033[0;31m$(NAME), $(NAME:.a=.so) removed$(EOC)\n"
 
 re	:	fclean
-	@make -j -s
+	@make -s -j$(NUMPROC)
 
 .PHONY: all so clean fclean re flowchart
 
