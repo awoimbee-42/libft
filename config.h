@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 14:51:47 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 18:31:31 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/04/12 15:53:50 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/04/12 16:29:38 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#ifndef LIBFT_CONFIG_H
+# define LIBFT_CONFIG_H
+# include <stdint.h>
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
-{
-	if (alst && *alst && del)
-	{
-		(*del)((*alst)->content, (*alst)->content_size);
-		free(*alst);
-		*alst = NULL;
-	}
-}
+typedef uint32_t	t_queued;
+typedef void		t_listed;
+
+#endif

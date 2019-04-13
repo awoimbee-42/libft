@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   isempty.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 01:38:58 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/10 13:30:49 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/04/11 14:57:27 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/04/11 15:07:06 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl(char const *s)
+int			que_isempty(const t_queue *que)
 {
-	if (!s)
-		return ;
-	write(STDOUT_FILENO, s, ft_strlen(s));
-	write(STDOUT_FILENO, "\n", 1);
+	if (que->start == -1)
+		return (1);
+	return (0);
 }

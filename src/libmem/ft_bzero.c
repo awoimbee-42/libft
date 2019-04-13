@@ -6,34 +6,37 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/02/17 18:37:35 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/13 02:30:16 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdint.h>
 
+/*
+**	ffs I would like to use __m256i from x86intrin.h
+*/
+
 void	ft_bzero(void *s, size_t n)
 {
-	s = s + n;
 	while (n >= sizeof(__uint128_t))
 	{
 		n -= sizeof(__uint128_t);
-		s -= sizeof(__uint128_t);
 		*(__uint128_t*)(s) = 0;
+		s += sizeof(__uint128_t);
 	}
-	while (n >= sizeof(long long))
+	while (n >= sizeof(uint64_t))
 	{
-		n -= sizeof(long long);
-		s -= sizeof(long long);
-		*(unsigned long long*)(s) = 0;
+		n -= sizeof(uint64_t);
+		*(uint64_t*)(s) = 0;
+		s += sizeof(uint64_t);
 	}
-	while (n >= sizeof(short))
+	while (n >= sizeof(uint16_t))
 	{
-		n -= sizeof(short);
-		s -= sizeof(short);
-		*(unsigned short*)(s) = 0;
+		n -= sizeof(uint16_t);
+		*(uint16_t*)(s) = 0;
+		s += sizeof(uint16_t);
 	}
 	if (n > 0)
-		*(char*)--s = 0;
+		*(char*)s = 0;
 }

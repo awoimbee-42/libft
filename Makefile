@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/02/27 21:21:12 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/04/11 15:10:14 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,6 @@ SRCS_CHAR =	ft_isalnum.c		ft_isascii.c		ft_isprint.c		\
 SRCS_FD =	ft_putchar.c		ft_putendl_fd.c		ft_putstr.c			\
 			ft_putchar_fd.c		ft_putnbr.c			ft_putstr_fd.c		\
 			ft_putendl.c		ft_putnbr_fd.c		get_next_line.c
-
-SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
-			ft_lst_at.c			ft_lst_free_link.c	ft_lstnew.c			\
-			ft_lstdel.c			ft_lstiter.c		ft_lst_push_back.c
 
 SRCS_MEM =	ft_bzero.c			ft_memchr.c			ft_memdel.c			\
 			ft_memalloc.c		ft_memcmp.c			ft_memmove.c		\
@@ -53,21 +49,29 @@ SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
 			ft_flag_f.c			join_arg.c			u_itoa_base.c		\
 			ft_flag_r.c			lib0.c				ft_printf.c
 
+SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
+			ft_lst_at.c			ft_lst_free_link.c	ft_lstnew.c			\
+			ft_lstdel.c			ft_lstiter.c		ft_lst_push_back.c
+
+SRCS_QUE =	create_destroy.c	disp.c				isempty.c			\
+			push_pop.c			realloc.c
+
 SRCS_OTHER = msg_exit.c
 
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
 			$(addprefix libfd/,   $(SRCS_FD))		\
-			$(addprefix liblst/,  $(SRCS_LST))		\
 			$(addprefix libmem/,  $(SRCS_MEM))		\
 			$(addprefix libnb/,   $(SRCS_NB))		\
 			$(addprefix libstr/,  $(SRCS_STR))		\
 			$(addprefix ft_prtf/, $(SRCS_PRTF))		\
+			$(addprefix t_lst/,   $(SRCS_LST))		\
+			$(addprefix t_queue/, $(SRCS_QUE))		\
 			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
-OBJ_DIRS = libchar libfd liblst libmem libnb libstr ft_prtf
+OBJ_DIRS = libchar libfd libmem libnb libstr ft_prtf t_lst t_queue
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))

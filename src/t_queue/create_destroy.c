@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   create_destroy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 14:55:47 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:20:09 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/04/11 14:40:12 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/04/11 15:11:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+t_queue		*que_new(size_t len)
 {
-	t_list	*next;
+	t_queue		*que;
 
-	while ((next = (*alst)->next))
-	{
-		ft_lstdelone(&*alst, del);
-		free(*alst);
-		*alst = next;
-	}
-	ft_lstdelone(&*alst, del);
-	free(*alst);
-	*alst = NULL;
+	if (!(que = malloc(sizeof(t_queue)))
+		|| !(que->arr = malloc(len * sizeof(t_queued))))
+		return (NULL);
+	que->start = -1;
+	que->end = -1;
+	que->size = len;
+	return (que);
+}
+
+void		que_destroy(t_queue *que)
+{
+	free(que->arr);
+	free(que);
 }
