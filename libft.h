@@ -6,13 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/13 04:36:33 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/19 12:14:18 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include "config.h"
 # include <string.h>
 # include <stdint.h>
 # include <inttypes.h>
@@ -24,6 +23,9 @@
 /*
 **	################ INTRISICS ################
 */
+typedef uint32_t	t_queued;
+typedef void		t_listed;
+
 typedef struct	s_list
 {
 	t_listed		*content;
@@ -43,12 +45,12 @@ typedef union	u_vec4
 {
 	struct
 	{
-		float		x;
-		float		y;
-		float		z;
-		float		w;
-	};
-	__m128			sse;
+		float	x;
+		float	y;
+		float	z;
+		float	w;
+	}				flt;
+	__m128			sse __attribute__((aligned(16)));
 }				t_vec4;
 
 /*
@@ -175,8 +177,10 @@ int				que_isempty(const t_queue *que);
 **	##################### T_VEC4 ##################
 */
 t_vec4			vec4_newf(const float f);
-t_vec4			vec4_newv(const float x, const float y, const float z, const float w);
+t_vec4			vec4_newv(const float x, const float y, const float z,
+	const float w);
 t_vec4			vec4_newa(const float f[4]);
+t_vec4			vec4_newa3(const float f[3], float w);
 t_vec4			vec4_newzero(void);
 t_vec4			vec4_newnan(void);
 t_vec4			vec4_add(const t_vec4 a, const t_vec4 b);
@@ -195,6 +199,9 @@ float			vec4_dot(const t_vec4 a, const t_vec4 b);
 float			vec4_mod(const t_vec4 a);
 float			vec4_mod2(const t_vec4 a);
 t_vec4			vec4_cross(const t_vec4 a, const t_vec4 b);
+t_vec4			vec4_matmul(const t_vec4 mat[4], const t_vec4 vec);
+void			vec4_newmat_aa(t_vec4 mat[4], const float f[4][4]);
+void			vec4_newmat_a(t_vec4 mat[4], const float f[16]);
 
 /*
 **	##################### other ####################

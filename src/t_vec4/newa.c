@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   newa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 15:53:50 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/12 16:29:38 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/04/19 12:07:38 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/04/19 12:14:02 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_CONFIG_H
-# define LIBFT_CONFIG_H
-# include <stdint.h>
+#include "libft.h"
 
-typedef uint32_t	t_queued;
-typedef void		t_listed;
+t_vec4		vec4_newa(const float f[4])
+{
+	return ((t_vec4)_mm_load_ps(f));
+}
 
-#endif
+/*
+**	This is just here to make creating vec4 from flt3 easier
+*/
+
+t_vec4		vec4_newa3(const float f[3], float w)
+{
+	return (vec4_newv(f[0], f[1], f[2], w));
+}
