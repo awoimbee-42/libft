@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 19:43:44 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 19:48:27 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ typedef struct	s_queue
 	int				size;
 	t_queued		*arr;
 }				t_queue;
+
+typedef union	u_vec4
+{
+	struct
+	{
+		float	x;
+		float	y;
+		float	z;
+		float	w;
+	}				flt;
+	__m128			sse __attribute__((aligned(16)));
+}				t_vec4;
 
 /*
 **	#################### LIBMEM ####################
