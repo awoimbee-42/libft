@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 12:22:20 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:16:18 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:51:08 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strcat(char *dest, const char *src)
 {

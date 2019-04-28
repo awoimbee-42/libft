@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 12:33:32 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:16:36 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 05:49:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
 char	*ft_strncat(char *dest, const char *src, size_t n)
 {

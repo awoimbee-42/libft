@@ -6,11 +6,10 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:02:11 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/05 15:02:31 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:50:50 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
 char	*ft_stpcpy(char *dest, const char *src)
 {

@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:43:37 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:06:46 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:53:58 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char	*ft_strnew(size_t size)
 
 	if (!(s = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	ft_memset(s, '\0', size + 1);
+	ft_bzero(s, size + 1);
 	return (s);
 }

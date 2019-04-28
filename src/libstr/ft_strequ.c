@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 02:14:20 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:06:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:52:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_strequ(char const *s1, char const *s2)
 {

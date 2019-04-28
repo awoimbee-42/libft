@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:29:05 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/20 15:45:41 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:55:53 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void		ft_swap_int(int *a, int *b)
 {

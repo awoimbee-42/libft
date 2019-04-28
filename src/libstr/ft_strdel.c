@@ -6,12 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:20:00 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:06:25 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:51:46 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
 void	ft_strdel(char **as)
 {

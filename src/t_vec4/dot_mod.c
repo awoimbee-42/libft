@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 15:42:51 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/15 15:46:27 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:49:35 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "operators.h"
 #include <math.h>
 
 /*
@@ -18,7 +18,7 @@
 **	(thanks stackoverflow)
 */
 
-float		vec4_dot(const t_vec4 a, const t_vec4 b)
+static inline float		vec4_dot(const t_vec4 a, const t_vec4 b)
 {
 	__m128		mul;
 	__m128		shuf;
@@ -32,12 +32,12 @@ float		vec4_dot(const t_vec4 a, const t_vec4 b)
 	return (_mm_cvtss_f32(sums));
 }
 
-float		vec4_mod(const t_vec4 a)
+static inline float		vec4_mod(const t_vec4 a)
 {
 	return (sqrtf(vec4_dot(a, a)));
 }
 
-float		vec4_mod2(const t_vec4 a)
+static inline float		vec4_mod2(const t_vec4 a)
 {
 	return (vec4_dot(a, a));
 }
@@ -51,7 +51,7 @@ float		vec4_mod2(const t_vec4 a)
 **	return _mm_shuffle_ps(result, result, _MM_SHUFFLE(3, 0, 2, 1 ));
 */
 
-t_vec4		vec4_cross(const t_vec4 a, const t_vec4 b)
+static inline t_vec4		vec4_cross(const t_vec4 a, const t_vec4 b)
 {
 	__m128		res;
 

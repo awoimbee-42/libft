@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 12:54:33 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:17:58 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:54:27 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 static int	is_found(const char *haystack, const char *needle)
 {

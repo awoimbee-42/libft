@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 14:06:38 by allespag          #+#    #+#             */
-/*   Updated: 2019/01/02 00:54:14 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/25 17:21:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,20 @@ static char		*double_to_str(char *str, long double n, t_arg *arg, int sign)
 	else if ((arg->option & FLAG_SPACE) && ++i)
 		str[0] = ' ';
 	curpow = 1;
-	tmp_n = n;
-	while ((tmp_n /= 10.) > 1.)
+	tmp_n = n * sign;
+	while ((tmp_n /= 10.) >= 1.)
 		curpow++;
 	while (curpow--)
 	{
 		tmp_n *= 10;
-		tmp = tmp_n * sign;
+		tmp = tmp_n;
 		str[i++] = (tmp) + '0';
 		tmp_n -= tmp;
 	}
 	return (after_comma(str, i + 1, n, arg));
 }
 
-int				count_ldbl_digit(long double n)
+static int		count_ldbl_digit(long double n)
 {
 	int		ret;
 
@@ -112,7 +112,7 @@ char			*prtf__itoa_double(long double n, t_arg *arg)
 	while (i++ <= arg->precis)
 		n *= 10;
 	i = 0;
-	if (ft_abs((long)n % 10) >= 5)
+	if (ft_labs((long)n % 10) >= 5)
 		tmp = 1;
 	n /= 10.L;
 	i++;

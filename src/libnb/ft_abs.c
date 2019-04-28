@@ -6,11 +6,16 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 15:46:14 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/06 15:46:36 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/25 17:11:27 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_abs(int i)
+{
+	return (i < 0 ? -i : i);
+}
+
+long	ft_labs(long i)
 {
 	return (i < 0 ? -i : i);
 }

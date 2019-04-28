@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 15:33:19 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/22 15:34:19 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:55:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_atoi_mv(char **nptr)
 {

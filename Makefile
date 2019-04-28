@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/04/19 12:14:53 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/04/28 05:57:20 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-CFLAGS = -Wall -Wextra -Werror -g3# -Ofast -march=native -fno-builtin -ftree-vectorize -fstrict-aliasing
+CFLAGS = -march=native -Wall -Wextra -Werror -Ofast -fno-builtin -ftree-vectorize -fstrict-aliasing
 
 SRCS_CHAR =	ft_isalnum.c		ft_isascii.c		ft_isprint.c		\
 			ft_isalpha.c		ft_isdigit.c		ft_tolower.c		\
@@ -55,11 +55,6 @@ SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
 
 SRCS_QUE =	create_destroy.c	disp.c				isempty.c			\
 			push_pop.c			realloc.c
-
-SRCS_VEC4 =	new.c				addition.c			multiplication.c	\
-			newa.c				abs_sqr_sqrt.c		dot_mod.c			\
-			mat4.c
-
 
 SRCS_OTHER = msg_exit.c
 

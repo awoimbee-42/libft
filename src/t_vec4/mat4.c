@@ -6,17 +6,17 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 15:35:20 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/19 12:15:44 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:49:47 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "operators.h"
 
 /*
 **	Here the matrix is defined by 4 vec4, each representing a row.
 */
 
-t_vec4		vec4_matmul(const t_vec4 mat[4], const t_vec4 vec)
+static inline t_vec4		vec4_matmul(const t_vec4 mat[4], const t_vec4 vec)
 {
 	return (vec4_newv(
 			vec4_dot(mat[0], vec),
@@ -25,7 +25,7 @@ t_vec4		vec4_matmul(const t_vec4 mat[4], const t_vec4 vec)
 			vec4_dot(mat[3], vec)));
 }
 
-void		vec4_newmat_aa(t_vec4 mat[4], const float f[4][4])
+static inline void		vec4_newmat_aa(t_vec4 mat[4], const float f[4][4])
 {
 	int		i;
 
@@ -34,7 +34,7 @@ void		vec4_newmat_aa(t_vec4 mat[4], const float f[4][4])
 		mat[i] = vec4_newa(f[i]);
 }
 
-void		vec4_newmat_a(t_vec4 mat[4], const float f[16])
+static inline void		vec4_newmat_a(t_vec4 mat[4], const float f[16])
 {
 	mat[0] = vec4_newa(&f[0]);
 	mat[1] = vec4_newa(&f[4]);

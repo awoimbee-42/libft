@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 13:04:05 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/14 11:26:22 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 05:49:18 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
 static int	is_found(const char *s1, const char *s2, size_t n)
 {
@@ -35,5 +35,5 @@ char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 		++s1;
 		--n;
 	}
-	return (NULL);
+	return (0);
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   type.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 12:01:44 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 04:51:37 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/04/28 04:18:51 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/04/28 04:19:23 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, const char *src)
-{
-	char *srccpy;
+#ifndef VEC4_TYPE_H
+# define VEC4_TYPE_H
 
-	srccpy = dest;
-	while (*src != '\0')
+typedef union	u_vec4
+{
+	struct
 	{
-		*dest = *src;
-		++dest;
-		++src;
-	}
-	*dest = *src;
-	return (srccpy);
-}
+		float	x;
+		float	y;
+		float	z;
+		float	w;
+	}				flt;
+	__m128			sse __attribute__((aligned(16)));
+}				t_vec4;
+
+#endif

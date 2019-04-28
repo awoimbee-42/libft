@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 19:05:51 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/04 19:06:19 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:54:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strrev(char *str)
 {

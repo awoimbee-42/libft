@@ -6,25 +6,20 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/13 02:30:16 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 06:10:29 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdint.h>
+#include <x86intrin.h>
 
 /*
-**	ffs I would like to use __m256i from x86intrin.h
+**	My laptop doesnt support AVX :))))
 */
 
-void	ft_bzero(void *s, size_t n)
+static void		scalar_bzero(void *s, size_t n)
 {
-	while (n >= sizeof(__uint128_t))
-	{
-		n -= sizeof(__uint128_t);
-		*(__uint128_t*)(s) = 0;
-		s += sizeof(__uint128_t);
-	}
 	while (n >= sizeof(uint64_t))
 	{
 		n -= sizeof(uint64_t);
@@ -39,4 +34,56 @@ void	ft_bzero(void *s, size_t n)
 	}
 	if (n > 0)
 		*(char*)s = 0;
+}
+
+static void		avx_bzero(void *s, size_t n)
+{
+	size_t		padd;
+
+	if ((padd = (uintptr_t)s % 32U) != 0)
+	{
+		scalar_bzero(s, padd);
+		s += padd;
+		n -= padd;
+	}
+	s = __builtin_assume_aligned(s, 32);
+	while (n >= sizeof(__m256i))
+	{
+		*(__m256i*)s = _mm256_setzero_si256();
+		s += sizeof(__m256i);
+		n -= sizeof(__m256i);
+	}
+	scalar_bzero(s, n);
+}
+
+static void		sse_bzero(void *s, size_t n)
+{
+	size_t		padd;
+
+	if ((padd = (uintptr_t)s % 16U) != 0)
+	{
+		scalar_bzero(s, padd);
+		s += padd;
+		n -= padd;
+	}
+	while (n >= sizeof(__m128i))
+	{
+		s = __builtin_assume_aligned(s, 16);
+		*(__m128i*)s =_mm_setzero_si128();
+		s += sizeof(__m128i);
+		n -= sizeof(__m128i);
+	}
+	scalar_bzero(s, n);
+}
+
+void			ft_bzero(void *s, size_t n)
+{
+
+	if (__AVX__ && n >= sizeof(__m256i_u) * 2)
+		avx_bzero(s, n);
+	if (n >= sizeof(__m128i) * 2)
+		sse_bzero(s, n);
+	else
+		scalar_bzero(s, n);
+
 }

@@ -6,11 +6,10 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 20:57:23 by exam              #+#    #+#             */
-/*   Updated: 2018/12/04 15:48:36 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 04:55:39 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
 
 static char	*f_strrev(char *str)
