@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 03:25:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 04:49:24 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 19:28:31 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operators.h"
+#include "libft.h"
 
 static inline t_vec4		vec4_add(const t_vec4 a, const t_vec4 b)
 {

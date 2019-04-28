@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 15:42:51 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 04:49:35 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 19:30:07 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operators.h"
+#include "libft.h"
 #include <math.h>
 
 /*
@@ -51,7 +51,7 @@ static inline float		vec4_mod2(const t_vec4 a)
 **	return _mm_shuffle_ps(result, result, _MM_SHUFFLE(3, 0, 2, 1 ));
 */
 
-static inline t_vec4		vec4_cross(const t_vec4 a, const t_vec4 b)
+static inline t_vec4	vec4_cross(const t_vec4 a, const t_vec4 b)
 {
 	__m128		res;
 

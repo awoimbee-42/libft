@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 06:10:29 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 17:34:43 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdint.h>
 #include <x86intrin.h>
+#include <avxintrin.h>
 
 /*
 **	My laptop doesnt support AVX :))))
@@ -69,7 +70,7 @@ static void		sse_bzero(void *s, size_t n)
 	while (n >= sizeof(__m128i))
 	{
 		s = __builtin_assume_aligned(s, 16);
-		*(__m128i*)s =_mm_setzero_si128();
+		*(__m128i*)s = _mm_setzero_si128();
 		s += sizeof(__m128i);
 		n -= sizeof(__m128i);
 	}
@@ -78,12 +79,10 @@ static void		sse_bzero(void *s, size_t n)
 
 void			ft_bzero(void *s, size_t n)
 {
-
-	if (__AVX__ && n >= sizeof(__m256i_u) * 2)
+	if (LFT_AVX && n >= sizeof(__m256i) * 2)
 		avx_bzero(s, n);
-	if (n >= sizeof(__m128i) * 2)
+	if (!LFT_AVX && n >= sizeof(__m128i) * 2)
 		sse_bzero(s, n);
 	else
 		scalar_bzero(s, n);
-
 }

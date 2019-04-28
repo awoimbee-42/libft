@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 03:32:58 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 04:49:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 19:28:52 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operators.h"
+#include "libft.h"
 
 static inline t_vec4		vec4_mul(const t_vec4 a, const t_vec4 b)
 {

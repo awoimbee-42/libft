@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/04/28 05:57:20 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/04/28 19:40:19 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,10 @@ SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
 SRCS_QUE =	create_destroy.c	disp.c				isempty.c			\
 			push_pop.c			realloc.c
 
+SRCS_VEC4 =	new.c				addition.c			multiplication.c	\
+			newa.c				abs_sqr_sqrt.c		dot_mod.c			\
+			mat4.c
+
 SRCS_OTHER = msg_exit.c
 
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
@@ -66,13 +70,17 @@ SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
 			$(addprefix ft_prtf/, $(SRCS_PRTF))		\
 			$(addprefix t_lst/,   $(SRCS_LST))		\
 			$(addprefix t_queue/, $(SRCS_QUE))		\
-			$(addprefix t_vec4/, $(SRCS_VEC4))		\
 			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
 OBJ_DIRS = libchar libfd libmem libnb libstr ft_prtf t_lst t_queue t_vec4
+
+################################################################################
+TV4SRCSED=src\/t_vec4\/
+V4I=\/*—**	V4IN—*\/—\# include "$(TV4SRCSED)new.c"—\# include "$(TV4SRCSED)newa.c"—\# include "$(TV4SRCSED)multiplication.c"—\# include "$(TV4SRCSED)abs_sqr_sqrt.c"—\# include "$(TV4SRCSED)addition.c"—\# include "$(TV4SRCSED)dot_mod.c"—\# include "$(TV4SRCSED)mat4.c"—\/*—**	V4ON—*\/—
+U_V4I=\/*—**	VEC4I—*\/—
 
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
@@ -96,6 +104,7 @@ $(OBJ_PATH)	:
 	@printf "$(GRN)Compiling with \"$(CFLAGS)\" :$(EOC)\n"
 
 $(NAME)	: $(OBJS)
+	@cat libft.h | sed -n '1h;1!H;$${;g;s/\/\*\n\*\*	VEC4I\n\*\/\n/$(V4I)/p;}' | tr '—' '\n' > libft.h.b && if [ -s "libft.h.b" ]; then mv libft.h.b libft.h; else rm libft.h.b; fi
 	@printf "$(GRN)%-50s$(EOC)\n" "Compilation done"
 	@ar -rcs $(NAME) $(OBJS)
 	@printf "$(GRN)%-50s$(EOC)\n" "$(NAME) done"
@@ -113,6 +122,7 @@ clean	:
 	@printf "$(RED)./$(OBJ_PATH) cleaned$(EOC)\n"
 
 fclean	:	clean
+	@cat libft.h | sed -n '1h;1!H;$${;g;s/\/\*\n\*\*	V4IN\n\*\/\n.*\/\*\n\*\*	V4ON\n\*\/\n/$(U_V4I)/p;}' | tr '—' '\n' > libft.h.b && if [ -s "./libft.h.b" ]; then mv libft.h.b libft.h; else rm libft.h.b; fi
 	@rm -f $(NAME)
 	@rm -f $(NAME:.a=.so)
 	@printf "\033[0;31m$(NAME), $(NAME:.a=.so) removed$(EOC)\n"

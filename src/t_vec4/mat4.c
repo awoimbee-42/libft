@@ -6,17 +6,17 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 15:35:20 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 04:49:47 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/28 19:29:58 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operators.h"
+#include "libft.h"
 
 /*
 **	Here the matrix is defined by 4 vec4, each representing a row.
 */
 
-static inline t_vec4		vec4_matmul(const t_vec4 mat[4], const t_vec4 vec)
+static inline t_vec4	vec4_matmul(const t_vec4 mat[4], const t_vec4 vec)
 {
 	return (vec4_newv(
 			vec4_dot(mat[0], vec),
