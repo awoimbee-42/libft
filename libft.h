@@ -6,16 +6,15 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 19:48:27 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 00:16:40 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# include <stdint.h>
-# include <inttypes.h>
-# include <x86intrin.h>
+# include "types.h"
+# include "libft.gen"
 
 # ifdef __AVX__
 #  define LFT_AVX 1
@@ -25,39 +24,6 @@
 
 # define GNL_BUFF_SIZE 300
 # define GNL_FLUSH (char**)INTPTR_MAX
-
-/*
-**	################ INTRISICS ################
-*/
-typedef uint32_t	t_queued;
-typedef void		t_listed;
-
-typedef struct	s_list
-{
-	t_listed		*content;
-	size_t			content_size;
-	struct s_list	*next;
-}				t_list;
-
-typedef struct	s_queue
-{
-	int				start;
-	int				end;
-	int				size;
-	t_queued		*arr;
-}				t_queue;
-
-typedef union	u_vec4
-{
-	struct
-	{
-		float	x;
-		float	y;
-		float	z;
-		float	w;
-	}				flt;
-	__m128			sse __attribute__((aligned(16)));
-}				t_vec4;
 
 /*
 **	#################### LIBMEM ####################
@@ -182,10 +148,6 @@ int				que_isempty(const t_queue *que);
 
 /*
 **	##################### T_VEC4 ##################
-*/
-
-/*
-**	VEC4I
 */
 
 /*
