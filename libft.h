@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/30 02:11:43 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 19:36:14 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,14 @@ int				que_isempty(const t_queue *que);
 **	void			vec4_newmat_aa(t_vec4 mat[4], const float f[4][4]);
 **	void			vec4_newmat_a(t_vec4 mat[4], const float f[16]);
 */
+
+/*
+**	T_VECTOR
+*/
+t_vector		*vector_init(t_vector *vec, const size_t reserved_len);
+t_vector		*vector_push(t_vector *vec, t_vected d);
+t_vector		*vector_realloc(t_vector *vec);
+
 
 /*
 **	##################### other ####################
