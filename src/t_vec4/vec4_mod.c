@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newa.c                                             :+:      :+:    :+:   */
+/*   vec4_mod.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 12:07:38 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 19:28:59 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/04/30 02:27:07 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/04/30 02:46:53 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <math.h>
 
-static inline t_vec4		vec4_newa(const float f[4])
+static inline float		vec4_mod(const t_vec4 a)
 {
-	return ((t_vec4)_mm_load_ps(f));
+	return (sqrtf(vec4_dot(a, a)));
 }
 
-/*
-**	This is just here to make creating vec4 from flt3 easier
-*/
-
-static inline t_vec4		vec4_newa3(const float f[3], float w)
+static inline float		vec4_mod2(const t_vec4 a)
 {
-	return (vec4_newv(f[0], f[1], f[2], w));
+	return (vec4_dot(a, a));
 }

@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/04/30 00:16:22 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/04/30 03:26:45 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,9 +56,11 @@ SRCS_LST =	ft_lstadd.c			ft_lstdelone.c		ft_lstmap.c			\
 SRCS_QUE =	create_destroy.c	disp.c				isempty.c			\
 			push_pop.c			realloc.c
 
-SRCS_VEC4 =	new.c				addition.c			multiplication.c	\
-			newa.c				abs_sqr_sqrt.c		dot_mod.c			\
-			mat4.c
+SRCS_VEC4 =	vec4_new.c			vec4_newa.c			vec4_div.c			\
+			vec4_add_sub.c		vec4_mul.c			vec4_abs_sqr.c		\
+			vec4_dot.c			vec4_mod.c								\
+			vec4_cross.c		vec4_mat.c								\
+
 
 SRCS_OTHER = msg_exit.c
 
@@ -78,13 +80,6 @@ OBJ_PATH = obj
 OBJ_DIRS = libchar libfd libmem libnb libstr ft_prtf t_lst t_queue t_vec4
 
 ################################################################################
-TV4SRCSED=src\/t_vec4\/
-V4I=\/*\n**	V4IN\n*\/\n\# include "$(TV4SRCSED)new.c"\n\# include "$(TV4SRCSED)newa.c"\n\# include "$(TV4SRCSED)multiplication.c"\n\# include "$(TV4SRCSED)abs_sqr_sqrt.c"\n\# include "$(TV4SRCSED)addition.c"\n\# include "$(TV4SRCSED)dot_mod.c"\n\# include "$(TV4SRCSED)mat4.c"\n\/*\n**	V4ON\n*\/\n
-U_V4I=\/*—**	VEC4I—*\/—
-
-# SRCS_VEC4
-# INC_VEC4 = $(addprefix \# include ",$(addsuffix $(SRCS_VEC4),"\n))
-
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
@@ -100,6 +95,9 @@ endif
 ################################################################################
 
 all	: $(NAME)
+
+fast :
+	@make -s -j$(NUMPROC)
 
 gen :
 	@printf "$(foreach cfile,$(SRCS_VEC4),$(addprefix \n# include \"src/t_vec4/,$(addsuffix \",$(cfile))))" > libft.gen
@@ -127,19 +125,19 @@ clean	:
 	@printf "$(RED)./$(OBJ_PATH) cleaned$(EOC)\n"
 
 fclean	:	clean
-	@rm libft.gen
+	@rm -f libft.gen
 	@rm -f $(NAME)
 	@rm -f $(NAME:.a=.so)
-	@printf "\033[0;31m$(NAME), $(NAME:.a=.so) removed$(EOC)\n"
+	@printf "\033[0;31m$(NAME), $(NAME:.a=.so) and libft.gen removed$(EOC)\n"
 
 re	:	fclean
 	@make -s -j$(NUMPROC)
 
-.PHONY: all so clean fclean re flowchart
-
 flowchart:
 	@printf "%s\n"	\
 	"drive.google.com/file/d/1WmQpjdGgEPmhxpchUW6tD26C3euBPtcL/view?usp=sharing"
+
+.PHONY: all fast gen so clean fclean re flowchart
 
 GRN =	\033[0;32m
 RED =	\033[0;31m

@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   types.h                                            :+:      :+:    :+:   */
+/*   intrisics.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/29 23:32:32 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:42:07 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_TYPES_H
-# define LFT_TYPES_H
+#ifndef LFT_INTRISICS_H
+# define LFT_INTRISICS_H
 # include <inttypes.h>
 # include <string.h>
 # include <x86intrin.h>
+
+# ifdef __AVX__
+#  define LFT_AVX 1
+#  else
+#  define LFT_AVX 0
+# endif
+
+# define GNL_BUFF_SIZE 300
+# define GNL_FLUSH (char**)INTPTR_MAX
 
 typedef uint32_t	t_queued;
 typedef void		t_listed;

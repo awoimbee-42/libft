@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 03:07:09 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 19:30:23 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:28:50 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 /*
 **	Hopefully this all gets inlined
 **		Please, dear gods of C programming, let the compler inline all of this
+**	It was not inlined. Not until now at least hehehe.
+**		(C compilers are good but not magical)
 */
 
 static inline t_vec4	vec4_newf(const float f)

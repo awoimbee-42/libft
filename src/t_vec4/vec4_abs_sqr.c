@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   abs_sqr_sqrt.c                                     :+:      :+:    :+:   */
+/*   vec4_abs_sqr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 03:40:08 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 19:28:39 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:31:56 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*
-**	god damn, not being able to use preproc if or SSE4/AVX SUCKS ASS
-*/
 
 /*
 **	Creates a mask that removes the sign bit

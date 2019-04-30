@@ -6,24 +6,15 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/30 00:16:40 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 02:11:43 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# include "types.h"
+# include "intrisics.h"
 # include "libft.gen"
-
-# ifdef __AVX__
-#  define LFT_AVX 1
-# else
-#  define LFT_AVX 0
-# endif
-
-# define GNL_BUFF_SIZE 300
-# define GNL_FLUSH (char**)INTPTR_MAX
 
 /*
 **	#################### LIBMEM ####################
