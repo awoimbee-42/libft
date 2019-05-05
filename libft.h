@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 02:28:27 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 17:45:19 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ t_vector		*vector_del_at(t_vector *v, size_t at);
 **	T_GARBAGE (sortof garbage collector)
 */
 t_garbage	gb_init(void);
-void		__gb_fail(t_garbage *gb);
+void		intrin__gb_fail(t_garbage *gb);
 void		gb_freeall(t_garbage *gb);
 void		gb_free(t_garbage *gb, void *ptr);
 void		gb_remove(t_garbage *gb, void *freed);

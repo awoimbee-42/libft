@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 02:25:16 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/30 02:49:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 17:44:54 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static inline __m128	__sse2_dot(const t_vec4 a, const t_vec4 b)
+static inline __m128	intrin__sse2_dot(const t_vec4 a, const t_vec4 b)
 {
 	__m128		mul;
 	__m128		shuf;
@@ -31,7 +31,7 @@ static inline t_vec4	vec4_dotvec(const t_vec4 a, const t_vec4 b)
 	if (LFT_AVX)
 		return ((t_vec4)_mm_dp_ps(a.sse, b.sse, 0xff));
 	else
-		return ((t_vec4)__sse2_dot(a, b));
+		return ((t_vec4)intrin__sse2_dot(a, b));
 }
 
 static inline float		vec4_dot(const t_vec4 a, const t_vec4 b)

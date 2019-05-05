@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 21:16:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:20:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 17:44:34 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		*gb_add(t_garbage *gb, void *malloced)
 		if (!__builtin_expect((long)tmp, 1))
 		{
 			free(malloced);
-			__gb_fail(gb);
+			intrin__gb_fail(gb);
 		}
 		gb->pointers = tmp;
 	}

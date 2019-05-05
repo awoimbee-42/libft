@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/01 15:12:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 17:43:59 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include <stdint.h>
 #include <x86intrin.h>
 #include <avxintrin.h>
-
-/*
-**	My laptop doesnt support AVX :))))
-*/
 
 static void		scalar_bzero(void *s, size_t n)
 {
@@ -79,9 +75,9 @@ static void		sse_bzero(void *s, size_t n)
 
 void			ft_bzero(void *s, size_t n)
 {
-	if (LFT_AVX && n >= sizeof(__m256i) * 2)
+	if (LFT_AVX && n > sizeof(__m256i) + 16)
 		avx_bzero(s, n);
-	if (!LFT_AVX && n >= sizeof(__m128i) * 2)
+	if (!LFT_AVX && n > sizeof(__m128i) + 8)
 		sse_bzero(s, n);
 	else
 		scalar_bzero(s, n);
