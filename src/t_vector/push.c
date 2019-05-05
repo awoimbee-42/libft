@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 01:13:56 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/29 01:23:26 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 19:44:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,8 @@
 
 t_vector		*vector_push(t_vector *vec, t_vected d)
 {
-	if (vec->len >= vec->mem)
-	{
-		if (!vector_realloc(vec))
-			return (NULL);
-	}
+	if (vec->len == vec->mem && !vector_realloc(vec))
+		return (NULL);
 	vec->arr[vec->len++] = d;
 	return (vec);
 }

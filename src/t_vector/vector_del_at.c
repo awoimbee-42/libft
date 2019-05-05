@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   vector_del_at.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 01:49:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:15:11 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/03 19:05:48 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/03 19:58:59 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(char const *s, int fd)
+t_vector		*vector_del_at(t_vector *v, size_t at)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	if (at >= v->len)
+		return (NULL);
+	--v->len;
+	ft_memmove(&v->arr[at], &v->arr[at + 1], v->len - at);
+	return (v);
 }

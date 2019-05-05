@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/28 17:34:43 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/01 15:12:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ static void		avx_bzero(void *s, size_t n)
 		s += padd;
 		n -= padd;
 	}
-	s = __builtin_assume_aligned(s, 32);
 	while (n >= sizeof(__m256i))
 	{
+		s = __builtin_assume_aligned(s, 32);
 		*(__m256i*)s = _mm256_setzero_si256();
 		s += sizeof(__m256i);
 		n -= sizeof(__m256i);

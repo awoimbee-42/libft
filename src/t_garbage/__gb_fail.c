@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   __gb_fail.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 01:49:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:15:11 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/04 21:08:41 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/04 21:22:34 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putendl_fd(char const *s, int fd)
+void		__gb_fail(t_garbage *gb)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	write(STDERR_FILENO, "Memory allocation error, terminating cleanly.\n", 46);
+	gb_freeall(gb);
+	exit(EXIT_FAILURE);
 }

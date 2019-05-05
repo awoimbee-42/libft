@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   gb_freeall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 01:49:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:15:11 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/04 20:56:41 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/04 21:22:52 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(char const *s, int fd)
+void		gb_freeall(t_garbage *gb)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	size_t		i;
+
+	i = 0;
+	while (i < gb->arr_len)
+	{
+		free(gb->pointers[i]);
+		++i;
+	}
+	free(gb->pointers);
+	gb->arr_len = 0;
+	gb->mem_len = 0;
 }

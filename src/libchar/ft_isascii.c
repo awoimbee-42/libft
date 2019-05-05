@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:25:10 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/14 11:21:31 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 02:43:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_isascii(int c)
 {

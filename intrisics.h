@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/30 19:37:50 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/04 20:58:09 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 typedef uint32_t	t_queued;
 typedef void		t_listed;
-typedef void		t_vected;
+typedef int			t_vected;
 
 typedef struct	s_list
 {
@@ -62,5 +62,12 @@ typedef struct	s_vector
 	size_t			len;
 	size_t			mem;
 }				t_vector;
+
+typedef struct	s_garbage
+{
+	void			**pointers;
+	size_t			arr_len;
+	size_t			mem_len;
+}				t_garbage;
 
 #endif

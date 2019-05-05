@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   gb_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/28 01:49:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:15:11 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/04 20:44:45 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/05 03:21:07 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl_fd(char const *s, int fd)
+void		*gb_malloc(t_garbage *gb, size_t size)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	void		*tmp;
+
+	if (gb->arr_len == gb->mem_len)
+	{
+		gb->mem_len *= 2;
+		tmp = realloc(gb->pointers, gb->mem_len);
+		if (!__builtin_expect((long)tmp, 1))
+			__gb_fail(gb);
+		gb->pointers = tmp;
+	}
+	gb->pointers[gb->arr_len] = malloc(size);
+	if (!__builtin_expect((long)gb->pointers[gb->arr_len], 1))
+		__gb_fail(gb);
+	return (gb->pointers[gb->arr_len++]);
 }

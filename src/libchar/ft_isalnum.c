@@ -6,16 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:21:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:14:16 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 02:42:44 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int		ft_isalnum(int c)
 {
-	return (ft_isalpha(c) | ft_isdigit(c));
-	return (('a' <= c && c <= 'z') ||
-			('A' <= c && c <= 'Z') ||
-			('0' <= c && c <= '9'));
+	return ((96 < c && c < 123) || (64 < c && c < 91) || (47 < c && c < 58));
 }

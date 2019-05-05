@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 01:09:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/29 01:23:41 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/04/30 20:01:54 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_vector	*vector_init(t_vector *vec, const size_t reserved_len)
 {
 	vec->mem = reserved_len;
 	vec->len = 0;
-	if (!vec->arr = malloc(reserved_len * sizeof(t_vected)))
+	if (!(vec->arr = malloc(reserved_len * sizeof(t_vected))))
 		return (NULL);
 	return (vec);
 }

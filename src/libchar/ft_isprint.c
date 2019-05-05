@@ -6,11 +6,9 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:34:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:14:25 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 02:43:35 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_isprint(int c)
 {
