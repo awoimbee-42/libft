@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 01:17:54 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:14:13 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 03:32:06 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 **		inside the register.
 */
 
-size_t strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	register size_t	len;
 	__m128i			zero;
