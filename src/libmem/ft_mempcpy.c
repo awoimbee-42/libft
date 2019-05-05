@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 11:52:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:44:08 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 18:02:55 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,8 @@ static void	scalar_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
-	while ((uintptr_t)s % 32U != 0)
-	{
-		*(unsigned char*)d++ = *((unsigned char *)s++);
-		--n;
-	}
 	while (n >= sizeof(__m256i))
 	{
-		s = __builtin_assume_aligned(s, 32);
-		d = __builtin_assume_aligned(d, 32);
 		*(__m256i*)d = *(__m256i*)s;
 		s += sizeof(__m256i);
 		d += sizeof(__m256i);
@@ -56,15 +49,8 @@ static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
-	while ((uintptr_t)s % 16U != 0)
-	{
-		*(unsigned char*)d++ = *((unsigned char *)s++);
-		--n;
-	}
 	while (n >= sizeof(__m128i))
 	{
-		s = __builtin_assume_aligned(s, 32);
-		d = __builtin_assume_aligned(d, 32);
 		*(__m128i*)d = *(__m128i*)s;
 		s += sizeof(__m128i);
 		d += sizeof(__m128i);

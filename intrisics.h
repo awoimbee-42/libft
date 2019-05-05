@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/04 20:58:09 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 21:00:51 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 # ifdef __AVX__
 #  define LFT_AVX 1
-#  else
+# else
 #  define LFT_AVX 0
 # endif
 

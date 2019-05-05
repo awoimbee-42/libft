@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:45:19 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 20:39:53 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ char			*ft_strrev(char *str);
 int				ft_strcat_join(char **s1, char const *s2);
 char			*ft_stpcpy(char *dest, const char *src);
 int				ft_strncat_join(char **s1, char const *s2, size_t size);
+char			*ft_strndup(const char *s1, size_t maxlen);
 
 /*
 **	##################### LIBNB ####################
@@ -183,14 +184,15 @@ t_vector		*vector_del_at(t_vector *v, size_t at);
 /*
 **	T_GARBAGE (sortof garbage collector)
 */
-t_garbage	gb_init(void);
-void		intrin__gb_fail(t_garbage *gb);
-void		gb_freeall(t_garbage *gb);
-void		gb_free(t_garbage *gb, void *ptr);
-void		gb_remove(t_garbage *gb, void *freed);
-void		*gb_malloc(t_garbage *gb, size_t size);
-void		*gb_add(t_garbage *gb, void *malloced);
-void		gb_defrag(t_garbage *gb);
+t_garbage		gb_init(void);
+void			intrin__gb_fail(t_garbage *gb);
+void			gb_freeall(t_garbage *gb);
+void			gb_free(t_garbage *gb, void *ptr);
+void			gb_remove(t_garbage *gb, void *freed);
+void			*gb_malloc(t_garbage *gb, size_t size);
+void			*gb_add(t_garbage *gb, void *malloced);
+void			gb_defrag(t_garbage *gb);
+void			*gb_memalloc(t_garbage *gb, size_t size);
 
 /*
 **	##################### other ####################

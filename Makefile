@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/05/05 17:45:29 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/05/05 20:40:09 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRCS_STR =	ft_stpcpy.c			ft_striter.c		ft_strncpy.c		\
 			ft_strcpy.c			ft_strmapi.c		ft_strsplit.c		\
 			ft_strdel.c			ft_strncat.c		ft_strstr.c			\
 			ft_strdup.c			ft_strncat_join.c	ft_strsub.c			\
-			ft_strequ.c			ft_strncmp.c		ft_strtrim.c
+			ft_strequ.c			ft_strncmp.c		ft_strtrim.c		\
+			ft_strndup.c
 
 SRCS_PRTF =	fill_arg_struct.c	s_itoa_base.c		sub_hub.c			\
 			ft_flag_cs.c		ft_vprintf.c		text_decoration.c	\
@@ -66,7 +67,7 @@ SRCS_VECT =	new.c				push.c				realloc.c			\
 
 SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 			gb_free.c			gb_freeall.c		gb_init.c			\
-			gb_malloc.c			gb_remove.c
+			gb_malloc.c			gb_remove.c			gb_memalloc.c
 
 SRCS_OTHER = msg_exit.c
 

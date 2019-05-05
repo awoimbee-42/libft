@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 20:44:45 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:44:41 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/05 20:57:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		*gb_malloc(t_garbage *gb, size_t size)
 
 	if (gb->arr_len == gb->mem_len)
 	{
-		gb->mem_len *= 2;
+		gb->mem_len = gb->mem_len == 0 ? 10 : gb->mem_len * 2;
 		tmp = realloc(gb->pointers, gb->mem_len);
 		if (!__builtin_expect((long)tmp, 1))
 			intrin__gb_fail(gb);
