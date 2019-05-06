@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 23:16:37 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 03:42:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/06 14:50:23 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static inline double		parse_decimal(const char **nptr)
 		result += (double)(**nptr - 48) / i;
 		*nptr += 1;
 	}
-
 	return (result);
 }
 
@@ -71,7 +70,7 @@ double						ft_atof(const char *nptr)
 
 	result = 0;
 	sign = 1;
-    nptr = skip_whitespace(nptr);
+	nptr = skip_whitespace(nptr);
 	if (*nptr == '-' && ++nptr)
 		sign = -1;
 	else if (*nptr == '+')

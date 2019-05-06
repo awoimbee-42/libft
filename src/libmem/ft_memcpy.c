@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 03:00:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/06 14:49:31 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
-
 	while (n >= sizeof(__m128i))
 	{
 		*(__m128i*)d = _mm_loadu_si128(s);

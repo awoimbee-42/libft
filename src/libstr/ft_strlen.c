@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 01:17:54 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 02:39:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/06 14:49:53 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 **	Then we load the strings characters and apply a mask on them to check if
 **		one of them is 0 ('\0')
 **	If so we use __builtin_ctz() to find the position of this char
-**		inside the register.
+**		inside the register (int).
 **	/!\ This implementation works because malloc is aligned on 16 bytes !
-**	/!\ May cause segfault on older systems !!
+**		--> May cause segfault on older systems !!
+**	/!\ Valgrind Freaks out when ft_fast_strlen() is used on haswell or newer
+**		CPUs (because of BM1 I think)
 */
 
 static inline size_t	ft_slow_strlen(const char *s)
@@ -58,11 +60,10 @@ static inline size_t	ft_fast_strlen(const char *str)
 	return (str - str_save);
 }
 
-size_t	ft_strlen(const char *s)
+size_t					ft_strlen(const char *s)
 {
 	if (LFT_SSE2)
 		return (ft_fast_strlen(s));
 	else
 		return (ft_slow_strlen(s));
-
 }
