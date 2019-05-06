@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 21:00:51 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/06 02:27:21 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 #  define LFT_AVX 1
 # else
 #  define LFT_AVX 0
+# endif
+# ifdef __SSE2__
+#  define LFT_SSE2 1
+# else
+#  define LFT_SSE2 0
 # endif
 
 # define GNL_BUFF_SIZE 300

@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 18:02:39 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/06 03:00:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <avxintrin.h>
 
 /*
-**	memory alignement is not hte best but yolo
+**	I wonder what's faster between using loadu or
+**	 putting unaligned data in a tmp array and using load
 */
 
 static void	scalar_memcpy(void *restrict d, const void *restrict s, size_t n)
@@ -43,7 +44,7 @@ static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
 	while (n >= sizeof(__m256i))
 	{
-		*(__m256i*)d = *(__m256i*)s;
+		*(__m256i*)d = _mm256_loadu_si256(s);
 		s += sizeof(__m256i);
 		d += sizeof(__m256i);
 		n -= sizeof(__m256i);
@@ -53,9 +54,10 @@ static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
+
 	while (n >= sizeof(__m128i))
 	{
-		*(__m128i*)d = *(__m128i*)s;
+		*(__m128i*)d = _mm_loadu_si128(s);
 		s += sizeof(__m128i);
 		d += sizeof(__m128i);
 		n -= sizeof(__m128i);
@@ -65,9 +67,9 @@ static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 void		*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	if (LFT_AVX && n > sizeof(__m256i) * 2)
+	if (LFT_AVX && n > sizeof(__m256i))
 		avx_memcpy(dst, src, n);
-	else if (!LFT_AVX && n > sizeof(__m128i) * 2)
+	else if (LFT_SSE2 && n > sizeof(__m128i))
 		sse_memcpy(dst, src, n);
 	else
 		scalar_memcpy(dst, src, n);
