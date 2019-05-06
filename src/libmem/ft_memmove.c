@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:59:38 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/02/21 17:13:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:56:07 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ static void	rev_memcpy(void *d, const void *s, size_t len)
 	while (len >= sizeof(uint64_t))
 	{
 		len -= sizeof(uint64_t);
-		*(uint64_t*)(d + len) =
-			*(const uint64_t*)(s + len);
+		*(uint64_t*)(d + len) = *(const uint64_t*)(s + len);
 	}
 	while (len >= sizeof(uint16_t))
 	{
