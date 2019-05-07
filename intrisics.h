@@ -6,12 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 02:27:21 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/07 19:14:49 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LFT_INTRISICS_H
-# define LFT_INTRISICS_H
+#ifndef INTRISICS_H
+# define INTRISICS_H
 # include <inttypes.h>
 # include <string.h>
 # include <x86intrin.h>
@@ -27,7 +27,7 @@
 #  define LFT_SSE2 0
 # endif
 
-# define GNL_BUFF_SIZE 300
+# define GNL_BUFF_SIZE 32768
 # define GNL_FLUSH (char**)INTPTR_MAX
 
 typedef uint32_t	t_queued;

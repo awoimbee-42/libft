@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gb_free.c                                          :+:      :+:    :+:   */
+/*   gb_init_existing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 20:50:39 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 18:55:45 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/07 19:21:25 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/07 20:46:06 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-**	Segfault if ptr was not allocated through gb_malloc
-*/
-
-void		gb_free(t_garbage *gb, void *ptr)
+t_garbage		*gb_init_existing(t_garbage *gb)
 {
-	void		**i;
-	static int	fragmentation = 0;
-
-	i = gb->pointers;
-	while (*i != ptr)
-		++i;
-	free(*i);
-	*i = NULL;
-	++fragmentation;
-	if (fragmentation == 20)
-	{
-		gb_defrag(gb);
-		fragmentation = 0;
-	}
+	gb->pointers = ft_memalloc(10);
+	gb->arr_len = 0;
+	if (__builtin_expect((long)gb->pointers, 1))
+		gb->mem_len = 10;
+	else
+		gb->mem_len = 0;
+	return (gb);
 }

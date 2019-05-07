@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/05/05 20:40:09 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/05/07 20:25:43 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,8 @@ SRCS_VECT =	new.c				push.c				realloc.c			\
 
 SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 			gb_free.c			gb_freeall.c		gb_init.c			\
-			gb_malloc.c			gb_remove.c			gb_memalloc.c
+			gb_malloc.c			gb_remove.c			gb_memalloc.c		\
+			gb_init_existing.c	gb_realloc.c
 
 SRCS_OTHER = msg_exit.c
 

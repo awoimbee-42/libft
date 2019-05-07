@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gb_free.c                                          :+:      :+:    :+:   */
+/*   gb_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 20:50:39 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 18:55:45 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/07 18:36:14 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/07 20:46:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-/*
-**	Segfault if ptr was not allocated through gb_malloc
-*/
-
-void		gb_free(t_garbage *gb, void *ptr)
+void		*gb_realloc(t_garbage *gb, void *ptr, size_t new_size)
 {
-	void		**i;
-	static int	fragmentation = 0;
+	void	**i;
+	void	*tmp;
 
 	i = gb->pointers;
 	while (*i != ptr)
 		++i;
-	free(*i);
-	*i = NULL;
-	++fragmentation;
-	if (fragmentation == 20)
-	{
-		gb_defrag(gb);
-		fragmentation = 0;
-	}
+	tmp = realloc(ptr, new_size);
+	if (!__builtin_expect((long)tmp, 1))
+		intrin__gb_fail(gb);
+	*i = tmp;
+	return (tmp);
 }
