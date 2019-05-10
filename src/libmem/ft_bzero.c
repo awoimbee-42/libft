@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:43:59 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/07 20:56:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void		avx_bzero(void *s, size_t n)
 {
 	size_t		padd;
 
-	if ((padd = (uintptr_t)s % 32U) != 0)
+	if ((padd = 32U - (uintptr_t)s % 32U) != 0)
 	{
 		scalar_bzero(s, padd);
 		s += padd;
@@ -57,7 +57,7 @@ static void		sse_bzero(void *s, size_t n)
 {
 	size_t		padd;
 
-	if ((padd = (uintptr_t)s % 16U) != 0)
+	if ((padd = 16U - (uintptr_t)s % 16U) != 0)
 	{
 		scalar_bzero(s, padd);
 		s += padd;
@@ -75,9 +75,9 @@ static void		sse_bzero(void *s, size_t n)
 
 void			ft_bzero(void *s, size_t n)
 {
-	if (LFT_AVX && n > sizeof(__m256i) + 16)
+	if (LFT_AVX && n > sizeof(__m256i) * 2)
 		avx_bzero(s, n);
-	if (!LFT_AVX && n > sizeof(__m128i) + 8)
+	else if (LFT_SSE2 && n > sizeof(__m128i) * 2)
 		sse_bzero(s, n);
 	else
 		scalar_bzero(s, n);

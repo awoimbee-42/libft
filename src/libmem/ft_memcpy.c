@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 14:49:31 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/07 21:44:14 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,18 @@ static void	scalar_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
+	size_t		padd;
+
+	if ((padd = 32U - (uintptr_t)d % 32U) != 0)
+	{
+		scalar_memcpy(d, s, padd);
+		d += padd;
+		s += padd;
+		n -= padd;
+	}
 	while (n >= sizeof(__m256i))
 	{
+		d = __builtin_assume_aligned(d, 32);
 		*(__m256i*)d = _mm256_loadu_si256(s);
 		s += sizeof(__m256i);
 		d += sizeof(__m256i);
@@ -54,8 +64,18 @@ static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
+	size_t		padd;
+
+	if ((padd = 16U - (uintptr_t)d % 16U) != 0)
+	{
+		scalar_memcpy(d, s, padd);
+		d += padd;
+		s += padd;
+		n -= padd;
+	}
 	while (n >= sizeof(__m128i))
 	{
+		d = __builtin_assume_aligned(d, 16);
 		*(__m128i*)d = _mm_loadu_si128(s);
 		s += sizeof(__m128i);
 		d += sizeof(__m128i);
