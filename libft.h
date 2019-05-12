@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 22:25:49 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/12 18:23:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include <sys/types.h>
 # include "intrisics.h"
 # include "libft.gen"
 
@@ -82,6 +83,9 @@ long			ft_labs(long i);
 double			ft_atof(const char *nptr);
 double			ft_atof_mv(char **nptr);
 int				ft_atoi_mv(char **nptr);
+int				ft_maxint(int a, int b);
+long			ft_maxlong(long a, long b);
+uint			ft_maxuint(uint a, uint b);
 
 /*
 **	#################### LIBCHAR ###################
