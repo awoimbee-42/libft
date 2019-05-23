@@ -6,14 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/12 18:23:00 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/23 13:56:55 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
-# include <sys/types.h>
 # include "intrisics.h"
 # include "libft.gen"
 
@@ -29,6 +28,7 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
+void			ft_memfree(void *ap);
 void			*ft_mempcpy(void *dst, const void *src, size_t n);
 void			ft_mem64set(uint64_t *mem, uint64_t data, size_t memlen);
 void			ft_mem32set(uint32_t *mem, uint32_t data, size_t memlen);

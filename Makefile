@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/05/12 18:37:40 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/05/22 16:36:33 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS_FD =	ft_putchar.c		ft_putendl_fd.c		ft_putstr.c			\
 SRCS_MEM =	ft_bzero.c			ft_memchr.c			ft_memdel.c			\
 			ft_memalloc.c		ft_memcmp.c			ft_memmove.c		\
 			ft_memccpy.c		ft_memcpy.c			ft_memset.c			\
-			ft_mempcpy.c		ft_memnset.c
+			ft_mempcpy.c		ft_memnset.c		ft_memfree.c
 
 SRCS_NB =	ft_abs.c			ft_atoi.c			ft_itoa.c			\
 			ft_atoi_base.c		ft_itoa_base.c		ft_swap_int.c		\
@@ -60,7 +60,7 @@ SRCS_QUE =	create_destroy.c	disp.c				isempty.c			\
 SRCS_VEC4 =	vec4_new.c			vec4_newa.c			vec4_div.c			\
 			vec4_add_sub.c		vec4_mul.c			vec4_abs_sqr.c		\
 			vec4_dot.c			vec4_mod.c								\
-			vec4_cross.c		vec4_mat.c			vec4_norm.c
+			vec4_cross.c		vec4_mat.c
 
 SRCS_VECT =	new.c				push.c				realloc.c			\
 			vector_map.c		vector_del_at.c
@@ -110,7 +110,7 @@ fast :
 	@make -s -j$(NUMPROC)
 
 libft.gen :
-	@printf "$(foreach cfile,$(SRCS_VEC4),$(addprefix \n# include \"src/t_vec4/,$(addsuffix \",$(cfile))))" > libft.gen
+	@printf "$(foreach cfile,$(SRCS_VEC4),$(addprefix # include \"src/t_vec4/,$(addsuffix \"\n,$(cfile))))" > libft.gen
 
 $(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null

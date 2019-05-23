@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec4_abs_sqr.c                                     :+:      :+:    :+:   */
+/*   ft_memfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/13 03:40:08 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/21 00:18:38 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/05/22 16:34:03 by awoimbee          #+#    #+#             */
+/*   Updated: 2019/05/22 16:36:39 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 /*
-**	Creates a mask that removes the sign bit
+**	ft_memdel but with a generic pointer type (void*)
+**	Because using void** is so F*** DUMB, WTF 42
 */
 
-static inline t_vec4		vec4_abs(t_vec4 a)
+void	ft_memfree(void *ap)
 {
-	__m128		mask;
-
-	mask = _mm_castsi128_ps(_mm_set1_epi32(0x7FFFFFFF));
-	a.sse = _mm_and_ps(a.sse, mask);
-	return (a);
-}
-
-static inline t_vec4		vec4_sqrt(t_vec4 a)
-{
-	a.sse = _mm_sqrt_ps(a.sse);
-	return (a);
-}
-
-static inline t_vec4		vec4_square(t_vec4 a)
-{
-	return (vec4_mul(a, a));
+	if (!ap || !*((void**)ap))
+		return ;
+	free(*((void**)ap));
+	*((void**)ap) = NULL;
 }
