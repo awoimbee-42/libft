@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 21:44:14 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/24 14:02:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <avxintrin.h>
 
 /*
-**	I wonder what's faster between using loadu or
-**	 putting unaligned data in a tmp array and using load
+**	In scalar memcpy we try to use the native cpu register widths
+**	before falling back to using char to finish it off
 */
 
 static void	scalar_memcpy(void *restrict d, const void *restrict s, size_t n)
@@ -36,47 +36,18 @@ static void	scalar_memcpy(void *restrict d, const void *restrict s, size_t n)
 		s += sizeof(unsigned int);
 		n -= sizeof(unsigned int);
 	}
-	while (n-- > 0)
+	while (n > 0)
+	{
 		*(unsigned char*)d++ = *((unsigned char *)s++);
-}
-
-static void	avx_memcpy(void *restrict d, const void *restrict s, size_t n)
-{
-	size_t		padd;
-
-	if ((padd = 32U - (uintptr_t)d % 32U) != 0)
-	{
-		scalar_memcpy(d, s, padd);
-		d += padd;
-		s += padd;
-		n -= padd;
+		--n;
 	}
-	while (n >= sizeof(__m256i))
-	{
-		d = __builtin_assume_aligned(d, 32);
-		*(__m256i*)d = _mm256_loadu_si256(s);
-		s += sizeof(__m256i);
-		d += sizeof(__m256i);
-		n -= sizeof(__m256i);
-	}
-	scalar_memcpy(d, s, n);
 }
 
 static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
-	size_t		padd;
-
-	if ((padd = 16U - (uintptr_t)d % 16U) != 0)
-	{
-		scalar_memcpy(d, s, padd);
-		d += padd;
-		s += padd;
-		n -= padd;
-	}
 	while (n >= sizeof(__m128i))
 	{
-		d = __builtin_assume_aligned(d, 16);
-		*(__m128i*)d = _mm_loadu_si128(s);
+		_mm_storeu_si128((__m128i*)d, _mm_loadu_si128(s));
 		s += sizeof(__m128i);
 		d += sizeof(__m128i);
 		n -= sizeof(__m128i);
@@ -86,9 +57,7 @@ static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 
 void		*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	if (LFT_AVX && n > sizeof(__m256i))
-		avx_memcpy(dst, src, n);
-	else if (LFT_SSE2 && n > sizeof(__m128i))
+	if (LFT_SSE2)
 		sse_memcpy(dst, src, n);
 	else
 		scalar_memcpy(dst, src, n);

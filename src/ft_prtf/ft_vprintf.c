@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 16:27:44 by allespag          #+#    #+#             */
-/*   Updated: 2019/01/02 00:51:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/23 23:06:13 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static t_arg	*read_arg(const char **format)
 	{
 		arg->conv_typ = 1;
 		if (prtf__get_arg_option(arg, format)
-		&& prtf__get_arg_m_width(arg, format)
-		&& prtf__get_arg_precis(arg, format)
-		&& prtf__get_arg_size(arg, format)
-		&& prtf__get_arg_convtyp(arg, format))
-		{
+			&& prtf__get_arg_m_width(arg, format)
+			&& prtf__get_arg_precis(arg, format)
+			&& prtf__get_arg_size(arg, format)
+			&& prtf__get_arg_convtyp(arg, format))
 			return (arg);
-		}
 		if (arg->conv_typ == '%')
 			save = *format - 1;
 		free(arg);

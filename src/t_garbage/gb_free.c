@@ -6,14 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 20:50:39 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 18:55:45 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/23 16:37:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-**	Segfault if ptr was not allocated through gb_malloc
+**	Segfault if ptr is not inside gb
 */
 
 void		gb_free(t_garbage *gb, void *ptr)

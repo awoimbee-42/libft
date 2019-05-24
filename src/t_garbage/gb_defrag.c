@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 02:20:17 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:44:38 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/05/23 16:37:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 /*
 **	This function restructurates the garbage collectors array.
-**	It should be called if a lot of elements are freed and malloced
+**	It is automatically called by gb_free()
 */
 
 void		gb_defrag(t_garbage *gb)
 {
-	size_t		i;
-	size_t		nb_bad;
+	void		**end;
+	void		**it;
+	void		**it2;
 
-	i = 0;
-	while (i < gb->arr_len)
+	end = &gb->pointers[gb->arr_len];
+	it = gb->pointers;
+	while (it < end)
 	{
-		if (gb->pointers[i] == NULL)
+		if (*it == NULL)
 		{
-			nb_bad = 1;
-			while (gb->pointers[i + nb_bad] == NULL)
-				++nb_bad;
-			ft_mempcpy(&gb->pointers[i],
-				&gb->pointers[i + nb_bad],
-				nb_bad * sizeof(void*));
-			gb->arr_len -= nb_bad;
+			it2 = &it[1];
+			while (it2 != end && *it2 == NULL)
+				it2 = &it2[1];
+			ft_memcpy(it, it2, (end - it2) * sizeof(void**));
+			gb->arr_len -= (it2 - it);
+			end = &gb->pointers[gb->arr_len];
 		}
-		++i;
+		it = &it[1];
 	}
 }
