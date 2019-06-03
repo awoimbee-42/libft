@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:06:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/24 14:02:17 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/03 17:14:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	sse_memcpy(void *restrict d, const void *restrict s, size_t n)
 {
 	while (n >= sizeof(__m128i))
 	{
-		_mm_storeu_si128((__m128i*)d, _mm_loadu_si128(s));
+		_mm_storeu_si128(d, _mm_loadu_si128(s));
 		s += sizeof(__m128i);
 		d += sizeof(__m128i);
 		n -= sizeof(__m128i);
