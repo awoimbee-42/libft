@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_freeall.c                                       :+:      :+:    :+:   */
+/*   map_freeall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 16:24:23 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 18:58:09 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 21:12:39 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static void	recur_free(t_rbt_node *start)
+static void	recur_free(t_map *start)
 {
-	t_rbt_node *tmp;
+	t_map *tmp;
 
 	while (start->lft || start->rgt)
 		start = start->lft ? start->lft : start->rgt;
@@ -30,7 +30,7 @@ static void	recur_free(t_rbt_node *start)
 	}
 }
 
-void		rb_freeall(t_rbt_node **root)
+void		map_freeall(t_map **root)
 {
 	recur_free(*root);
 	*root = NULL;

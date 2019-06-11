@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 19:11:57 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 21:12:02 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,14 +204,14 @@ void			*gb_realloc(t_garbage *gb, void *ptr, size_t new_size);
 t_garbage		*gb_init_existing(t_garbage *gb);
 
 /*
-**	t_rbtree
+**	T_MAP
 */
-void			intrin_insert_fixup(t_rbt_node **root, t_rbt_node *z);
-void			intrin_rbtree_lft_rot(t_rbt_node **root, t_rbt_node *x);
-void			intrin_rbtree_rgt_rot(t_rbt_node **root, t_rbt_node *y);
-void			rbt_insert(t_rbt_node **root, int dat);
-void			rbt_print(t_rbt_node *root);
-void			rb_freeall(t_rbt_node **root);
+void			intrin_insert_fixup(t_map **root, t_map *z);
+void			intrin_rbtree_lft_rot(t_map **root, t_map *x);
+void			intrin_rbtree_rgt_rot(t_map **root, t_map *y);
+void			map_insert(t_map **root, t_map_key key, t_map_data *data);
+void			map_iter(t_map *root, void(*f)(t_map_key, t_map_data*));
+void			map_freeall(t_map **root);
 
 /*
 **	##################### other ####################

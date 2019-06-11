@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_rotate.c                                        :+:      :+:    :+:   */
+/*   map_insert_repair_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:05:30 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 18:26:09 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 21:05:08 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 **	an insertion
 */
 
-void	intrin_rbtree_lft_rot(struct s_rbt_node **root, struct s_rbt_node *x)
+void	intrin_rbtree_lft_rot(t_map **root, t_map *x)
 {
-	t_rbt_node		*y;
+	t_map		*y;
 
 	if (!x || !x->rgt)
 		return ;
@@ -38,9 +38,9 @@ void	intrin_rbtree_lft_rot(struct s_rbt_node **root, struct s_rbt_node *x)
 	x->up = y;
 }
 
-void	intrin_rbtree_rgt_rot(struct s_rbt_node **root, struct s_rbt_node *y)
+void	intrin_rbtree_rgt_rot(t_map **root, t_map *y)
 {
-	t_rbt_node		*x;
+	t_map		*x;
 
 	if (!y || !y->lft)
 		return ;

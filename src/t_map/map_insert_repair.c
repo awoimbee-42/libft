@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb_insert_fixup.c                                  :+:      :+:    :+:   */
+/*   map_insert_repair.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:14:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 19:11:43 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 21:05:08 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 /*
 **	Utility function to fixup the Red-Black tree after standard BST insertion
 */
-static inline int	uncle_is_red(struct s_rbt_node *z)
+
+static inline int	uncle_is_red(t_map *z)
 {
-	struct s_rbt_node	*y;
+	t_map	*y;
 
 	y = z->up->up;
 	y = z->up == y->lft ? y->rgt : y->lft;
@@ -37,7 +38,7 @@ static inline int	uncle_is_red(struct s_rbt_node *z)
 **	Handle the L-L and L-R cases
 */
 
-static inline void	case_lft(t_rbt_node **root, t_rbt_node *z)
+static inline void	case_lft(t_map **root, t_map *z)
 {
 	enum e_rbtn_color	tmp_col;
 
@@ -62,7 +63,7 @@ static inline void	case_lft(t_rbt_node **root, t_rbt_node *z)
 **	Handle the R-R and R-L cases
 */
 
-static inline void	case_rgt(t_rbt_node **root, t_rbt_node *z)
+static inline void	case_rgt(t_map **root, t_map *z)
 {
 	enum e_rbtn_color	tmp_col;
 
@@ -83,7 +84,7 @@ static inline void	case_rgt(t_rbt_node **root, t_rbt_node *z)
 	}
 }
 
-void				intrin_insert_fixup(t_rbt_node **root, t_rbt_node *z)
+void				intrin_insert_fixup(t_map **root, t_map *z)
 {
 	while (z != *root && z->up != *root && z->up->col == RED)
 	{

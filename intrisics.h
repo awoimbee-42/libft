@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 19:11:00 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 21:07:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 typedef uint32_t	t_queued;
 typedef void		t_listed;
 typedef int			t_vected;
+
+typedef int			t_map_key;
+typedef long double	t_map_data;
 
 typedef struct	s_list
 {
@@ -75,25 +78,20 @@ typedef struct	s_garbage
 	size_t			mem_len;
 }				t_garbage;
 
-/*
-**	Red and Black tree
-*/
-
 enum			e_rbtn_color
 {
 	BLACK = 0,
 	RED
 };
 
-typedef struct	s_rbt_node
+typedef struct	s_map
 {
-	int					dat;
+	t_map_key			key;
+	t_map_data			*dat;
 	enum e_rbtn_color	col;
-	struct s_rbt_node	*lft;
-	struct s_rbt_node	*rgt;
-	struct s_rbt_node	*up;
-}				t_rbt_node;
-
-typedef t_rbt_node	t_rb_tree;
+	struct s_map		*lft;
+	struct s_map		*rgt;
+	struct s_map		*up;
+}				t_map;
 
 #endif

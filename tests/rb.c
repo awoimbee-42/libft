@@ -6,52 +6,57 @@
 
 #include "libft.h"
 
-#define RBTREE_NB_ELEMS 10000
-#define RBTREE_NB_TESTS 50
+#define MAP_NB_ELEMS 100000
+#define MAP_NB_TESTS 50
 
 int g_tmp0 = 0;
 
-void	check_rbtree(struct s_rbt_node *root)
+void	check_map(t_map *root)
 {
-	static int last = __INT_MAX__ + 1;
+	static t_map_key last = -999999;
 
 	if (root == NULL)
 		return;
-	check_rbtree(root->lft);
+	check_map(root->lft);
 	++g_tmp0;
-	if (root->dat < last)
+	if (root->key < last)
 		printf("RED AND BLACK TREE NOT IN ORDER !\n"
 			"current: %d last: %d\n",
-			root->dat, last);
-	last = root->dat;
-	check_rbtree(root->rgt);
-	last = __INT_MAX__ + 1;
+			root->key, last);
+	if ((uintptr_t)root->key != (uintptr_t)root->dat)
+		printf("Key and data doesn't match!\n");
+	last = root->key;
+	check_map(root->rgt);
+	last = -999999;
 }
 
-void	test_rbtree(void)
+void	test_map(void)
 {
-	struct s_rbt_node *root = NULL;
+	t_map *root = NULL;
 
 	for (int i = 0; i < 50; ++i)
 	{
 		clock_t t0 = clock();
-		for (int i = 0; i < RBTREE_NB_ELEMS; ++i)
-			rbt_insert(&root, random());
+		for (int i = 0; i < MAP_NB_ELEMS; ++i)
+		{
+			int	a = random();
+			map_insert(&root, (t_map_key)a, (t_map_data*)a);
+		}
 		clock_t t1 = clock();
-		check_rbtree(root);
-		if (g_tmp0 != RBTREE_NB_ELEMS)
-			printf("Found %lu elems instead of %d\n", g_tmp0, RBTREE_NB_ELEMS);
+		check_map(root);
+		if (g_tmp0 != MAP_NB_ELEMS)
+			printf("Found %lu elems instead of %d\n", g_tmp0, MAP_NB_ELEMS);
 		g_tmp0 = 0;
 		printf("insertion took %fms -> %fus/elem\n",
 			(float)(t1 - t0) / CLOCKS_PER_SEC * 1000,
-			(float)(t1 - t0) / CLOCKS_PER_SEC * 1000 / RBTREE_NB_ELEMS * 1000);
-		rb_freeall(&root);
+			(float)(t1 - t0) / CLOCKS_PER_SEC * 1000 / MAP_NB_ELEMS * 1000);
+		map_freeall(&root);
 	}
 }
 
 int main()
 {
 	srandom(time(NULL));
-	test_rbtree();
+	test_map();
 	return 0;
 }
