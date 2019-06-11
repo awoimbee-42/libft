@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 21:07:00 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 22:14:55 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@ enum			e_rbtn_color
 	RED
 };
 
-typedef struct	s_map
+typedef struct	s_rbtmap
 {
 	t_map_key			key;
 	t_map_data			*dat;
 	enum e_rbtn_color	col;
-	struct s_map		*lft;
-	struct s_map		*rgt;
-	struct s_map		*up;
-}				t_map;
+	struct s_rbtmap		*lft;
+	struct s_rbtmap		*rgt;
+	struct s_rbtmap		*up;
+}				t_rbtmap;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:05:30 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 21:05:08 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 22:11:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 **	an insertion
 */
 
-void	intrin_rbtree_lft_rot(t_map **root, t_map *x)
+void	intrin_rbtree_lft_rot(t_rbtmap **root, t_rbtmap *x)
 {
-	t_map		*y;
+	t_rbtmap		*y;
 
 	if (!x || !x->rgt)
 		return ;
@@ -38,9 +38,9 @@ void	intrin_rbtree_lft_rot(t_map **root, t_map *x)
 	x->up = y;
 }
 
-void	intrin_rbtree_rgt_rot(t_map **root, t_map *y)
+void	intrin_rbtree_rgt_rot(t_rbtmap **root, t_rbtmap *y)
 {
-	t_map		*x;
+	t_rbtmap		*x;
 
 	if (!y || !y->lft)
 		return ;

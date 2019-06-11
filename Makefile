@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/06/11 21:38:42 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/06/11 22:11:28 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,14 +85,14 @@ SRCS_NAME =	$(addprefix libchar/,   $(SRCS_CHAR))	\
 			$(addprefix t_queue/,   $(SRCS_QUE))	\
 			$(addprefix t_vector/,  $(SRCS_VECT))	\
 			$(addprefix t_garbage/, $(SRCS_GARB))	\
-			$(addprefix t_map/,     $(SRCS_MAP))	\
+			$(addprefix t_rbtmap/,     $(SRCS_MAP))	\
 			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
 OBJ_DIRS =	libchar	libfd	libmem	libnb	libstr	ft_prtf	\
-			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_map
+			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_rbtmap
 
 ################################################################################
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))

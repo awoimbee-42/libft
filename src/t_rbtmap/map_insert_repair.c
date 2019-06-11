@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:14:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 21:05:08 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 22:11:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 **	Utility function to fixup the Red-Black tree after standard BST insertion
 */
 
-static inline int	uncle_is_red(t_map *z)
+static inline int	uncle_is_red(t_rbtmap *z)
 {
-	t_map	*y;
+	t_rbtmap	*y;
 
 	y = z->up->up;
 	y = z->up == y->lft ? y->rgt : y->lft;
@@ -38,7 +38,7 @@ static inline int	uncle_is_red(t_map *z)
 **	Handle the L-L and L-R cases
 */
 
-static inline void	case_lft(t_map **root, t_map *z)
+static inline void	case_lft(t_rbtmap **root, t_rbtmap *z)
 {
 	enum e_rbtn_color	tmp_col;
 
@@ -63,7 +63,7 @@ static inline void	case_lft(t_map **root, t_map *z)
 **	Handle the R-R and R-L cases
 */
 
-static inline void	case_rgt(t_map **root, t_map *z)
+static inline void	case_rgt(t_rbtmap **root, t_rbtmap *z)
 {
 	enum e_rbtn_color	tmp_col;
 
@@ -84,7 +84,7 @@ static inline void	case_rgt(t_map **root, t_map *z)
 	}
 }
 
-void				intrin_insert_fixup(t_map **root, t_map *z)
+void				intrin_insert_fixup(t_rbtmap **root, t_rbtmap *z)
 {
 	while (z != *root && z->up != *root && z->up->col == RED)
 	{

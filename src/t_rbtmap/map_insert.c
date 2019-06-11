@@ -6,16 +6,16 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 15:59:08 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 21:27:51 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 22:13:49 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static void		bt_insert(t_map **root, t_map *new)
+static void		bt_insert(t_rbtmap **root, t_rbtmap *new)
 {
-	t_map	*y;
-	t_map	*x;
+	t_rbtmap	*y;
+	t_rbtmap	*x;
 
 	y = NULL;
 	x = *root;
@@ -33,11 +33,11 @@ static void		bt_insert(t_map **root, t_map *new)
 	intrin_insert_fixup(root, new);
 }
 
-void			map_insert(t_map **root, t_map_key key, t_map_data *data)
+void			map_insert(t_rbtmap **root, t_map_key key, t_map_data *data)
 {
-	t_map	*z;
+	t_rbtmap	*z;
 
-	z = (t_map*)malloc(sizeof(t_map));
+	z = (t_rbtmap*)malloc(sizeof(t_rbtmap));
 	z->key = key;
 	z->dat = data;
 	z->lft = NULL;

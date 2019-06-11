@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 21:12:02 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 22:12:54 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,12 +206,12 @@ t_garbage		*gb_init_existing(t_garbage *gb);
 /*
 **	T_MAP
 */
-void			intrin_insert_fixup(t_map **root, t_map *z);
-void			intrin_rbtree_lft_rot(t_map **root, t_map *x);
-void			intrin_rbtree_rgt_rot(t_map **root, t_map *y);
-void			map_insert(t_map **root, t_map_key key, t_map_data *data);
-void			map_iter(t_map *root, void(*f)(t_map_key, t_map_data*));
-void			map_freeall(t_map **root);
+void			intrin_insert_fixup(t_rbtmap **root, t_rbtmap *z);
+void			intrin_rbtree_lft_rot(t_rbtmap **root, t_rbtmap *x);
+void			intrin_rbtree_rgt_rot(t_rbtmap **root, t_rbtmap *y);
+void			map_insert(t_rbtmap **root, t_map_key key, t_map_data *data);
+void			map_iter(t_rbtmap *root, void(*f)(t_map_key, t_map_data*));
+void			map_freeall(t_rbtmap **root);
 
 /*
 **	##################### other ####################
