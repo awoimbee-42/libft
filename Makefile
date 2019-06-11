@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/05/22 16:36:33 by awoimbee         ###   ########.fr        #
+#    Updated: 2019/06/11 19:05:52 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,9 @@ SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 			gb_malloc.c			gb_remove.c			gb_memalloc.c		\
 			gb_init_existing.c	gb_realloc.c		intrin_gb_extend.c
 
+SRCS_RBT =	rb_insert.c			rb_insert_fixup.c	rb_freeall.c		\
+			rb_print.c			rb_rotate.c
+
 SRCS_OTHER = msg_exit.c
 
 SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
@@ -82,12 +85,14 @@ SRCS_NAME =	$(addprefix libchar/, $(SRCS_CHAR))		\
 			$(addprefix t_queue/, $(SRCS_QUE))		\
 			$(addprefix t_vector/, $(SRCS_VECT))	\
 			$(addprefix t_garbage/, $(SRCS_GARB))	\
+			$(addprefix t_rbtree/, $(SRCS_RBT))		\
 			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 
 SRC_PATH = src
 OBJ_PATH = obj
-OBJ_DIRS = libchar libfd libmem libnb libstr ft_prtf t_lst t_queue t_vec4 t_vector t_garbage
+OBJ_DIRS =	libchar	libfd	libmem	libnb	libstr	ft_prtf	\
+			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_rbtree
 
 ################################################################################
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))

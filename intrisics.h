@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 19:14:49 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/06/11 19:11:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,26 @@ typedef struct	s_garbage
 	size_t			arr_len;
 	size_t			mem_len;
 }				t_garbage;
+
+/*
+**	Red and Black tree
+*/
+
+enum			e_rbtn_color
+{
+	BLACK = 0,
+	RED
+};
+
+typedef struct	s_rbt_node
+{
+	int					dat;
+	enum e_rbtn_color	col;
+	struct s_rbt_node	*lft;
+	struct s_rbt_node	*rgt;
+	struct s_rbt_node	*up;
+}				t_rbt_node;
+
+typedef t_rbt_node	t_rb_tree;
 
 #endif
