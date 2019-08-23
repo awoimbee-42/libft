@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/04 13:08:09 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/05 16:06:07 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ NAME	=	libft.a
 CC	=	gcc
 
 CFLAGS = -march=native -Wall -Wextra -Werror -Ofast -fno-builtin -ftree-vectorize -fstrict-aliasing
+
+SRC_PATH = src
+OBJ_PATH = obj
 
 SRCS_CHAR =	ft_isalnum.c		ft_isascii.c		ft_isprint.c		\
 			ft_isalpha.c		ft_isdigit.c		ft_tolower.c		\
@@ -73,7 +76,7 @@ SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 SRCS_MAP =	map_insert.c		map_insert_repair.c	map_insert_repair_rotate.c	\
 			map_freeall.c
 
-SRCS_OTHER = msg_exit.c
+SRCS_OTHER =	msg_exit.c
 
 SRCS_NAME =	$(addprefix libchar/,   $(SRCS_CHAR))	\
 			$(addprefix libfd/,     $(SRCS_FD))		\
@@ -85,16 +88,12 @@ SRCS_NAME =	$(addprefix libchar/,   $(SRCS_CHAR))	\
 			$(addprefix t_queue/,   $(SRCS_QUE))	\
 			$(addprefix t_vector/,  $(SRCS_VECT))	\
 			$(addprefix t_garbage/, $(SRCS_GARB))	\
-			$(addprefix t_rbtmap/,     $(SRCS_MAP))	\
+			$(addprefix t_rbtmap/,  $(SRCS_MAP))	\
 			$(SRCS_OTHER)
 OBJ_NAME = $(SRCS_NAME:.c=.o)
-
-SRC_PATH = src
-OBJ_PATH = obj
 OBJ_DIRS =	libchar	libfd	libmem	libnb	libstr	ft_prtf	\
 			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_rbtmap
-
-################################################################################
+###################################  CONST  ####################################
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
@@ -107,12 +106,20 @@ ifeq ($(UNAME_S),Linux)
 else ifeq ($(UNAME_S),Darwin)
 	NUMPROC := $(shell sysctl hw.ncpu | awk '{print $$2}')
 endif
-################################################################################
+#####################################  RULES  ##################################
 
-all	: $(NAME)
+what	:
+	@printf '%s\n%s\n%s\n%s\n\n'									\
+		'How to use:'										\
+		'Use `make (all|libft.a|fast)` to build libft.a (`make fast` uses multiple threads)'	\
+		'Use `make tests` to build libft.a and run tests on it'					\
+		'as per 42s rules, `make` shall also build libft.a (after showing this message)'
+	@$(MAKE) --no-print-directory all
+
+all:	$(NAME)
 
 fast :
-	@make -s -j$(NUMPROC)
+	@$(MAKE) -s -j$(NUMPROC)
 
 libft.gen :
 	@printf "$(foreach cfile,$(SRCS_VEC4),$(addprefix # include \"src/t_vec4/,$(addsuffix \"\n,$(cfile))))" > libft.gen
@@ -135,9 +142,14 @@ so	: all
 	@printf "$(CC) (...) -shared -o $(NAME:.a=.so)\n"
 	@$(CC) $(OBJS) -shared -o $(NAME:.a=.so)
 
+tests: fast
+	@$(MAKE) --no-print-directory -C ./tests all run
+
 clean	:
 	@rm -rf $(OBJ_PATH)
 	@printf "$(RED)./$(OBJ_PATH) cleaned$(EOC)\n"
+	@printf "Running fclean on tests...\n"
+	@$(MAKE) --no-print-directory -C tests fclean
 
 fclean	:	clean
 	@rm -f libft.gen

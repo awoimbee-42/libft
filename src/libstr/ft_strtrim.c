@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 22:35:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/12 12:00:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2019/08/21 12:13:22 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,9 @@ char		*ft_strtrim(char const *s)
 		++i;
 	while (i > 0 && is_whitespace(s[i - 1]))
 		--i;
-	if (!(new_str = ft_strnew(i)))
+	if (!(new_str = malloc(i + 1)))
 		return (NULL);
-	if (i != 0)
-		ft_strncpy(new_str, s, i);
-	else
-		*new_str = '\0';
+	new_str[i] = '\0';
+	ft_strncpy(new_str, s, i);
 	return (new_str);
 }
