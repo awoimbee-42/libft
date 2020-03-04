@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:20:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 16:44:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static char	*strcatp1(t_prtfstr *s1, t_prtfstr *s2, t_arg *arg_info, int spacer)
 		ft_memset(nw_str_spced, '0', arg_info->m_width);
 		if (s2->len && (s2->str[0] == '+' || s2->str[0] == '-') && ++spacer)
 			nw_str_spced[0] = s2->str[0];
-		else if (s2->len > 2 && (s2->str[1] == 'x' || s2->str[1] == 'b'
-		|| s2->str[1] == 'X') && (spacer += 2))
+		else if (s2->len > 2 && s2->str[0] == '0' && (s2->str[1] == 'x'
+				|| s2->str[1] == 'b' || s2->str[1] == 'X') && (spacer += 2))
 			nw_str_spced[1] = s2->str[1];
 		nw_str_spced += arg_info->m_width - s2->len + spacer;
 		ft_mempcpy(nw_str_spced, s2->str + spacer, s2->len - spacer);
