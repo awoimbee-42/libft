@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_iter.c                                         :+:      :+:    :+:   */
+/*   assert.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 16:21:46 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 22:13:49 by awoimbee         ###   ########.fr       */
+/*   Created: 2020/03/03 19:51:28 by awoimbee          #+#    #+#             */
+/*   Updated: 2020/03/04 13:07:14 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <cstdarg.h>
 
-void	map_itervoid(t_rbtmap *root, void(*f)(t_map_key, t_map_data*))
+void	ft_assert(int true, const char *fmt, ...)
 {
-	if (root == NULL)
-		return;
-	map_itervoid(root->lft, f);
-	f(root->key, root->dat);
-	map_itervoid(root->rgt, f);
+	va_list		ap;
+
+	if (true)
+	{
+		return ;
+	}
+	va_start(fmt, ap);
+	ft_vfprintf(2, fmt, &ap);
+	va_end(ap);
+	exit(EXIT_FAILURE);
 }

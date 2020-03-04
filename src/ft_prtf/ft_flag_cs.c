@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 17:06:21 by allespag          #+#    #+#             */
-/*   Updated: 2019/01/02 00:53:32 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	prtf__flag_s(t_string *ret, char *str, t_arg *arg)
+void	prtf__flag_s(t_prtfstr *ret, char *str, t_arg *arg)
 {
 	if (str)
 	{
@@ -30,7 +30,7 @@ void	prtf__flag_s(t_string *ret, char *str, t_arg *arg)
 	}
 }
 
-void	prtf__flag_c(t_string *ret, char c)
+void	prtf__flag_c(t_prtfstr *ret, char c)
 {
 	if (!(ret->str = malloc(1)))
 		prtf__msg_exit(MALLOC_ERR);

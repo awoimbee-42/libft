@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 23:27:57 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 22:14:55 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:45:30 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <inttypes.h>
 # include <string.h>
 # include <x86intrin.h>
+# include <sys/types.h>
 
 # ifdef __AVX__
 #  define LFT_AVX 1

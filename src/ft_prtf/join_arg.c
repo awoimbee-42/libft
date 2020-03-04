@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:20:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/17 20:04:10 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	retrieve_arg(t_string *ret, va_list *ap, t_arg *arg_info)
+static void	retrieve_arg(t_prtfstr *ret, va_list *ap, t_arg *arg_info)
 {
 	char		type;
 
@@ -39,7 +39,7 @@ static void	retrieve_arg(t_string *ret, va_list *ap, t_arg *arg_info)
 		ret->str = NULL;
 }
 
-static char	*strcatp1(t_string *s1, t_string *s2, t_arg *arg_info, int spacer)
+static char	*strcatp1(t_prtfstr *s1, t_prtfstr *s2, t_arg *arg_info, int spacer)
 {
 	char		*nw_str;
 	char		*nw_str_spced;
@@ -68,7 +68,7 @@ static char	*strcatp1(t_string *s1, t_string *s2, t_arg *arg_info, int spacer)
 	return (nw_str);
 }
 
-static void	strcat_arg(t_string *s1, t_string *s2, t_arg *arg_info)
+static void	strcat_arg(t_prtfstr *s1, t_prtfstr *s2, t_arg *arg_info)
 {
 	char		*nw_str;
 
@@ -89,9 +89,9 @@ static void	strcat_arg(t_string *s1, t_string *s2, t_arg *arg_info)
 	s1->str = nw_str;
 }
 
-void		prtf__join_arg(t_string *out, t_arg *arg_info, va_list *ap)
+void		prtf__join_arg(t_prtfstr *out, t_arg *arg_info, va_list *ap)
 {
-	t_string	raw_arg;
+	t_prtfstr	raw_arg;
 
 	raw_arg.len = 0;
 	raw_arg.str = NULL;

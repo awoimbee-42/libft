@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:14:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 22:11:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:54:21 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static inline void	case_lft(t_rbtmap **root, t_rbtmap *z)
 	}
 	else
 	{
-		tmp_col = z->col ;
+		tmp_col = z->col;
 		z->col = z->up->up->col;
 		z->up->up->col = tmp_col;
 		intrin_rbtree_lft_rot(root, z->up);
@@ -69,7 +69,7 @@ static inline void	case_rgt(t_rbtmap **root, t_rbtmap *z)
 
 	if (z == z->up->rgt)
 	{
-		tmp_col = z->up->col ;
+		tmp_col = z->up->col;
 		z->up->col = z->up->up->col;
 		z->up->up->col = tmp_col;
 		intrin_rbtree_lft_rot(root, z->up->up);

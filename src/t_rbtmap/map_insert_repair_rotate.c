@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:05:30 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 22:11:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:54:55 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,13 @@ void	intrin_rbtree_rgt_rot(t_rbtmap **root, t_rbtmap *y)
 	y->lft = x->rgt;
 	if (x->rgt != NULL)
 		x->rgt->up = y;
-	x->up =y->up;
+	x->up = y->up;
 	if (x->up == NULL)
 		(*root) = x;
 	else if (y == y->up->lft)
 		y->up->lft = x;
-	else y->up->rgt = x;
+	else
+		y->up->rgt = x;
 	x->rgt = y;
 	y->up = x;
 }

@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:05:02 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/02 00:51:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		prtf__atoi_move(const char **nptr)
 	return ((int)result * sign);
 }
 
-int		prtf__t_strncat(t_string *s1, char const *s2, size_t size)
+int		prtf__t_strncat(t_prtfstr *s1, char const *s2, size_t size)
 {
 	char		*nw_str;
 

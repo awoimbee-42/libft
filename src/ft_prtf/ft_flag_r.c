@@ -6,13 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 15:17:25 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 20:38:37 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	prtf__flag_r(t_string *ret, int fd)
+void	prtf__flag_r(t_prtfstr *ret, int fd)
 {
 	int		end;
 	char	*line;

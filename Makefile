@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2019/06/11 22:11:28 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/04 13:08:09 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 			gb_init_existing.c	gb_realloc.c		intrin_gb_extend.c
 
 SRCS_MAP =	map_insert.c		map_insert_repair.c	map_insert_repair_rotate.c	\
-			map_freeall.c		map_iter.c
+			map_freeall.c
 
 SRCS_OTHER = msg_exit.c
 

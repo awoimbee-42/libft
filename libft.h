@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 22:12:54 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 13:08:49 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include <stdarg.h>
 # include "intrisics.h"
 # include "libft.gen"
 
@@ -116,7 +117,7 @@ int				get_next_line(const int fd, char **line);
 */
 int				ft_printf(const char *restrict format, ...);
 int				ft_fprintf(int fd, const char *restrict format, ...);
-int				ft_sprintf(char *str, const char *restrict format, ...);
+int				ft_vfprintf(int fd, const char *restrict format, va_list *ap);
 int				ft_asprintf(char **strp, const char *fmt, ...);
 char			*ft_cprintf(const char *fmt, ...);
 
@@ -217,5 +218,6 @@ void			map_freeall(t_rbtmap **root);
 **	##################### other ####################
 */
 void			msg_exit(const char *msg, const void *data);
+void			ft_assert(int true, const char *fmt, ...);
 
 #endif

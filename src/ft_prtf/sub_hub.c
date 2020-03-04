@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 17:02:00 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/17 20:06:02 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 **	%d | %i with l ll h hh
 */
 
-void		prtf__nb_signed(t_string *ret, va_list *ap, t_arg *arg_info)
+void		prtf__nb_signed(t_prtfstr *ret, va_list *ap, t_arg *arg_info)
 {
 	int					size;
 	long long int		value;
@@ -46,7 +46,7 @@ void		prtf__nb_signed(t_string *ret, va_list *ap, t_arg *arg_info)
 **	%u | %o | %x | %X with l ll h hh
 */
 
-void		prtf__nb_unsigned(t_string *ret, va_list *ap, int base,
+void		prtf__nb_unsigned(t_prtfstr *ret, va_list *ap, int base,
 								t_arg *arg_info)
 {
 	int					size;
@@ -77,7 +77,7 @@ void		prtf__nb_unsigned(t_string *ret, va_list *ap, int base,
 **	%f with l L
 */
 
-void		prtf__nb_double(t_string *ret, va_list *ap, t_arg *arg_info)
+void		prtf__nb_double(t_prtfstr *ret, va_list *ap, t_arg *arg_info)
 {
 	long double			value;
 
