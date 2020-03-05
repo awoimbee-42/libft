@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/18 23:44:50 by awoimbee          #+#    #+#              #
-#    Updated: 2019/08/21 12:13:47 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/05 16:07:45 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC	=	gcc
 
 CFLAGS = -Wall -Wextra -Ofast -fno-builtin#-march=native
 
-SRC = $(shell find ./src -type f -name "*.c" -printf '%P\n')
+SRC = $(shell cd src && find . -type f -name "*.c")
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
-OBJ_FOLDERS = $(addprefix obj/, $(shell find ./src -type d -not \( -path './obj' -o -path './obj/*' \) -printf '%P\n'))
+OBJ_FOLDERS = $(addprefix obj/, $(shell cd src && find . -type d -not \( -path './obj' -o -path './obj/*' \)))
 
 CFLAGS += -MMD -I./src -I../
 LDFLAGS = -L../
