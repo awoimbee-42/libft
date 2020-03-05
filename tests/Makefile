@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/18 23:44:50 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/05 16:07:45 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/05 16:15:24 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ_FOLDERS = $(addprefix obj/, $(shell cd src && find . -type d -not \( -path '
 
 CFLAGS += -MMD -I./src -I../
 LDFLAGS = -L../
-LDLIBS = -lcheck -pthread -lrt -lm -lft
+LDLIBS = -lcheck -lsubunit -pthread -lrt -lm -lft
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
