@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 21:16:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/10 16:16:16 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_garbage.h>
 
 /*
 **	Used to add a pointer allocated from different means to the garbage list

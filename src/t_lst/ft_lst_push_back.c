@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 02:37:22 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/11 14:51:16 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_lst.h>
 
 t_list		*ft_lst_push_back(t_list **lst, t_listed *data, size_t d_size)
 {

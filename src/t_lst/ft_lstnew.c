@@ -6,12 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 14:39:12 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:19:49 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_lst.h>
 #include <stdlib.h>
+#include <libft/ft_mem.h>
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {

@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 22:26:13 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:08:15 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_str.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:05:30 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/04 12:54:55 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <libft/t_rbtmap.h>
 
 /*
 **	implementation of roations for a rb tree, needed to fix the tree after

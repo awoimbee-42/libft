@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 17:56:45 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/12/16 20:37:19 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:53:21 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_char.h>
 
 /*
 **	In this file, every function has the role of filling a specific variable

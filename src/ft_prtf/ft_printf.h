@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:53:52 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/04 13:05:46 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:53:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <inttypes.h>
 
 # define TXT_DECORATIONS 1
 # define INT_MIN -2147483648

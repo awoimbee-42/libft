@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/05 16:06:33 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/06 01:07:27 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,7 +122,7 @@ fast :
 	@$(MAKE) -s -j$(NUMPROC) all
 
 libft.gen :
-	@printf "$(foreach cfile,$(SRCS_VEC4),$(addprefix # include \"src/t_vec4/,$(addsuffix \"\n,$(cfile))))" > libft.gen
+	@printf "#ifndef LFTGEN\n#define LFTGEN\n$(foreach cfile,$(SRCS_VEC4),$(addprefix # include \"src/t_vec4/,$(addsuffix \"\n,$(cfile))))\n#endif" > libft.gen
 
 $(OBJ_PATH)	:
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
@@ -158,7 +158,7 @@ fclean	:	clean
 	@printf "\033[0;31m$(NAME), $(NAME:.a=.so) and libft.gen removed$(EOC)\n"
 
 re	:	fclean
-	@make -s -j$(NUMPROC)
+	@make -s -j$(NUMPROC) fast
 
 flowchart:
 	@printf "%s\n"	\

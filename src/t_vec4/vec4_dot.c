@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 02:25:16 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/21 00:16:02 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:32:55 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_defines.h>
+#include <x86intrin.h>
 
 static inline __m128	intrin__sse2_dot(const t_vec4 a, const t_vec4 b)
 {

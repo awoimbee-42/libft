@@ -6,11 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 16:59:21 by allespag          #+#    #+#             */
-/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:49:16 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_mem.h>
+#include <libft/ft_str.h>
 
 static void		color_part2(char *out)
 {

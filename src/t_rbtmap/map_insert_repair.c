@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 13:14:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/04 12:54:21 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <libft/t_rbtmap.h>
 
 /*
 **	Utility function to fixup the Red-Black tree after standard BST insertion

@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 14:13:17 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/01/28 07:10:05 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:45:20 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include <libft/ft_nb.h>
+#include <libft/ft_str.h>
 
 /*
 **	msg_exit : a printf for crashing cleanly.

@@ -6,12 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:48:00 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/02/17 18:37:50 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:46:23 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft/ft_mem.h>
 
 void	*ft_memalloc(size_t size)
 {

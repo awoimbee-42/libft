@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 11:40:24 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/15 12:03:04 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_lst.h>
 #include <stdlib.h>
 
 int		ft_lst_free_link(t_list **lst, t_list *link)

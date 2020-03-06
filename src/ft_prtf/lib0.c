@@ -6,11 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:05:02 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:50:46 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_mem.h>
+#include <libft/ft_str.h>
 
 int		prtf__atoi_move(const char **nptr)
 {

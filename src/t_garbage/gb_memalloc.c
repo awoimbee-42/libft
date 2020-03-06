@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/05 20:24:44 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/10 16:16:38 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_garbage.h>
+#include <libft/ft_mem.h>
 
 void		*gb_memalloc(t_garbage *gb, size_t size)
 {

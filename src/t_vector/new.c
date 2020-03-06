@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 01:09:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:45:03 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_vector.h>
+#include <stdlib.h>
 
 t_vector	*vector_init(t_vector *vec, const size_t reserved_len)
 {

@@ -6,17 +6,16 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:41:46 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:04:16 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:58:25 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
 void	ft_memdel(void **ap)
 {
 	if (!ap || !*ap)
 		return ;
 	free(*ap);
-	*ap = NULL;
+	*ap = 0;
 }

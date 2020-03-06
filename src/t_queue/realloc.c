@@ -6,12 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 14:54:42 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/11 16:35:23 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include <libft/t_queue.h>
+#include <libft/ft_mem.h>
 
 int			que_realloc(t_queue *q)
 {

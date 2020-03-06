@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 22:59:38 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 19:56:07 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:58:46 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/types.h>
 #include <inttypes.h>
 
 static void	rev_memcpy(void *d, const void *s, size_t len)

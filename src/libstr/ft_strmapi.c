@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 02:09:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:08:29 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_str.h>
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

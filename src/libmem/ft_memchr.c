@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 00:39:36 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:14:30 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 01:00:16 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <sys/types.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)src);
 		++src;
 	}
-	return (NULL);
+	return (0);
 }

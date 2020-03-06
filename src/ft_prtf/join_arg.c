@@ -6,11 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 15:20:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/04 16:44:28 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:50:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_mem.h>
+#include <libft/ft_str.h>
 
 static void	retrieve_arg(t_prtfstr *ret, va_list *ap, t_arg *arg_info)
 {

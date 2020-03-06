@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 15:06:32 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:24:47 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_lst.h>
 
 static t_list	*malloc_res(t_list *elem, t_list *(*f)(t_list *elem))
 {

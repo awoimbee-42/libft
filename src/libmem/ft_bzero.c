@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 01:07:01 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/07 20:56:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:32:17 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_defines.h>
 #include <stdint.h>
 #include <x86intrin.h>
 #include <avxintrin.h>

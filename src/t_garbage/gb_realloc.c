@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 18:36:14 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/11 00:11:02 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_garbage.h>
 #include <stdlib.h>
 
 void		*gb_realloc(t_garbage *gb, void *ptr, size_t new_size)

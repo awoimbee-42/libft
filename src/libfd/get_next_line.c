@@ -6,15 +6,18 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:36:47 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/11 14:59:23 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:48:00 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <libft/t_lst.h>
+#include <libft/ft_mem.h>
+#include <libft/ft_str.h>
+#include <libft/ft_defines.h>
 
 static char		*ft_realloc(char *old_str, size_t addsize)
 {

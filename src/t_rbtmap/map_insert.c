@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 15:59:08 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/06/11 22:13:49 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <stdlib.h>
+#include <libft/t_rbtmap.h>
 
 static void		bt_insert(t_rbtmap **root, t_rbtmap *new)
 {

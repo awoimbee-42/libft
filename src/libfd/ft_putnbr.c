@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 01:40:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2018/11/06 15:06:14 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:54:34 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_fd.h>
 
 void	ft_putnbr(int n)
 {

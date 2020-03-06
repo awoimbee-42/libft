@@ -6,11 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 14:06:38 by allespag          #+#    #+#             */
-/*   Updated: 2019/04/25 17:21:01 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:49:27 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_nb.h>
+#include <libft/ft_mem.h>
 
 static char		*after_comma(char *str, int index, long double n, t_arg *arg)
 {

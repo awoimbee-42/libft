@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:55:01 by allespag          #+#    #+#             */
-/*   Updated: 2018/12/16 20:40:11 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:50:19 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_str.h>
 
 static int		u_count_base_digit(unsigned long long n, int base)
 {

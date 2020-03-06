@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/28 01:49:07 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 03:15:11 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:24:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_str.h>
 #include <unistd.h>
 
 void	ft_putendl_fd(char const *s, int fd)

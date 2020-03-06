@@ -6,12 +6,13 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 21:08:41 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/05 17:34:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:28:04 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_garbage.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 void		intrin__gb_fail(t_garbage *gb)
 {

@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 03:40:08 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/21 00:18:38 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:35:26 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_vec4.h>
 
 /*
 **	Creates a mask that removes the sign bit

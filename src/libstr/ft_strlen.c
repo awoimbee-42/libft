@@ -6,11 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 01:17:54 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 14:49:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:31:50 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "intrisics.h"
+#include <libft/ft_defines.h>
+#include <sys/types.h>
+#include <x86intrin.h>
+#include <inttypes.h>
 
 /*
 **	We first align the data on 16 bytes (for aligned sse loading)

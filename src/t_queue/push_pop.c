@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 14:55:14 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/04/12 18:13:52 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:59:39 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_queue.h>
+#include <libft.h>
 
 /*
 **	/!\ returns 0 on error, else returns 1
@@ -29,19 +30,11 @@ int			que_push(t_queue *que, t_queued data)
 	return (1);
 }
 
-/*
-**	/!\ returns (t_queued)-1 on error
-*/
-
 t_queued	que_pop(t_queue *que)
 {
 	t_queued	res;
 
-	if (que->start == -1)
-	{
-		ft_fprintf(2, "Warning: undefined behavior, reading an empty queue");
-		return (que->arr[0]);
-	}
+	ft_assert(que->start != -1, "t_queue: pop() on an empty queue");
 	res = que->arr[que->start++];
 	if (que->start == que->size)
 		que->start = 0;

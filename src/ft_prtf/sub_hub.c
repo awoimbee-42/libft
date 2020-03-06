@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 17:02:00 by allespag          #+#    #+#             */
-/*   Updated: 2020/03/04 12:49:42 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:24:28 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <libft/ft_str.h>
 
 /*
 **	%d | %i with l ll h hh

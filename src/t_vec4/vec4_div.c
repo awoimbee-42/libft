@@ -6,11 +6,11 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 02:30:26 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/21 00:14:56 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:35:26 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/t_vec4.h>
 
 static inline t_vec4		vec4_div(t_vec4 a, const t_vec4 b)
 {

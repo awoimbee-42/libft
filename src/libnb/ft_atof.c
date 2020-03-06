@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 23:16:37 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/05/06 14:50:23 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/06 00:59:24 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft/ft_str.h>
+#include <libft/ft_char.h>
 #include <math.h>
 
 static inline const char	*skip_whitespace(const char *cstr)
