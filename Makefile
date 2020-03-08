@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/06 01:07:27 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/08 17:05:44 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 SRCS_MAP =	map_insert.c		map_insert_repair.c	map_insert_repair_rotate.c	\
 			map_freeall.c
 
-SRCS_OTHER =	msg_exit.c
+SRCS_OTHER =	msg_exit.c		assert.c
 
 SRCS_NAME =	$(addprefix libchar/,   $(SRCS_CHAR))	\
 			$(addprefix libfd/,     $(SRCS_FD))		\

@@ -6,13 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:40:46 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/05 23:41:58 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/08 16:37:07 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MEM_H
 # define FT_MEM_H
 # include <stdint.h>
+# include <stddef.h>
 
 /*
 **	#################### LIBMEM ####################

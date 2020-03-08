@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 01:02:08 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/08 16:38:55 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@
 # include <libft/ft_nb.h>
 # include <libft/ft_char.h>
 # include <libft/ft_fd.h>
-
-/*
-**	##################### other ####################
-*/
-void			msg_exit(const char *msg, const void *data);
-void			ft_assert(int true, const char *fmt, ...);
+# include <libft/ft_exit.h>
 
 
 /*
