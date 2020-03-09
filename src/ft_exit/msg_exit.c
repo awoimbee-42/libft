@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 14:13:17 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 00:45:20 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/09 19:36:15 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 **	 msg_exit will interpret memory as pointing to the specified datatype.
 */
 
-void	msg_exit(const char *msg, const void *data)
+void	ft_msg_exit(const char *msg, const void *data)
 {
 	size_t	len;
 	char	*var;
@@ -42,9 +42,9 @@ void	msg_exit(const char *msg, const void *data)
 			else if (msg[len] == 's')
 				var = (char*)data;
 			else
-				msg_exit(&msg[len], data);
+				ft_msg_exit(&msg[len], data);
 			write(2, var, ft_strlen(var));
-			msg_exit(&msg[len] + 1, 0);
+			ft_msg_exit(&msg[len] + 1, 0);
 		}
 		write(2, "\n", 1);
 	}
