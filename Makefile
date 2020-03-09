@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/08 17:05:44 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/03/09 19:27:54 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,23 +76,24 @@ SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 SRCS_MAP =	map_insert.c		map_insert_repair.c	map_insert_repair_rotate.c	\
 			map_freeall.c
 
-SRCS_OTHER =	msg_exit.c		assert.c
+SRCS_EXIT =	msg_exit.c			assert.c
 
-SRCS_NAME =	$(addprefix libchar/,   $(SRCS_CHAR))	\
-			$(addprefix libfd/,     $(SRCS_FD))		\
-			$(addprefix libmem/,    $(SRCS_MEM))	\
-			$(addprefix libnb/,     $(SRCS_NB))		\
-			$(addprefix libstr/,    $(SRCS_STR))	\
+SRCS_NAME =	$(addprefix ft_char/,   $(SRCS_CHAR))	\
+			$(addprefix ft_fd/,     $(SRCS_FD))		\
+			$(addprefix ft_mem/,    $(SRCS_MEM))	\
+			$(addprefix ft_nb/,     $(SRCS_NB))		\
+			$(addprefix ft_str/,    $(SRCS_STR))	\
 			$(addprefix ft_prtf/,   $(SRCS_PRTF))	\
 			$(addprefix t_lst/,     $(SRCS_LST))	\
 			$(addprefix t_queue/,   $(SRCS_QUE))	\
 			$(addprefix t_vector/,  $(SRCS_VECT))	\
 			$(addprefix t_garbage/, $(SRCS_GARB))	\
 			$(addprefix t_rbtmap/,  $(SRCS_MAP))	\
-			$(SRCS_OTHER)
+			$(addprefix ft_exit/,   $(SRCS_EXIT))
 OBJ_NAME = $(SRCS_NAME:.c=.o)
-OBJ_DIRS =	libchar	libfd	libmem	libnb	libstr	ft_prtf	\
-			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_rbtmap
+OBJ_DIRS =	ft_char	ft_fd	ft_mem	ft_nb		ft_str		ft_prtf		\
+			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_rbtmap	\
+			ft_exit
 ###################################  CONST  ####################################
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
