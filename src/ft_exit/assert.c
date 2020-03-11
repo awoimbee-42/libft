@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 19:51:28 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/09 19:36:27 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 20:00:57 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_assert(int exp, const char *fmt, ...)
 	va_start(ap, fmt);
 	ft_vfprintf(2, fmt, &ap);
 	va_end(ap);
+	write(2, "\n", 1);
 	exit(EXIT_FAILURE);
 }
 
