@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.h                                            :+:      :+:    :+:   */
+/*   ft_nb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 15:29:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/11 13:02:09 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/08/21 11:45:06 by awoimbee          #+#    #+#             */
+/*   Updated: 2020/03/11 13:02:33 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_H
-# define TESTS_H
+#include <check.h>
+#include "ft_nb.h"
 
-# include <check.h>
-# include <time.h>
-# include <stdlib.h>
-# include <stdio.h>
-
-# define PRTF_GRN "\e[32m"
-# define PRTF_RED "\e[31m"
-# define PRTF_EOC "\e[39m"
-
-void	build_tests_libmem(SRunner *sr);
-void	build_tests_libstr(SRunner *sr);
-void	build_tests_ft_nb(SRunner *sr);
-
-#endif
+void		build_tests_ft_nb(SRunner *sr)
+{
+	srunner_add_suite(sr, build_suite_ft_swap_endian());
+}

@@ -6,11 +6,12 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 11:46:25 by awoimbee          #+#    #+#             */
-/*   Updated: 2019/08/21 19:43:45 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 13:00:40 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <libft/ft_str.h>
+#include <stdlib.h>
 #include <check.h>
 #include <string.h>
 
