@@ -6,15 +6,15 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 00:07:22 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 01:11:25 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:22:58 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_STR
-# define FT_STR
+#ifndef FT_STR_H
+# define FT_STR_H
 
-#include <sys/types.h>
-#include <string.h>
+# include <sys/types.h>
+# include <string.h>
 
 size_t		ft_strlen(const char *s);
 char		*ft_strdup(const char *s1);
@@ -47,6 +47,5 @@ int			ft_strcat_join(char **s1, char const *s2);
 char		*ft_stpcpy(char *dest, const char *src);
 int			ft_strncat_join(char **s1, char const *s2, size_t size);
 char		*ft_strndup(const char *s1, size_t maxlen);
-
 
 #endif

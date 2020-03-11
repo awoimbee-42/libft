@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 00:00:58 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 00:02:54 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:22:18 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct	s_garbage
 	size_t			mem_len;
 }				t_garbage;
 
-
 void			intrin__gb_fail(t_garbage *gb);
 void			intrin_gb_extend(t_garbage *gb);
 t_garbage		gb_init(void);
@@ -36,6 +35,5 @@ void			gb_defrag(t_garbage *gb);
 void			*gb_memalloc(t_garbage *gb, size_t size);
 void			*gb_realloc(t_garbage *gb, void *ptr, size_t new_size);
 t_garbage		*gb_init_existing(t_garbage *gb);
-
 
 #endif

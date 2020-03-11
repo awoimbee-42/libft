@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:43:21 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/05 23:45:32 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:22:33 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ void			intrin_rbtree_rgt_rot(t_rbtmap **root, t_rbtmap *y);
 void			map_insert(t_rbtmap **root, t_map_key key, t_map_data *data);
 void			map_iter(t_rbtmap *root, void(*f)(t_map_key, t_map_data*));
 void			map_freeall(t_rbtmap **root);
-
 
 #endif

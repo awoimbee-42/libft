@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 00:33:50 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 01:06:22 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:22:40 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,5 @@
 # include <x86intrin.h>
 # include "t_vec4__intrin.h"
 # include <libft.gen>
-
-
 
 #endif

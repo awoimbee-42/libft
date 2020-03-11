@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 00:29:31 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 00:29:56 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:20:58 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@
 # endif
 
 # define GNL_BUFF_SIZE 32768
-# define GNL_FLUSH (char**)INTPTR_MAX
+# define GNL_FLUSH INTPTR_MAX
 
 #endif

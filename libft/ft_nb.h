@@ -6,14 +6,14 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 00:42:16 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/11 12:48:25 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:21:47 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_NB_H
 # define FT_NB_H
 
-#include <inttypes.h>
+# include <inttypes.h>
 
 void			ft_swap_int(int *a, int *b);
 int				ft_atoi(const char *str);

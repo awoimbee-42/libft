@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:32:51 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/05 23:39:01 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:22:43 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ t_vector		*vector_push(t_vector *vec, t_vected d);
 t_vector		*vector_realloc(t_vector *vec);
 void			vector_mapvoid(t_vector *v, void (*f)(t_vected*));
 t_vector		*vector_del_at(t_vector *v, size_t at);
-
 
 #endif

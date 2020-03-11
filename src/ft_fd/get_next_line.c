@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:36:47 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/06 00:48:00 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:20:34 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int				get_next_line(const int fd, char **line)
 
 	if (!line || (link = check_lst(&lst, fd)) == NULL)
 		return (-1);
-	if (line == GNL_FLUSH)
+	if (line == (char**)GNL_FLUSH)
 		return (ft_lst_free_link(&lst, link));
 	*line = NULL;
 	if ((i = read_buff(link, line)) != 0)

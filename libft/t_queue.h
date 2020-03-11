@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 23:47:32 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/05 23:48:32 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/03/11 19:22:29 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ void			que_destroy(t_queue *que);
 void			que_disp(const t_queue *que);
 int				que_isempty(const t_queue *que);
 t_queue			*que_flush(t_queue *q);
-
 
 #endif
