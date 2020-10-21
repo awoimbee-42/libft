@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/08 16:38:55 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/21 13:01:53 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # include <libft/ft_char.h>
 # include <libft/ft_fd.h>
 # include <libft/ft_exit.h>
-
 
 /*
 **	t_vec4			vec4_newf(const float f);
