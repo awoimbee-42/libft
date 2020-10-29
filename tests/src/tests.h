@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 15:29:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/03/11 13:02:09 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/28 16:44:42 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 void	build_tests_libmem(SRunner *sr);
 void	build_tests_libstr(SRunner *sr);
 void	build_tests_ft_nb(SRunner *sr);
+void	build_tests_t_fstream(SRunner *sr);
 
 #endif

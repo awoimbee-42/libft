@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/23 20:34:49 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/21 13:01:53 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/29 14:48:37 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <libft/ft_prtf.h>
 # include <libft/ft_mem.h>
 # include <libft/ft_str.h>
+# include <libft/t_fstream.h>
 # include <libft/t_garbage.h>
 # include <libft/t_lst.h>
 # include <libft/t_queue.h>

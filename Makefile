@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/11 12:45:50 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/10/29 22:35:03 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME	=	libft.a
 
 CC	=	gcc
 
-CFLAGS = -march=native -Wall -Wextra -Werror -Ofast -fno-builtin -ftree-vectorize -fstrict-aliasing
+CFLAGS =	-std=c11 -Wall -Wextra -Werror -fstrict-aliasing \
+			-march=native -Ofast -fno-builtin -ftree-vectorize
 
 SRC_PATH = src
 OBJ_PATH = obj
@@ -77,7 +78,9 @@ SRCS_GARB =	gb_fail.c			gb_add.c			gb_defrag.c			\
 SRCS_MAP =	map_insert.c		map_insert_repair.c	map_insert_repair_rotate.c	\
 			map_freeall.c
 
-SRCS_EXIT =	msg_exit.c			assert.c
+SRCS_EXIT =	msg_exit.c			assert.c			malloc_exit.c
+
+SRCS_FSTREAM = fstream.c
 
 SRCS_NAME =	$(addprefix ft_char/,   $(SRCS_CHAR))	\
 			$(addprefix ft_fd/,     $(SRCS_FD))		\
@@ -90,11 +93,12 @@ SRCS_NAME =	$(addprefix ft_char/,   $(SRCS_CHAR))	\
 			$(addprefix t_vector/,  $(SRCS_VECT))	\
 			$(addprefix t_garbage/, $(SRCS_GARB))	\
 			$(addprefix t_rbtmap/,  $(SRCS_MAP))	\
-			$(addprefix ft_exit/,   $(SRCS_EXIT))
+			$(addprefix ft_exit/,   $(SRCS_EXIT))	\
+			$(addprefix t_fstream/,  $(SRCS_FSTREAM))
 OBJ_NAME = $(SRCS_NAME:.c=.o)
 OBJ_DIRS =	ft_char	ft_fd	ft_mem	ft_nb		ft_str		ft_prtf		\
 			t_lst	t_queue	t_vec4	t_vector	t_garbage	t_rbtmap	\
-			ft_exit
+			ft_exit	t_fstream
 ###################################  CONST  ####################################
 SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))

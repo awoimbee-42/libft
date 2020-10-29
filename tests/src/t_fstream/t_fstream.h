@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.h                                          :+:      :+:    :+:   */
+/*   t_fstream.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/08 16:37:24 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/29 15:53:13 by awoimbee         ###   ########.fr       */
+/*   Created: 2019/08/20 23:30:28 by awoimbee          #+#    #+#             */
+/*   Updated: 2020/10/28 16:36:47 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_EXIT_H
-# define FT_EXIT_H
+#ifndef TESTS_T_FSTREAM_H
+# define TESTS_T_FSTREAM_H
 
-# include <stdlib.h>
-
-void			ft_msg_exit(const char *msg, const void *data);
-void			ft_assert(int exp, const char *fmt, ...);
-
-/*
-**	assert for pointers, doesn't use any memory alocation (uses msg_exit)
-**	-> safe to use after malloc failure
-*/
-void			ft_assertp_safe(void *notnul, const char *msg, const void *d);
-void			*malloc_exit(size_t size);
+Suite	*build_suite_t_fstream(void);
 
 #endif

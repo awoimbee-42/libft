@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/18 23:44:50 by awoimbee          #+#    #+#              #
-#    Updated: 2020/03/05 23:30:59 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/10/29 14:44:11 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	libft_tests
 
 CC	=	gcc
 
-CFLAGS = -Wall -Wextra -Ofast -fno-builtin#-march=native
+CFLAGS = -Wall -Wextra -fno-builtin -march=native
 
 SRC = $(shell cd src && find . -type f -name "*.c")
 OBJ = $(addprefix obj/, $(SRC:.c=.o))
