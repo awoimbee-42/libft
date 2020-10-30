@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:10:17 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/30 23:45:02 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/31 00:20:01 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,30 @@ typedef struct	s_fstream {
 	struct s_pub_fstream	s;
 }				t_fstream;
 
-t_fstream		*ft_fstream_setup_fd(int fd, size_t chunksiz);
-t_fstream		*ft_fstream_setup_str(const char *str, size_t chunksiz);
-t_fstream		*ft_fstream_setup_str_mut(char *str, size_t chunksiz);
-t_fstream		*ft_fstream_setup_fname(const char *fname, size_t chunksiz);
-t_fstream		*ft_fstream_setup_buf(const void *buf, size_t siz, size_t csiz);
-t_fstream		*ft_fstream_setup_buf_mut(void *buf, size_t siz, size_t csiz);
-void			ft_fstream_kill(t_fstream **s);
 bool			ft_fstream(t_fstream *dat);
 bool			ft_fstream_autofree(t_fstream **dat);
+void			ft_fstream_kill(t_fstream **s);
+
+/*
+** Standard creation of file stream from file
+** setup_fname will return NULL if open() fails
+*/
+
+t_fstream		*ft_fstream_setup_fname(const char *fname, size_t chunksiz);
+t_fstream		*ft_fstream_setup_fd(int fd, size_t chunksiz);
+
+/*
+**	Copies the buffer and makes it so chunksiz bytes are always addressible
+*/
+
+t_fstream		*ft_fstream_setup_str(const char *str, size_t chunksiz);
+t_fstream		*ft_fstream_setup_buf(const void *buf, size_t siz, size_t csiz);
+
+/*
+** Very freaking unsafe !
+*/
+
+t_fstream		*ft_fstream_setup_str_mut(char *str, size_t chunksiz);
+t_fstream		*ft_fstream_setup_buf_mut(void *buf, size_t siz, size_t csiz);
 
 #endif

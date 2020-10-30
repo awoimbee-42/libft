@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:03:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/30 23:42:56 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/31 00:19:30 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ t_fstream		*ft_fstream_setup_fname(const char *fname, size_t chunksiz)
 	t_fstream	*dat;
 	int			fd;
 
-	ft_assert((fd = open(fname, O_RDONLY)) != -1, "Could not open %s", fname);
+	fd = open(fname, O_RDONLY);
+	if (fd == -1)
+		return (NULL);
 	dat = ft_fstream_setup_fd(fd, chunksiz);
 	dat->priv.type = FSTREAM_FNAME;
 	dat->priv.fname = fname;

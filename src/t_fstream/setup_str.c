@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:08:45 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/30 23:43:03 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/31 00:05:24 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_fstream		*ft_fstream_setup_buf(const void *buf, size_t siz, size_t c)
 	t_fstream	*dat;
 	void		*new_buf;
 
-	new_buf = malloc_exit(siz);
+	new_buf = malloc_exit(siz < c ? c : siz);
 	ft_memcpy(new_buf, buf, siz);
 	dat = ft_fstream_setup_buf_mut(new_buf, siz, c);
 	dat->priv.type = FSTREAM_BUF;
