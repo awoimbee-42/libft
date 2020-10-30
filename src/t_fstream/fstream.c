@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:25:53 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/30 23:48:44 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/31 00:48:08 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool					ft_fstream(t_fstream *d)
 	if (__builtin_expect(d->s.buf < (d->priv.buf + d->priv.buf_dat_len), 1))
 		d->s.len = szt_min(d->priv.buf_dat_len - (d->s.buf - d->priv.buf),
 				d->priv.chunk_size);
-	else if (d->priv.fd != -1 && d->priv.buf_dat_len == d->priv.buf_size)
+	else if (d->priv.fd != -1)
 	{
 		ft_assert((d->priv.buf_dat_len = read(d->priv.fd, d->priv.buf,
 			d->priv.buf_size)) != (size_t)-1,
