@@ -6,7 +6,7 @@
 #    By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/16 11:55:20 by awoimbee          #+#    #+#              #
-#    Updated: 2020/10/29 22:35:03 by awoimbee         ###   ########.fr        #
+#    Updated: 2020/10/30 23:46:13 by awoimbee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,8 @@ SRCS_MAP =	map_insert.c		map_insert_repair.c	map_insert_repair_rotate.c	\
 
 SRCS_EXIT =	msg_exit.c			assert.c			malloc_exit.c
 
-SRCS_FSTREAM = fstream.c
+SRCS_FSTREAM =	fstream.c		setup_str.c			setup_fd.c	\
+				kill.c
 
 SRCS_NAME =	$(addprefix ft_char/,   $(SRCS_CHAR))	\
 			$(addprefix ft_fd/,     $(SRCS_FD))		\

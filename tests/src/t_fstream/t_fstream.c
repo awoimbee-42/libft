@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 11:45:06 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/29 22:30:36 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/30 23:43:47 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ START_TEST (t_fstream_fd)
 	lseek(fd, 0, SEEK_SET);
 	buf2[0] = '\0';
 	fstream = ft_fstream_setup_fd(fd, 123);
-	while(ft_fstream(fstream))
-		strncat(buf2, (char*)fstream->p.buf, fstream->p.len);
-	ft_fstream_kill(fstream);
+	while(ft_fstream_autofree(&fstream))
+		strncat(buf2, (char*)fstream->s.buf, fstream->s.len);
 	ck_assert(strcmp(buf, buf2) == 0);
 }
 END_TEST
@@ -51,16 +50,14 @@ START_TEST (t_fstream_fname)
 	close(fd);
 	buf2[0] = '\0';
 	fstream = ft_fstream_setup_fname("./Makefile", 1);
-	while(ft_fstream(fstream))
-		strncat(buf2, (char*)fstream->p.buf, fstream->p.len);
-	ft_fstream_kill(fstream);
+	while(ft_fstream_autofree(&fstream))
+		strncat(buf2, (char*)fstream->s.buf, fstream->s.len);
 	ck_assert(strcmp(buf, buf2) == 0);
 
 	buf2[0] = '\0';
 	fstream = ft_fstream_setup_fname("./Makefile", 999999);
-	while(ft_fstream(fstream))
-		strncat(buf2, (char*)fstream->p.buf, fstream->p.len);
-	ft_fstream_kill(fstream);
+	while(ft_fstream_autofree(&fstream))
+		strncat(buf2, (char*)fstream->s.buf, fstream->s.len);
 	ck_assert(strcmp(buf, buf2) == 0);
 
 }
@@ -74,13 +71,11 @@ START_TEST (t_fstream_str)
 
 	buf1[0] = '\0';
 	fstream = ft_fstream_setup_str(buf0, 5);
-	while(ft_fstream(fstream))
-		strncat(buf1, (char*)fstream->p.buf, fstream->p.len);
-	ft_fstream_kill(fstream);
+	while(ft_fstream_autofree(&fstream))
+		strncat(buf1, (char*)fstream->s.buf, fstream->s.len);
 	ck_assert(strcmp(buf0, buf1) == 0);
 }
 END_TEST
-
 
 Suite	*build_suite_t_fstream(void)
 {
