@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 22:08:45 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/31 00:05:24 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/31 21:15:50 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ t_fstream		*ft_fstream_setup_buf_mut(void *buf, size_t siz, size_t c)
 			type: FSTREAM_BUF_MUT,
 			fd: -1,
 			fname: NULL,
-			chunk_size: c,
-			buf_size: siz,
-			buf_dat_len: siz,
+			chunk_siz: c,
+			buf_siz: siz,
+			dat_len: siz,
 			buf: buf,
 		},
 		s: (struct s_pub_fstream){

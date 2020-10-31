@@ -6,7 +6,7 @@
 /*   By: awoimbee <awoimbee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 15:10:17 by awoimbee          #+#    #+#             */
-/*   Updated: 2020/10/31 00:20:01 by awoimbee         ###   ########.fr       */
+/*   Updated: 2020/10/31 21:51:57 by awoimbee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ struct			s_priv_fstream {
 	enum e_fstream_type		type;
 	int						fd;
 	const char				*fname;
-	size_t					chunk_size;
-	size_t					buf_size;
-	size_t					buf_dat_len;
+	size_t					chunk_siz;
+	size_t					buf_siz;
+	size_t					dat_len;
 	uint8_t					*buf;
 };
 
@@ -48,7 +48,11 @@ typedef struct	s_fstream {
 }				t_fstream;
 
 bool			ft_fstream(t_fstream *dat);
+bool			ft_fstream_fullblock(t_fstream *f);
+
 bool			ft_fstream_autofree(t_fstream **dat);
+bool			ft_fstream_fullblock_autofree(t_fstream **dat);
+
 void			ft_fstream_kill(t_fstream **s);
 
 /*
