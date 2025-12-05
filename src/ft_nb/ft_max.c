@@ -22,7 +22,7 @@ long	ft_maxlong(long a, long b)
 	return (a > b ? a : b);
 }
 
-uint	ft_maxuint(uint a, uint b)
+unsigned int	ft_maxuint(unsigned int a, unsigned int b)
 {
 	return (a > b ? a : b);
 }

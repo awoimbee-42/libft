@@ -36,7 +36,7 @@ SRCS_MEM =	ft_bzero.c			ft_memchr.c			ft_memdel.c			\
 SRCS_NB =	ft_abs.c			ft_atoi.c			ft_itoa.c			\
 			ft_atoi_base.c		ft_itoa_base.c		ft_swap_int.c		\
 			ft_atof.c			ft_atof_mv.c		ft_atoi_mv.c		\
-			swap_endian.c
+			swap_endian.c		ft_max.c			ft_min.c
 
 SRCS_STR =	ft_stpcpy.c			ft_striter.c		ft_strncpy.c		\
 			ft_strcat.c			ft_striteri.c		ft_strnequ.c		\

@@ -57,19 +57,23 @@ void	ft_msg_exit(const char *msg, const void *data)
 		while (*msg)
 		{
 			len = 1;
-			while (msg[len] && msg[len-1] != '%')
+			while (msg[len] && msg[len] != '%')
 				++len;
 			write(2, (void *)msg, len);
-			if (msg[len] == 'd')
+			if (msg[len] == '%')
 			{
-				msgexit__static_itoa(buf, *(int*)data);
-				write(2, buf, ft_strlen(buf));
-				len += 2;
-			}
-			else if (msg[len+1] == 's')
-			{
-				write(2, data, ft_strlen(data));
-				len += 2;
+				len += 1;
+				if (msg[len] == 'd')
+				{
+					msgexit__static_itoa(buf, *(int*)data);
+					write(2, buf, ft_strlen(buf));
+					len += 1;
+				}
+				else if (msg[len] == 's')
+				{
+					write(2, data, ft_strlen(data));
+					len += 1;
+				}
 			}
 			msg = &msg[len];
 		}
