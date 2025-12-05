@@ -24,27 +24,54 @@
 **	 msg_exit will interpret memory as pointing to the specified datatype.
 */
 
+void	msgexit__static_itoa(char* buf, int n)
+{
+	int			i;
+	short		sign;
+	int			tenpow;
+
+	sign = (n < 0) ? 2 : 1;
+	i = 1;
+	tenpow = 1;
+	while ((n / tenpow / 10) != 0 && ++i)
+		tenpow *= 10;
+	i = 0;
+	if (sign == 2 && (sign = -1))
+		buf[i++] = '-';
+	while (tenpow != 0)
+	{
+		buf[i++] = (char)((int)n / tenpow * sign + 48);
+		n %= tenpow;
+		tenpow /= 10;
+	}
+	buf[i++] = '\0';
+}
+
 void	ft_msg_exit(const char *msg, const void *data)
 {
 	size_t	len;
-	char	*var;
+	char	buf[128];
 
 	if (msg)
 	{
-		len = 0;
-		while (msg[len] && msg[len] != '%')
-			++len;
-		write(2, (void *)msg, len);
-		if (msg[len++] == '%')
+		while (*msg)
 		{
+			len = 1;
+			while (msg[len] && msg[len-1] != '%')
+				++len;
+			write(2, (void *)msg, len);
 			if (msg[len] == 'd')
-				var = ft_itoa(*(int*)data);
-			else if (msg[len] == 's')
-				var = (char*)data;
-			else
-				ft_msg_exit(&msg[len], data);
-			write(2, var, ft_strlen(var));
-			ft_msg_exit(&msg[len] + 1, 0);
+			{
+				msgexit__static_itoa(buf, *(int*)data);
+				write(2, buf, ft_strlen(buf));
+				len += 2;
+			}
+			else if (msg[len+1] == 's')
+			{
+				write(2, data, ft_strlen(data));
+				len += 2;
+			}
+			msg = &msg[len];
 		}
 		write(2, "\n", 1);
 	}
