@@ -28,6 +28,8 @@ int				ft_atoi_mv(char **nptr);
 int				ft_maxint(int a, int b);
 long			ft_maxlong(long a, long b);
 unsigned int	ft_maxuint(unsigned int a, unsigned int b);
+int				ft_minint(int a, int b);
+long			ft_minlong(long a, long b);
 unsigned int	ft_minuint(unsigned int a, unsigned int b);
 uint64_t		ft_swap_endian64(uint64_t val);
 uint32_t		ft_swap_endian32(uint32_t val);
